@@ -416,7 +416,7 @@ html, body {
 
 <div class="reg"></div>
 <table style="width:100%">
-
+<tr><td>  @include('common.errors')</td></tr>
   <tr>
     <td><h1 class="parag">A friend of food service.</h1> 
 <br/>
@@ -447,7 +447,7 @@ html, body {
 						
 			<div class='row'>
 				<label for="cemail">Confirm your E-mail</label>
-				<input type="text" placeholder="Confirm your E-mail" name='cemail' data-required="true" data-error-message="Your E-mail must correspond">
+				<input type="text" placeholder="Confirm your E-mail" name='email_confirmation' data-required="true" data-error-message="Your E-mail must correspond">
 			</div>
 
 			<div class='row'>
@@ -457,8 +457,9 @@ html, body {
 						
 			<div class='row'>
 				<label for="cemail">Confirm your Password</label>
-				<input type="text" placeholder="Confirm your Password" name='cpassword' data-required="true" data-error-message="Restate your Password">
+				<input type="text" placeholder="Confirm your Password" name='password_confirmation' data-required="true" data-error-message="Restate your Password">
 			</div>
+       {{ csrf_field() }}
 			<input type="submit" value="Submit">
 		</form>
 	</div>

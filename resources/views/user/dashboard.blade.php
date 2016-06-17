@@ -56,6 +56,15 @@ u {
 		<hr />
 		<br />
 		
+    <div class="flash-message">
+    @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+      @if(Session::has('alert-' . $msg))
+
+      <p class="alert alert-{{ $msg }}">{{ Session::get('alert-' . $msg) }} <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></p>
+      @endif
+    @endforeach
+  </div> <!-- end .flash-message -->
+    
 		<table style="width:32%">
   <tr>
     <td><a href="{{ action('MealController@index') }}"  ><button class="button button1">Meal Planner</button></a></td>

@@ -38,8 +38,12 @@ class FugoController extends Controller
     public function createUser( Request $request  ){
 
     		$rules = array(
-			    'email'    => 'required|email', 
-			    'password' => 'required|min:3'
+			    'email'    					=> 'required|unique:users|email|confirmed',
+			    'email_confirmation'		=> 'required|email',
+			    'password' 					=> 'required|min:6|confirmed',  
+			    'password_confirmation' 	=> 'required|min:6',
+			    'school_name' 				=> 'required',
+			    
 			);
 
 			//$validator = Validator::make(Input::all(), $rules);
@@ -48,6 +52,25 @@ class FugoController extends Controller
 			if ($validator->fails()) {
 			    return redirect('/login')->withErrors($validator)->withInput( $request->except('password') ); // send back the input (not the password) so that we can repopulate the form
 			} else {
+
+				User::create([
+		           'name' 			=> $request->school_name,
+		           'email' 			=> $request->email,
+		           'school_name' 	=> $request->school_name,
+		           'password' 		=> bcrypt($request->password),
+		       ]);
+
+				if ( Auth::attempt( ['email' => $request->email, 'password' => $request->password ] ) ) {
+
+					$request->session()->flash('alert-success', 'You were registered successfully.');
+			        return redirect('/user'); 
+
+			    } else {        
+
+			        // validation not successful, send back to form with errors
+			        return redirect('/login')->withErrors($validator)->withInput( $request->except('password') ); 
+
+			    }
 
 			}
     }
