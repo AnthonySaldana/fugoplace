@@ -8,6 +8,8 @@ use App\Http\Requests;
 
 use App\Notes;
 
+use Auth;
+
 class NotesController extends Controller
 {
 
@@ -25,7 +27,8 @@ class NotesController extends Controller
     public function index()
     {
         //
-         $notes = Notes::where('author_id',0)->get();
+        $id = Auth::user()->id;
+        $notes = Notes::where('author_id',$id)->get();
 
         return view('user.notes', [
             'Notes' => $notes
@@ -72,7 +75,8 @@ class NotesController extends Controller
             }
             $note->title = $request->title;
             $note->content = $request->content;
-            $note->author_id = 0;
+            $id = Auth::user()->id;
+            $note->author_id = $id;
             $note->save();
             //dd($request->all());
             //$note->create($request_all());
@@ -97,9 +101,17 @@ class NotesController extends Controller
     public function show($id)
     {
         //
-         $note = Notes::where('id',$id)->get();
+        $note = Notes::where('id',$id)->get();
+        $author_id = Auth::user()->id;
+        $note_author = $note[0]->author_id;
+        if ( $note_author == $author_id ){
+            return view('user.note-editor', ['note' => $note]);
+        }else{
+            return redirect('/user/notes');
+        }
+        
 
-        return view('user.note-editor', ['note' => $note]);
+        
         //return view('user.notes', ['user_id' => $id]);
     }
 
@@ -112,7 +124,13 @@ class NotesController extends Controller
     public function edit($id)
     {
         $note = Notes::where('id',$id)->get();
-        return view('user.note-editor', ['note' => $note]);
+        $author_id = Auth::user()->id;
+        $note_author = $note[0]->author_id;
+        if ( $note_author == $author_id ){
+            return view('user.note-editor', ['note' => $note]);
+        }else{
+            return redirect('/user/notes');
+        }
     }
 
     /**
