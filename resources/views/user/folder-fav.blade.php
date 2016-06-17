@@ -26,6 +26,28 @@ position: relative;
 top: -20px;
 left: 320px;
 }
+.btn{
+      align-items: flex-start;
+    text-align: center;
+    cursor: default;
+    color: buttontext;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+    background-color: buttonface;
+    box-sizing: border-box;
+    padding: 1px 6px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: buttonface;
+}
+
+.btn.two{
+  top:20px;
+  text-decoration: none;
+}
 .comp {
 position: relative;
 left: 410px;
@@ -54,6 +76,20 @@ padding: 5px;
 	<br />
   <table  style="width:97%">
 
+    <?php 
+        foreach( $Favorites as $recipe ){
+              $id = $recipe['id'];
+              $title = $recipe['title'];
+              $desc = $recipe['content']; ?>
+              <tr>
+              <td><iframe width="200" height="185" src="https://www.youtube.com/embed/kXm5tvnEMgM" frameborder="0" allowfullscreen>Please wait.</iframe>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="div1"></div></td>
+              <td><p class="button button1"><br /><u><strong>Recipe Title:</strong>&nbsp;<?php echo $title; ?></u>&nbsp;&nbsp;&nbsp;<u><strong>Creator Cited:&nbsp;</strong>Jane Lee</u><br /><br /> {{ $desc }} <br /><a href="{{ action('RecipeController@edit', array( $id ) ) }}" class='btn two'>Written Recipe</a></p></td>   
+               
+            </tr>
+              <?php 
+        }
+      ?>
+<!--
   <tr>
     <td><iframe width="200" height="185" src="https://www.youtube.com/embed/kXm5tvnEMgM" frameborder="0" allowfullscreen>Please wait.</iframe>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="div1"></div></td>
     <td><p class="button button1"><br /><u><strong>Recipe Title:</strong>&nbsp;Meatloaf</u>&nbsp;&nbsp;&nbsp;<u><strong>Creator Cited:&nbsp;</strong>Jane Lee</u><br /><br /><br />Ground beef, onion, garlic, and green pepper, makes this a truely tastey dish.<form class="two" method="get" action="example-meal2.html"><button class="two" type="submit">Written Recipe</button></form></p></td>		
@@ -78,7 +114,7 @@ padding: 5px;
     <td><iframe width="200" height="185" src="https://www.youtube.com/embed/kXm5tvnEMgM" frameborder="0" allowfullscreen>Please wait.</iframe>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="div1"></div></td>
     <td><p class="button button1"><br /><u><strong>Recipe Title:</strong>&nbsp;Lasagna</u>&nbsp;&nbsp;&nbsp;<u><strong>Creator Cited:&nbsp;</strong>Emily Tao</u><br /><br /><br />Classic Lasagna with  boneless chicken breast halves, diced, Alfredo-style pasta sauce, and shredded mozzarella cheese.<form class="two" method="get" action="example-meal.html"><button class="two" type="submit">Written Recipe</button> </form></p></td>		
      
-  </tr>
+  </tr>-->
   
 </table>
   </body>

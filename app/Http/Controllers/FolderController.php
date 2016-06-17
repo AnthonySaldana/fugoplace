@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\Recipe;
+
+use Auth;
+
 class FolderController extends Controller
 {
 
@@ -22,6 +26,12 @@ class FolderController extends Controller
     public function index()
     {
         //
+        $id = Auth::user()->id;
+        $favorites = Recipe::where('author_id',$id)->where('favorite' , 1)->get();
+
+        return view('user.folder-fav', [
+            'Favorites' => $favorites
+        ]);
         return view('user.folder-fav');
     }
 
