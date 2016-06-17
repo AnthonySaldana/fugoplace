@@ -70,7 +70,7 @@ padding: 5px;
       }
     ?>
   <div></div>
-	<form class="comp" method="get" action="composeRec.html"><button type="submit" class="comp"><img src="http://image005.flaticon.com/1/png/512/16/16294.png"width="35" height="30"/>Compose a Recipe</button></form>          
+	<form class="comp" method="get" action="/user/recipes/create"><button type="submit" class="comp"><img src="http://image005.flaticon.com/1/png/512/16/16294.png"width="35" height="30"/>Compose a Recipe</button></form>          
 	<br />
 	<br />
 

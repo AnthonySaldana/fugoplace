@@ -8,6 +8,8 @@ use App\Http\Requests;
 
 use App\Recipe;
 
+use Auth;
+
 class RecipeController extends Controller
 {
 
@@ -23,7 +25,8 @@ class RecipeController extends Controller
      */
     public function index()
     {
-        $recipes = Recipe::where('author_id',0)->get();
+        $user_id = Auth::user()->id;
+        $recipes = Recipe::where('author_id',$user_id)->get();
 
         return view('user.recipes', [
             'Recipes' => $recipes
@@ -53,33 +56,48 @@ class RecipeController extends Controller
         if( isset( $request->send ) ){
             
             if( isset( $request->recipeid ) ){
-                $recipe = Recipe::find( $request->recipeid );
-            }else{
-                $recipe = new Recipe;
-            }
-            $recipe->title = $request->title;
-            $recipe->content = $request->content;
-            if( isset( $request->video ) && $request->video == 1 ){
-                $recipe->video_recipe = 1;
-            }else{
-                $recipe->video_recipe = 0;
-            }
 
-            if( isset( $request->favorite ) && $request->favorite == 1 ){
-                $recipe->favorite = 1;
-            }else{
-                $recipe->favorite = 0;
-            }
-            $recipe->author_id = 0;
-            $recipe->save();
-            //dd($request->all());
-            //$note->create($request_all());
-            //$note->title = $request->title;
-            //$note->content = $request->content;
+                $recipe = Recipe::find( $request->recipeid );
+                $user_id = Auth::user()->id;
+                
+                $recipe_author = $recipe->author_id;
+
+                if ( $recipe_author != $user_id ){
+                    
+                    return redirect('user/recipes');
+                    
+                }
+
+        }else{
+            $recipe = new Recipe;
+        }
+
+        $author_id = Auth::user()->id;
+
+        $recipe->title = $request->title;
+        $recipe->content = $request->content;
+        if( isset( $request->video ) && $request->video == 1 ){
+            $recipe->video_recipe = 1;
+        }else{
+            $recipe->video_recipe = 0;
+        }
+
+        if( isset( $request->favorite ) && $request->favorite == 1 ){
+            $recipe->favorite = 1;
+        }else{
+            $recipe->favorite = 0;
+        }
+        $recipe->author_id = $author_id;
+        $recipe->save();
+        //dd($request->all());
+        //$note->create($request_all());
+        //$note->title = $request->title;
+        //$note->content = $request->content;
             //$note->author_id = 0;
             
 
         }elseif( isset( $request->delete ) && isset( $request->recipeid ) ){
+
                 $this->destroy($request->recipeid);
         }
         return redirect('/user/recipes');
@@ -94,8 +112,14 @@ class RecipeController extends Controller
     public function show($id)
     {
         $recipe = Recipe::where('id',$id)->get();
+        $author_id = Auth::user()->id;
+        $recipe_author = $recipe[0]->author_id;
 
-        return view('user.meal', ['Recipe' => $recipe]);
+        if ( $recipe_author == $author_id ){
+            return view('user.meal', ['Recipe' => $recipe]);
+        }else{
+            return redirect('/user/recipes');
+        }
     }
 
     /**
@@ -106,8 +130,16 @@ class RecipeController extends Controller
      */
     public function edit($id)
     {
+
         $recipe = Recipe::where('id',$id)->get();
-        return view('user.recipe-editor', ['recipe' => $recipe]);
+        $author_id = Auth::user()->id;
+        $recipe_author = $recipe[0]->author_id;
+
+        if ( $recipe_author == $author_id ){
+            return view('user.recipe-editor', ['recipe' => $recipe]);
+        }else{
+            return redirect('/user/recipes');
+        }
     }
 
     /**
@@ -130,6 +162,19 @@ class RecipeController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        $recipe = Recipe::find( $id );
+        $user_id = Auth::user()->id;
+        
+        $recipe_author = $recipe->author_id;
+
+        if ( $recipe_author == $user_id ){
+            
+            $recipe->delete();
+            
+        }
+
+        return redirect('/user/recipes');
+
     }
 }
