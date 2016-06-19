@@ -38,6 +38,7 @@ left: 527px;
         $title = $Recipe[0]['title'];
         $author = $Recipe[0]['author_id'];
         $content = $Recipe[0]['content'];
+        $media = $Recipe[0]['media'];
     }
         ?>
     <div style="max-width:1000px;">
@@ -52,7 +53,7 @@ left: 527px;
 	<h2 style="font-family: Garamond;">&nbsp;&nbsp;&nbsp;&nbsp;{{ $title }}</h2>
 	<div>{{ $content }}</div>
 	
-	<img class="img" src="https://s3.amazonaws.com/gigsalad_media/b/braised_orlando/55196f09cc97a.jpg"HEIGHT="400" WIDTH="600" BORDER="1px"/>
+	<img class="img" src="http://localhost{{ $media }}"HEIGHT="400" WIDTH="600" BORDER="1px"/>
 	</div>
   </body>
 </html>

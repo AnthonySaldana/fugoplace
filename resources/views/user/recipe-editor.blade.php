@@ -121,7 +121,7 @@ function myFunction() {
 }
 </script>
 
-<form method="post" action="{{ url('/user/recipes') }}">
+<form method="post" action="{{ url('/user/recipes') }}" enctype="multipart/form-data">
    <article class="head">
     <button class="two" type="submit" name="send" value="1">Save</button>
   <button class="two" type="submit" name="edit" value="1">Edit</button>

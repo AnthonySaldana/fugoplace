@@ -10,6 +10,8 @@ use App\Recipe;
 
 use Auth;
 
+use File;
+
 class RecipeController extends Controller
 {
 
@@ -76,6 +78,33 @@ class RecipeController extends Controller
 
         $recipe->title = $request->title;
         $recipe->content = $request->content;
+
+        /**
+        *   Handle file uplaod
+        */
+        if( $request->hasfile('media') && $request->file('media')->isValid() ){
+
+            $recipe_media = $request->file('media');
+
+            $random = str_random(10);
+            $extension = $request->file('media')->getClientOriginalExtension();
+            $recipe_file_name = $request->title . "_" . $author_id . "_" . $random . "." . $extension;
+            $storage_path = storage_path('recipes/');
+            $recipe_media->move( $storage_path, $recipe_file_name );
+
+            $recipe_path = $storage_path . $recipe_file_name;
+
+            if( isset( $recipe->media ) ){
+
+                File::delete($recipe->media);
+
+            }
+
+            $recipe->media = $recipe_path;
+
+        }
+
+
         if( isset( $request->video ) && $request->video == 1 ){
             $recipe->video_recipe = 1;
         }else{
