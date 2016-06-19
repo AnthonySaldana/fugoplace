@@ -18,6 +18,7 @@ class RecipeController extends Controller
     public function __construct(){
 
         $this->middleware('auth');
+        
     }
     
     /**
@@ -28,6 +29,7 @@ class RecipeController extends Controller
     public function index()
     {
         $user_id = Auth::user()->id;
+
         $recipes = Recipe::where('author_id',$user_id)->get();
 
         return view('user.recipes', [
@@ -55,11 +57,13 @@ class RecipeController extends Controller
      */
     public function store(Request $request)
     {
+
         if( isset( $request->send ) ){
             
             if( isset( $request->recipeid ) ){
 
-                $recipe = Recipe::find( $request->recipeid );
+                $recipe = Recipe::find( $request->recipeid ); //get recipe by id
+
                 $user_id = Auth::user()->id;
                 
                 $recipe_author = $recipe->author_id;
@@ -70,71 +74,88 @@ class RecipeController extends Controller
                     
                 }
 
-        }else{
-            $recipe = new Recipe;
-        }
+            }else{
 
-        $author_id = Auth::user()->id;
-
-        $recipe->title = $request->title;
-        $recipe->content = $request->content;
-
-        /**
-        *   Handle file uplaod
-        */
-        if( $request->hasfile('media') && $request->file('media')->isValid() ){
-
-            $recipe_media = $request->file('media');
-
-            $random = str_random(10);
-            $extension = $request->file('media')->getClientOriginalExtension();
-            $recipe_file_name = $request->title . "_" . $author_id . "_" . $random . "." . $extension;
-            $storage_path = storage_path('recipes/');
-            $recipe_media->move( $storage_path, $recipe_file_name );
-
+                $recipe = new Recipe; //if no recipe id was sent,  create a new one
             
+            }
 
-            if( isset( $recipe->media ) ){
+            $author_id = Auth::user()->id;
 
-                File::delete($storage_path . "/" . $recipe->media);
+            $recipe->title = $request->title;
+
+            $recipe->content = $request->content;
+
+            /**
+            *   Handle file uplaod
+            */
+            if( $request->hasfile('media') && $request->file('media')->isValid() ){
+
+                $recipe_media = $request->file('media');
+
+                $random = str_random(10);
+                $extension = $request->file('media')->getClientOriginalExtension();
+                $recipe_file_name = $request->title . "_" . $author_id . "_" . $random . "." . $extension;
+                $storage_path = storage_path('recipes/');
+                $recipe_media->move( $storage_path, $recipe_file_name );
+
+                
+
+                if( isset( $recipe->media ) ){
+
+                    File::delete($storage_path . "/" . $recipe->media);
+
+                }
+
+                $recipe->media = $recipe_file_name;;
 
             }
 
-            $recipe->media = $recipe_file_name;;
+            /**
+            *   check for and update videolink
+            */
+            if( isset( $request->videolink ) ){
 
-        }
-
-        if( isset( $request->videolink ) ){
-
-            $recipe->videolink = $request->videolink;
-        
-        }
-
-
-        if( isset( $request->video ) && $request->video == 1 ){
-            $recipe->video_recipe = 1;
-        }else{
-            $recipe->video_recipe = 0;
-        }
-
-        if( isset( $request->favorite ) && $request->favorite == 1 ){
-            $recipe->favorite = 1;
-        }else{
-            $recipe->favorite = 0;
-        }
-        $recipe->author_id = $author_id;
-        $recipe->save();
-        //dd($request->all());
-        //$note->create($request_all());
-        //$note->title = $request->title;
-        //$note->content = $request->content;
-            //$note->author_id = 0;
+                $recipe->videolink = $request->videolink;
             
+            }
+
+            /**
+            *   Check for and update 'is video' setting
+            */
+            if( isset( $request->video ) && $request->video == 1 ){
+
+                $recipe->video_recipe = 1;
+            
+            }else{
+               
+                $recipe->video_recipe = 0;
+            
+            }
+
+
+            /**
+            *   Check for and update 'is favorite' setting
+            */
+            if( isset( $request->favorite ) && $request->favorite == 1 ){
+
+                $recipe->favorite = 1;
+            
+            }else{
+                
+                $recipe->favorite = 0;
+            
+            }
+
+            $recipe->author_id = $author_id;
+            $recipe->save();
+                
 
         }elseif( isset( $request->delete ) && isset( $request->recipeid ) ){
 
                 $this->destroy($request->recipeid);
         }
+
         return redirect('/user/recipes');
     }
 
@@ -146,15 +167,23 @@ class RecipeController extends Controller
      */
     public function show($id)
     {
+
         $recipe = Recipe::where('id',$id)->get();
+
         $author_id = Auth::user()->id;
+
         $recipe_author = $recipe[0]->author_id;
 
         if ( $recipe_author == $author_id ){
+        
             return view('user.meal', ['Recipe' => $recipe]);
+        
         }else{
+        
             return redirect('/user/recipes');
+        
         }
+    
     }
 
     /**
@@ -167,13 +196,19 @@ class RecipeController extends Controller
     {
 
         $recipe = Recipe::where('id',$id)->get();
+
         $author_id = Auth::user()->id;
+
         $recipe_author = $recipe[0]->author_id;
 
         if ( $recipe_author == $author_id ){
+
             return view('user.recipe-editor', ['recipe' => $recipe]);
+
         }else{
+
             return redirect('/user/recipes');
+
         }
     }
 
