@@ -16,6 +16,8 @@ use Illuminate\Http\Request;
 *	BASIC PAGE ROUTER HANDLERS
 */
 
+Route::get('/images/recipes/{file}','ImageController@getImageRecipe');
+
 Route::get('/', function () {
     return view('welcome');
 });
