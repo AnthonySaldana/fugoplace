@@ -68,8 +68,8 @@ padding: 5px;
       }
     ?>
   <div></div>
-	<form class="comp" method="get" action="composeRec.html"><button type="submit" class="comp"><img src="http://image005.flaticon.com/1/png/512/16/16294.png"width="35" height="30"/>Compose a Recipe</button></form>          
-	<br />
+	<form class="comp" method="get" action="/user/recipes/create"><button type="submit" class="comp"><img src="http://image005.flaticon.com/1/png/512/16/16294.png"width="35" height="30"/>Compose a Recipe</button></form>   
+  <br />
 	<br />
   <h2 class="one">Folder Favorites</h2>
 	<p>We take the upmost care when selecting recipes but please consult with your states nutrition standard before serving meals based on our selected recipes.<br /> Please note. We will try to upload new recipes as often as we can. Please vote for your favorites.</p>
@@ -82,14 +82,54 @@ padding: 5px;
               $title = $recipe['title'];
               $desc = $recipe['content'];
               $media = $recipe['media'];
-              ?>
-              <tr>
-              <td><img src="{{ url('/images/recipes/' . $media) }}"width="200" height="178"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="div1"></div></td>
-              <td><p class="button button1"><br /><u><strong>Recipe Title:</strong>&nbsp;<?php echo $title; ?></u>&nbsp;&nbsp;&nbsp;<u><strong>Creator Cited:&nbsp;</strong>Jane Lee</u><br /><br /> {{ $desc }} <br /><a href="{{ action('RecipeController@edit', array( $id ) ) }}" class='btn two'>Written Recipe</a></p></td>   
-               
-            </tr>
-              <?php 
-        }
+              $author = $recipe['author_id'];
+              
+
+              $isvideo = false;
+
+              if (strpos($media, '.mp4') !== false ){
+
+                $isvideo = true;
+                $ext = 'mp4';
+
+              }else if(  strpos($media, '.ogv') !== false) {
+                  $isvideo = true; 
+                  $ext = 'ogv';
+              }
+
+              if( ( isset( $recipe['videolink'] ) && !empty( $recipe['videolink'] ) ) && ( isset( $recipe['video_recipe'] ) && 1 == $recipe['video_recipe'] ) ){
+
+                ?>
+                  <tr>
+                    <td><iframe width="300" height="200" src="{{ $recipe['videolink'] }}" frameborder="0" allowfullscreen>Please wait.</iframe>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="div1"></div></td>
+                    <td><p class="button button1"><br /><u><strong>Recipe Title:</strong>&nbsp;{{ $title }}</u>&nbsp;&nbsp;&nbsp;<u><strong>Creator Cited:&nbsp;</strong>{{ $author }}</u><br /><br /><br />{{ $desc }}<br/><a href="{{ action('RecipeController@show', array($id) ) }}" class='btn two'>Written Recipe</a></p></td> 
+                  </tr>
+                <?php
+
+              }else if ( true == $isvideo ){
+                  ?>
+                    <tr>
+                      <td>
+
+                      <video width="300" height="200" controls>
+                        <source src="{{ url('/images/recipes/' . $media) }}" type="video/{{ $ext }}">
+                        Your browser does not support HTML5 video.
+                      </video>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="div1"></div></td>
+                      <td><p class="button button1"><br /><u><strong>Recipe Title:</strong>&nbsp;{{ $title }}</u>&nbsp;&nbsp;&nbsp;<u><strong>Creator Cited:&nbsp;</strong>{{ $author }}</u><br /><br /><br />{{ $desc }}<br/><a href="{{ action('RecipeController@show', array($id) ) }}" class='btn two'>Written Recipe</a></p></td> 
+                    </tr>
+                  <?php
+              }else{
+
+                  ?>
+
+                    <tr>
+                      <td><img src="{{ url('/images/recipes/' . $media) }}"width="300" height="200"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="div1"></div></td>
+                      <td><p class="button button1"><br /><u><strong>Recipe Title:</strong>&nbsp;{{ $title }}</u>&nbsp;&nbsp;&nbsp;<u><strong>Creator Cited:&nbsp;</strong>{{ $author }}</u><br /><br /><br />{{ $desc }}<br/><a href="{{ action('RecipeController@show', array($id) ) }}" class='btn two'>Written Recipe</a></p></td> 
+                    </tr>
+
+                  <?php
+                } 
+        } 
       ?>
 <!--
   <tr>
