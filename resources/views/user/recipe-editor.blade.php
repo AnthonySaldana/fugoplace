@@ -172,7 +172,7 @@ function myFunction() {
           echo "checked"; 
         } 
       } ?> 
-     / value="1">Video recipe?
+     / value="1">Video recipe? <small>(Check this if you want this recipe to appear on the video recipes page)</small><br/>
 
     <label for="videolink">Upload Video or link to your video here: </label>
 

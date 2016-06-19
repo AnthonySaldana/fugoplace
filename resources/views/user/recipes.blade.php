@@ -85,8 +85,11 @@ padding: 5px;
       foreach (  $Recipes as $recipe){
         $id = $recipe['id'];
         $title = $recipe['title'];
+        $desc = $recipe['content'];
         $author = $recipe['author_id'];
         $media = $recipe['media'];
+
+        $strlimit = 100; ///limit to the description on overview page
 
         $isvideo = false;
 
@@ -105,7 +108,7 @@ padding: 5px;
           ?>
             <tr>
               <td><iframe width="300" height="200" src="{{ $recipe['videolink'] }}" frameborder="0" allowfullscreen>Please wait.</iframe>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="div1"></div></td>
-              <td><p class="button button1"><br /><u><strong>Recipe Title:</strong>&nbsp;{{ $title }}</u>&nbsp;&nbsp;&nbsp;<u><strong>Creator Cited:&nbsp;</strong>{{ $author }}</u><br /><br /><br />Ground beef, onion, garlic, and green pepper, makes this a truely tastey dish.<br/><a href="{{ action('RecipeController@show', array($id) ) }}" class='btn two'>Written Recipe</a></p></td> 
+              <td><p class="button button1"><br /><u><strong>Recipe Title:</strong>&nbsp;{{ $title }}</u>&nbsp;&nbsp;&nbsp;<u><strong>Creator Cited:&nbsp;</strong>{{ $author }}</u><br /><br /><br />{{ str_limit( $desc , $strlimit, $end = '...' ) }}<br/><a href="{{ action('RecipeController@show', array($id) ) }}" class='btn two'>Written Recipe</a></p></td> 
             </tr>
           <?php
 
@@ -118,7 +121,7 @@ padding: 5px;
                   <source src="{{ url('/images/recipes/' . $media) }}" type="video/{{ $ext }}">
                   Your browser does not support HTML5 video.
                 </video>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="div1"></div></td>
-                <td><p class="button button1"><br /><u><strong>Recipe Title:</strong>&nbsp;{{ $title }}</u>&nbsp;&nbsp;&nbsp;<u><strong>Creator Cited:&nbsp;</strong>{{ $author }}</u><br /><br /><br />Ground beef, onion, garlic, and green pepper, makes this a truely tastey dish.<br/><a href="{{ action('RecipeController@show', array($id) ) }}" class='btn two'>Written Recipe</a></p></td> 
+                <td><p class="button button1"><br /><u><strong>Recipe Title:</strong>&nbsp;{{ $title }}</u>&nbsp;&nbsp;&nbsp;<u><strong>Creator Cited:&nbsp;</strong>{{ $author }}</u><br /><br /><br />{{ str_limit( $desc ,$strlimit, $end = '...' ) }}<br/><a href="{{ action('RecipeController@show', array($id) ) }}" class='btn two'>Written Recipe</a></p></td> 
               </tr>
             <?php
         }else{
@@ -127,7 +130,7 @@ padding: 5px;
 
               <tr>
                 <td><img src="{{ url('/images/recipes/' . $media) }}"width="300" height="200"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="div1"></div></td>
-                <td><p class="button button1"><br /><u><strong>Recipe Title:</strong>&nbsp;{{ $title }}</u>&nbsp;&nbsp;&nbsp;<u><strong>Creator Cited:&nbsp;</strong>{{ $author }}</u><br /><br /><br />Ground beef, onion, garlic, and green pepper, makes this a truely tastey dish.<br/><a href="{{ action('RecipeController@show', array($id) ) }}" class='btn two'>Written Recipe</a></p></td> 
+                <td><p class="button button1"><br /><u><strong>Recipe Title:</strong>&nbsp;{{ $title }}</u>&nbsp;&nbsp;&nbsp;<u><strong>Creator Cited:&nbsp;</strong>{{ $author }}</u><br /><br /><br />{{ str_limit( $desc , $strlimit , $end = '...' ) }}.<br/><a href="{{ action('RecipeController@show', array($id) ) }}" class='btn two'>Written Recipe</a></p></td> 
               </tr>
 
             <?php

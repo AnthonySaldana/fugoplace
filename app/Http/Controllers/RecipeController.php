@@ -12,13 +12,15 @@ use Auth;
 
 use File;
 
+use Validator;
+
 class RecipeController extends Controller
 {
 
     public function __construct(){
 
         $this->middleware('auth');
-        
+
     }
     
     /**
@@ -59,6 +61,17 @@ class RecipeController extends Controller
     {
 
         if( isset( $request->send ) ){
+
+            $rules = array(
+                'media'                     => 'max:5000|mimes:jpeg,png',
+            );
+
+            //$validator = Validator::make(Input::all(), $rules);
+            $validator = Validator::make($request->all(), $rules);
+            // if the validator fails, redirect back to the form
+            if ($validator->fails()) {
+                return view('user.recipe-editor')->withErrors($validator)->withInput( $request ); // send back the input (not the password) so that we can repopulate the form
+            }
             
             if( isset( $request->recipeid ) ){
 
