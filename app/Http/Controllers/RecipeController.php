@@ -92,15 +92,15 @@ class RecipeController extends Controller
             $storage_path = storage_path('recipes/');
             $recipe_media->move( $storage_path, $recipe_file_name );
 
-            $recipe_path = $storage_path . $recipe_file_name;
+            
 
             if( isset( $recipe->media ) ){
 
-                File::delete($recipe->media);
+                File::delete($storage_path . "/" . $recipe->media);
 
             }
 
-            $recipe->media = $recipe_path;
+            $recipe->media = $recipe_file_name;;
 
         }
 
