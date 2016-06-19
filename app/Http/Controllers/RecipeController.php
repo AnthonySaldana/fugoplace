@@ -104,6 +104,12 @@ class RecipeController extends Controller
 
         }
 
+        if( isset( $request->videolink ) ){
+
+            $recipe->videolink = $request->videolink;
+        
+        }
+
 
         if( isset( $request->video ) && $request->video == 1 ){
             $recipe->video_recipe = 1;

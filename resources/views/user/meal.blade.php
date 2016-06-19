@@ -34,11 +34,25 @@ left: 527px;
 	<br />
 	<?php 
     if(isset( $Recipe )){
-        $id = $Recipe[0]['id'];
-        $title = $Recipe[0]['title'];
-        $author = $Recipe[0]['author_id'];
-        $content = $Recipe[0]['content'];
-        $media = $Recipe[0]['media'];
+    	$recipe = $Recipe[0]; //reassign for ease
+
+        $id = $recipe['id'];
+        $title = $recipe['title'];
+        $author = $recipe['author_id'];
+        $content = $recipe['content'];
+        $media = $recipe['media'];
+
+        $isvideo = false;
+
+        if (strpos($media, '.mp4') !== false ){
+
+          $isvideo = true;
+          $ext = 'mp4';
+
+        }else if(  strpos($media, '.ogv') !== false) {
+            $isvideo = true; 
+            $ext = 'ogv';
+        }
     }
         ?>
     <div style="max-width:1000px;">
@@ -52,8 +66,29 @@ left: 527px;
 	</form>
 	<h2 style="font-family: Garamond;">&nbsp;&nbsp;&nbsp;&nbsp;{{ $title }}</h2>
 	<div>{{ $content }}</div>
-	
-	<img class="img" src="{{ url('/images/recipes/' . $media) }}"HEIGHT="400" WIDTH="600" BORDER="1px"/>
+
+	<?php if( ( isset( $recipe['videolink'] ) && !empty( $recipe['videolink'] ) ) && ( isset( $recipe['video_recipe'] ) && 1 == $recipe['video_recipe'] ) ){
+
+          ?>
+          <iframe width="600" height="400" src="{{ $recipe['videolink'] }}" frameborder="0" allowfullscreen>Please wait.</iframe>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <?php
+
+        }elseif( true == $isvideo ){
+            ?>
+                <video width="600" height="400" controls>
+                  <source src="{{ url('/images/recipes/' . $media) }}" type="video/{{ $ext }}">
+                  Your browser does not support HTML5 video.
+                </video>
+            <?php
+        }elseif( !empty( $media ) ) {
+
+            ?>
+
+            	<img src="{{ url('/images/recipes/' . $media) }}"width="600" height="400"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <?php
+          } ?>
+
 	</div>
   </body>
 </html>

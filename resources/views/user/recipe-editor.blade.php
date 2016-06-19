@@ -127,9 +127,44 @@ function myFunction() {
   <button class="two" type="submit" name="edit" value="1">Edit</button>
   <button class="two" type="submit" name="delete" value="1" onclick="myFunction()">Discard</button>
  </article>
-
     <br/>
-    <label for="media">Add Media</label><br/>
+    <?php if(isset( $recipe[0]['media'] )){
+
+        $media = $recipe[0]['media']; //ease of use
+
+          $isvideo = false;
+
+          if (strpos($media, '.mp4') !== false ){
+
+            $isvideo = true;
+            $ext = 'mp4';
+
+          }else if(  strpos($media, '.ogv') !== false) {
+              $isvideo = true; 
+              $ext = 'ogv';
+          }
+
+          if ( true == $isvideo ){
+            ?>
+
+                <video width="300" height="200" controls>
+                  <source src="{{ url('/images/recipes/' . $media ) }}" type="video/{{ $ext }}">
+                  Your browser does not support HTML5 video.
+                </video>
+
+            <?php
+        }else{
+
+            ?>
+
+              <img src="{{ url('/images/recipes/' . $media) }}"width="300" height="200"/>
+
+            <?php
+          }
+
+     }?>
+    <br/>
+    <label for="media">New Media</label><br/>
     <input type="File" name="media" >
     <br/>
     <input type="checkbox" name="video" <?php if(isset( $recipe ) ){ 
@@ -137,7 +172,11 @@ function myFunction() {
           echo "checked"; 
         } 
       } ?> 
-     / value="1">Video recipe? <br/>
+     / value="1">Video recipe?
+
+    <label for="videolink">Upload Video or link to your video here: </label>
+
+    <input type="text" name="videolink" value="<?php if(isset( $recipe[0]['videolink'] )){ echo $recipe[0]['videolink']; }?>" placeholder="http://youtube.com"/> <br/>
 
     <input type="checkbox" name="favorite" <?php if(isset( $recipe ) ){ 
         if( $recipe[0]['favorite'] == 1 ){ 

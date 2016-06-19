@@ -19,6 +19,6 @@ class Recipe extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'content','media', 'author_id','video_recipe','favorite',
+        'title', 'content','media', 'videolink', 'author_id','video_recipe','favorite',
     ];
 }

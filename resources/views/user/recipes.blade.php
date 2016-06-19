@@ -87,14 +87,51 @@ padding: 5px;
         $title = $recipe['title'];
         $author = $recipe['author_id'];
         $media = $recipe['media'];
-        ?>
 
-          <tr>
-            <td><img src="{{ url('/images/recipes/' . $media) }}"width="200" height="178"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="div1"></div></td>
-            <td><p class="button button1"><br /><u><strong>Recipe Title:</strong>&nbsp;{{ $title }}</u>&nbsp;&nbsp;&nbsp;<u><strong>Creator Cited:&nbsp;</strong>{{ $author }}</u><br /><br /><br />Ground beef, onion, garlic, and green pepper, makes this a truely tastey dish.<br/><a href="{{ action('RecipeController@show', array($id) ) }}" class='btn two'>Written Recipe</a></p></td> 
-          </tr>
-          
-        <?php
+        $isvideo = false;
+
+        if (strpos($media, '.mp4') !== false ){
+
+          $isvideo = true;
+          $ext = 'mp4';
+
+        }else if(  strpos($media, '.ogv') !== false) {
+            $isvideo = true; 
+            $ext = 'ogv';
+        }
+
+        if( ( isset( $recipe['videolink'] ) && !empty( $recipe['videolink'] ) ) && ( isset( $recipe['video_recipe'] ) && 1 == $recipe['video_recipe'] ) ){
+
+          ?>
+            <tr>
+              <td><iframe width="300" height="200" src="{{ $recipe['videolink'] }}" frameborder="0" allowfullscreen>Please wait.</iframe>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="div1"></div></td>
+              <td><p class="button button1"><br /><u><strong>Recipe Title:</strong>&nbsp;{{ $title }}</u>&nbsp;&nbsp;&nbsp;<u><strong>Creator Cited:&nbsp;</strong>{{ $author }}</u><br /><br /><br />Ground beef, onion, garlic, and green pepper, makes this a truely tastey dish.<br/><a href="{{ action('RecipeController@show', array($id) ) }}" class='btn two'>Written Recipe</a></p></td> 
+            </tr>
+          <?php
+
+        }else if ( true == $isvideo ){
+            ?>
+              <tr>
+                <td>
+
+                <video width="300" height="200" controls>
+                  <source src="{{ url('/images/recipes/' . $media) }}" type="video/{{ $ext }}">
+                  Your browser does not support HTML5 video.
+                </video>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="div1"></div></td>
+                <td><p class="button button1"><br /><u><strong>Recipe Title:</strong>&nbsp;{{ $title }}</u>&nbsp;&nbsp;&nbsp;<u><strong>Creator Cited:&nbsp;</strong>{{ $author }}</u><br /><br /><br />Ground beef, onion, garlic, and green pepper, makes this a truely tastey dish.<br/><a href="{{ action('RecipeController@show', array($id) ) }}" class='btn two'>Written Recipe</a></p></td> 
+              </tr>
+            <?php
+        }else{
+
+            ?>
+
+              <tr>
+                <td><img src="{{ url('/images/recipes/' . $media) }}"width="300" height="200"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="div1"></div></td>
+                <td><p class="button button1"><br /><u><strong>Recipe Title:</strong>&nbsp;{{ $title }}</u>&nbsp;&nbsp;&nbsp;<u><strong>Creator Cited:&nbsp;</strong>{{ $author }}</u><br /><br /><br />Ground beef, onion, garlic, and green pepper, makes this a truely tastey dish.<br/><a href="{{ action('RecipeController@show', array($id) ) }}" class='btn two'>Written Recipe</a></p></td> 
+              </tr>
+
+            <?php
+          }
       }
     }
   ?>
