@@ -47,32 +47,53 @@ padding: 15px;
 	<p>We take the upmost care when selecting recipes but please consult with your states nutrition standard before serving meals based on our selected recipes.<br /> Please note. We will try to upload new recipes as often as we can. Please vote for your favorites.</p>
 	<br />
   <table  style="width:97%">
-    
-  <tr>
-    <td><iframe width="200" height="185" src="https://www.youtube.com/embed/kXm5tvnEMgM" frameborder="0" allowfullscreen>Please wait.</iframe>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="div1"></div></td>
-    <td><p class="button button1"><br /><u><strong>Recipe Title:</strong>&nbsp;Meatloaf</u>&nbsp;&nbsp;&nbsp;<u><strong>Creator Cited:&nbsp;</strong>Jane Lee</u><br /><br /><br />Ground beef, onion, garlic, and green pepper, makes this a truely tastey dish.<form class="two" method="get" action="example-meal2.html"><button class="two" type="submit">Written Recipe</button></form>       <form class="folderfav" method="get" action="folderfav.html"><button class="FolderFav" type="submit"> &#10010;Folder Favorite</button></form></p></td>		
-     
-  </tr>
-  <tr>
-    <td><iframe width="200" height="185" src="https://www.youtube.com/embed/kXm5tvnEMgM" frameborder="0" allowfullscreen>Please wait.</iframe>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="div1"></div></td>
-    <td><p class="button button1"><br /><u><strong>Recipe Title:</strong>&nbsp;Pancake</u>&nbsp;&nbsp;&nbsp;<u><strong>Creator Cited:&nbsp;</strong>John Stein</u><br /><br /><br />This is a fluffy sweet treat anyone can easily enjoy.<form class="two" method="get" action="example-meal5.html"><button class="two" type="submit">Written Recipe</button></form>        <form class="folderfav" method="get" action="folderfav.html"><button class="FolderFav" type="submit"> &#10010;Folder Favorite</button></form></p></td>		
-     
-  </tr>
-  <tr>
-    <td><iframe width="200" height="185" src="https://www.youtube.com/embed/kXm5tvnEMgM" frameborder="0" allowfullscreen>Please wait.</iframe>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="div1"></div></td>
-    <td><p class="button button1"><br /><u><strong>Recipe Title:</strong>&nbsp;Banana Bread</u>&nbsp;&nbsp;&nbsp;<u><strong>Creator Cited:&nbsp;</strong>William Smith</u><br /><br /><br />This is a moist, sweet treat. There are bits of peanuts, Cinnamon and mashed bananas.<form class="two" method="get" action="example-meal3.html"><button class="two" type="submit">Written Recipe</button></form>      <form class="folderfav" method="get" action="folderfav.html"><button class="FolderFav" type="submit"> &#10010;Folder Favorite</button></form></p></td>		
-     
-  </tr>
-  <tr>
-    <td><iframe width="200" height="185" src="https://www.youtube.com/embed/kXm5tvnEMgM" frameborder="0" allowfullscreen>Please wait.</iframe>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="div1"></div></td>
-    <td><p class="button button1"><br /><u><strong>Recipe Title:</strong>&nbsp;Carrot Muffin</u>&nbsp;&nbsp;&nbsp;<u><strong>Creator Cited:&nbsp;</strong>Daniel schemit</u><br /><br /><br />Raisins, brown sugar, and shredded carrots, yum!<form class="two" method="get" action="example-meal4.html"><button class="two" type="submit">Written Recipe</button></form>         <form class="folderfav" method="get" action="folderfav.html"><button class="FolderFav" type="submit"> &#10010;Folder Favorite</button></form></p></td>		
-     
-  </tr>
-  <tr>
-    <td><iframe width="200" height="185" src="https://www.youtube.com/embed/kXm5tvnEMgM" frameborder="0" allowfullscreen>Please wait.</iframe>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="div1"></div></td>
-    <td><p class="button button1"><br /><u><strong>Recipe Title:</strong>&nbsp;Lasagna</u>&nbsp;&nbsp;&nbsp;<u><strong>Creator Cited:&nbsp;</strong>Emily Tao</u><br /><br /><br />Classic Lasagna with  boneless chicken breast halves, diced, Alfredo-style pasta sauce, and shredded mozzarella cheese.<form class="two" method="get" action="example-meal.html"><button class="two" type="submit">Written Recipe</button></form>          <form class="folderfav" method="get" action="folderfav.html"><button class="FolderFav" type="submit"> &#10010;Folder Favorite</button></form></p></td>		
-     
-  </tr>
+
+    <?php 
+        foreach( $videorecipes as $recipe ){
+              $id = $recipe['id'];
+              $title = $recipe['title'];
+              $desc = $recipe['content'];
+              $media = $recipe['media'];
+              $author = $recipe['author_id'];
+              
+
+              $isvideo = false;
+
+              if (strpos($media, '.mp4') !== false ){
+
+                $isvideo = true;
+                $ext = 'mp4';
+
+              }else if(  strpos($media, '.ogv') !== false) {
+                  $isvideo = true; 
+                  $ext = 'ogv';
+              }
+
+              if( ( isset( $recipe['videolink'] ) && !empty( $recipe['videolink'] ) ) && ( isset( $recipe['video_recipe'] ) && 1 == $recipe['video_recipe'] ) ){
+
+                ?>
+                  <tr>
+                    <td><iframe width="300" height="200" src="{{ $recipe['videolink'] }}" frameborder="0" allowfullscreen>Please wait.</iframe>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="div1"></div></td>
+                    <td><p class="button button1"><br /><u><strong>Recipe Title:</strong>&nbsp;{{ $title }}</u>&nbsp;&nbsp;&nbsp;<u><strong>Creator Cited:&nbsp;</strong>{{ $author }}</u><br /><br /><br />{{ $desc }}<br/><a href="{{ action('RecipeController@show', array($id) ) }}" class='btn two'>Written Recipe</a></p></td> 
+                  </tr>
+                <?php
+
+              }else if ( true == $isvideo && ( isset( $recipe['video_recipe'] ) && 1 == $recipe['video_recipe'] )){
+                  ?>
+                    <tr>
+                      <td>
+
+                      <video width="300" height="200" controls>
+                        <source src="{{ url('/images/recipes/' . $media) }}" type="video/{{ $ext }}">
+                        Your browser does not support HTML5 video.
+                      </video>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="div1"></div></td>
+                      <td><p class="button button1"><br /><u><strong>Recipe Title:</strong>&nbsp;{{ $title }}</u>&nbsp;&nbsp;&nbsp;<u><strong>Creator Cited:&nbsp;</strong>{{ $author }}</u><br /><br /><br />{{ $desc }}<br/><a href="{{ action('RecipeController@show', array($id) ) }}" class='btn two'>Written Recipe</a></p></td> 
+                    </tr>
+                  <?php
+              }
+
+        } 
+      ?>
   
 </table>
   </body>

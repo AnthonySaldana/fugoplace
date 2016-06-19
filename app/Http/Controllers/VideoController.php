@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\Recipe;
+
+use Auth;
+
 class VideoController extends Controller
 {
 
@@ -21,7 +25,14 @@ class VideoController extends Controller
      */
     public function index()
     {
-        return view('user.video-recipes');
+
+        $id = Auth::user()->id;
+        $videos = Recipe::where('author_id',$id)->where('video_recipe' , 1)->get();
+
+        return view('user.video-recipes', [
+            'videorecipes' => $videos
+        ]);
+
     }
 
     /**
