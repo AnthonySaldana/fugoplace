@@ -86,9 +86,14 @@ padding: 5px;
         $id = $recipe['id'];
         $title = $recipe['title'];
         $author = $recipe['author_id'];
+        $media = $recipe['media'];
         ?>
-          <tr><td><iframe width="200" height="185" src="https://www.youtube.com/embed/kXm5tvnEMgM" frameborder="0" allowfullscreen>Please wait.</iframe>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="div1"></div></td>
-    <td><p class="button button1"><br /><u><strong>Recipe Title:</strong>&nbsp;{{ $title }}</u>&nbsp;&nbsp;&nbsp;<u><strong>Creator Cited:&nbsp;</strong>{{ $author }}</u><br /><br /><br />Ground beef, onion, garlic, and green pepper, makes this a truely tastey dish.<br/><a href="{{ action('RecipeController@show', array($id) ) }}" class='btn two'>Written Recipe</a></p></td> </tr>
+
+          <tr>
+            <td><img src="{{ url('/images/recipes/' . $media) }}"width="200" height="178"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="div1"></div></td>
+            <td><p class="button button1"><br /><u><strong>Recipe Title:</strong>&nbsp;{{ $title }}</u>&nbsp;&nbsp;&nbsp;<u><strong>Creator Cited:&nbsp;</strong>{{ $author }}</u><br /><br /><br />Ground beef, onion, garlic, and green pepper, makes this a truely tastey dish.<br/><a href="{{ action('RecipeController@show', array($id) ) }}" class='btn two'>Written Recipe</a></p></td> 
+          </tr>
+          
         <?php
       }
     }

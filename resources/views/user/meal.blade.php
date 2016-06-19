@@ -53,7 +53,7 @@ left: 527px;
 	<h2 style="font-family: Garamond;">&nbsp;&nbsp;&nbsp;&nbsp;{{ $title }}</h2>
 	<div>{{ $content }}</div>
 	
-	<img class="img" src="http://localhost{{ $media }}"HEIGHT="400" WIDTH="600" BORDER="1px"/>
+	<img class="img" src="{{ url('/images/recipes/' . $media) }}"HEIGHT="400" WIDTH="600" BORDER="1px"/>
 	</div>
   </body>
 </html>

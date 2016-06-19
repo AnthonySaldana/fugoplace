@@ -80,9 +80,11 @@ padding: 5px;
         foreach( $Favorites as $recipe ){
               $id = $recipe['id'];
               $title = $recipe['title'];
-              $desc = $recipe['content']; ?>
+              $desc = $recipe['content'];
+              $media = $recipe['media'];
+              ?>
               <tr>
-              <td><iframe width="200" height="185" src="https://www.youtube.com/embed/kXm5tvnEMgM" frameborder="0" allowfullscreen>Please wait.</iframe>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="div1"></div></td>
+              <td><img src="{{ url('/images/recipes/' . $media) }}"width="200" height="178"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="div1"></div></td>
               <td><p class="button button1"><br /><u><strong>Recipe Title:</strong>&nbsp;<?php echo $title; ?></u>&nbsp;&nbsp;&nbsp;<u><strong>Creator Cited:&nbsp;</strong>Jane Lee</u><br /><br /> {{ $desc }} <br /><a href="{{ action('RecipeController@edit', array( $id ) ) }}" class='btn two'>Written Recipe</a></p></td>   
                
             </tr>
