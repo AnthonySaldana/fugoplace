@@ -25,14 +25,14 @@ class FolderController extends Controller
      */
     public function index()
     {
-        //
+
         $id = Auth::user()->id;
         $favorites = Recipe::where('author_id',$id)->where('favorite' , 1)->get();
 
         return view('user.folder-fav', [
             'Favorites' => $favorites
         ]);
-        return view('user.folder-fav');
+
     }
 
     /**
@@ -64,8 +64,9 @@ class FolderController extends Controller
      */
     public function show($id)
     {
-        //
+        
         return view('user.folder-fav', ['id' => $id] );
+    
     }
 
     /**
