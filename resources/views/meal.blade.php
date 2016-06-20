@@ -19,32 +19,68 @@ top: -52px;
 left: 527px;
 }
     .img {
-	position: relative;
-	left: 400px;
-	top: -150px;
+	float:right;
 	}
 	
   </style>
   </head>
   <body>
-    
+    @include('includes.header')
+    <script>
+		function myFunction() {
+		    confirm("Trash composed recipe?");
+		}
+	</script>
 	<br />
-	<form class="two" method="get" action="#"><button class="two" type="submit">Edit</button></form>
-	<form class="three" method="get" action="#"><button class="two" type="submit">Save</button></form>
-	<form class="four" method="get" action="#"><button class="two" type="submit">Discard</button></form>
-	
-	<h2 style="font-family: Garamond;">&nbsp;&nbsp;&nbsp;&nbsp;Lasagna</h2>
-	<ul>
-		<li>1 (16 ounce) package lasagna noodles.</li>
-		<li>1 (10 ounce) package frozen chopped spinach.</li>
-		<li>3 cooked, boneless chicken breast halves, diced.</li>
-		<li>2 (16 ounce) jars Alfredo-style pasta sauce.</li>
-		<li>4 cups shredded mozzarella cheese.</li>
-		<li>2 pints ricotta cheese.</li>
-		<li>salt and ground black pepper to taste.</li>
-	</ul>
-	
-	<img class="img" src="https://s3.amazonaws.com/gigsalad_media/b/braised_orlando/55196f09cc97a.jpg"HEIGHT="400" WIDTH="600" BORDER="1px"/>
-	
+	<?php 
+    if(isset( $Recipe )){
+    	$recipe = $Recipe; //reassign for ease
+
+        $id = $recipe['id'];
+        $title = $recipe['title'];
+        $author = $recipe['author_id'];
+        $content = $recipe['content'];
+        $media = $recipe['media'];
+
+        $isvideo = false;
+
+        if (strpos($media, '.mp4') !== false ){
+
+          $isvideo = true;
+          $ext = 'mp4';
+
+        }else if(  strpos($media, '.ogv') !== false) {
+            $isvideo = true; 
+            $ext = 'ogv';
+        }
+    }
+        ?>
+    <div style="max-width:1000px;">
+	<h2 style="font-family: Garamond;">&nbsp;&nbsp;&nbsp;&nbsp;{{ $title }}</h2>
+	<div>{{ $content }}</div>
+
+	<?php if( ( isset( $recipe['videolink'] ) && !empty( $recipe['videolink'] ) ) && ( isset( $recipe['video_recipe'] ) && 1 == $recipe['video_recipe'] ) ){
+
+          ?>
+          <iframe width="600" height="400" src="{{ $recipe['videolink'] }}" frameborder="0" allowfullscreen>Please wait.</iframe>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <?php
+
+        }elseif( true == $isvideo ){
+            ?>
+                <video width="600" height="400" controls>
+                  <source src="{{ url('/images/recipes/' . $media) }}" type="video/{{ $ext }}">
+                  Your browser does not support HTML5 video.
+                </video>
+            <?php
+        }elseif( !empty( $media ) ) {
+
+            ?>
+
+            	<img src="{{ url('/images/recipes/' . $media) }}"width="600" height="400"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <?php
+          } ?>
+
+	</div>
   </body>
 </html>

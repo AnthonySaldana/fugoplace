@@ -117,7 +117,7 @@ left: 220px;
   @include('common.errors')
 	<script>
 function myFunction() {
-    confirm("Trash composed recipe?");
+    return confirm("Trash composed recipe?");
 }
 </script>
 
@@ -125,7 +125,7 @@ function myFunction() {
    <article class="head">
     <button class="two" type="submit" name="send" value="1">Save</button>
   <button class="two" type="submit" name="edit" value="1">Edit</button>
-  <button class="two" type="submit" name="delete" value="1" onclick="myFunction()">Discard</button>
+  <button class="two" type="submit" name="delete" value="1" onclick="return myFunction()">Discard</button>
  </article>
     <br/>
     <?php if(isset( $recipe[0]['media'] )){

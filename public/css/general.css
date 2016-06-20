@@ -148,6 +148,8 @@ ul.nav {
     float: initial;
     display: inline-block;
   }
-
+.userheader , .userheader li{
+    display:inline-block;
+}
   /* header styling */
     </style>

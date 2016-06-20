@@ -61,7 +61,7 @@ left: 527px;
 	<form action="{{ action('RecipeController@destroy', array($id) ) }}" method="post">
 	<input type="hidden" name="id" value="{{ $id }}" />
 	<input name="_method" type="hidden" value="delete" />
-	<button type="submit" value="delete" class='btn two' onclick="myFunction()">Delete</button>
+	<button type="submit" value="delete" class='btn two' onclick="return myFunction()">Delete</button>
 	{{ csrf_field() }}
 	</form>
 	<h2 style="font-family: Garamond;">&nbsp;&nbsp;&nbsp;&nbsp;{{ $title }}</h2>

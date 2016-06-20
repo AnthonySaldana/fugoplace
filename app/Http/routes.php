@@ -38,6 +38,10 @@ Route::get('/contact',function(){
 		return view('contact');
 });
 
+Route::get('/school/{all}', 'SchoolController@showSchool');
+
+Route::get('/recipe/{id}', 'SchoolController@showRecipe');
+
 
 /**
 *	LOGIN / REGISTRATION ROUTE HANDLING

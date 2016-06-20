@@ -24,13 +24,13 @@ section h3{
   font-family: arial;
 }
 
-ol{
+#list ol{
   list-style-type:none;
   margin-left:0;
   padding:0;
 }
 
-li{
+#list li{
   line-height:35px;
   position:relative;
   left:0px;
@@ -38,15 +38,15 @@ li{
   transition:background-color 0.5s;
   padding-left:15px;
 }
-li:last-child{border-bottom:1px solid #CCC;}
-li.checked{
+#list li:last-child{border-bottom:1px solid #CCC;}
+#list li.checked{
   text-decoration: line-through;
   background-color:#91D1FF;
 }
 
-li input:checked li{background-color:red;}
+#list li input:checked li{background-color:red;}
 
-li:hover{background-color:#91D1FF; cursor: pointer;}
+#list li:hover{background-color:#91D1FF; cursor: pointer;}
 
 #btnAddItem{margin: 0 auto; padding: o auto; text-align: center; width: 100%; height: 35px; color:#1F86ED;}
 
