@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
-
-use Auth;
-
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+
 use Validator;
 
-use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use App\User;
+
+use Auth;
 
 class FugoController extends Controller
 {
@@ -35,6 +35,7 @@ class FugoController extends Controller
     	return view('login');
     }
 
+
     public function createUser( Request $request  ){
 
     		$rules = array(
@@ -53,10 +54,19 @@ class FugoController extends Controller
 			    return redirect('/login')->withErrors($validator)->withInput( $request->except('password') ); // send back the input (not the password) so that we can repopulate the form
 			} else {
 
+				$school_slug = str_replace(' ', '-', $request->school_name);
+
+				$usercount = User::where('school_slug', '=', $school_slug)->count();
+
+				if ( $usercount > 0 ) {
+				   $school_slug = $school_slug . "-" . $usercount .  str_random(2);
+				}
+
 				User::create([
 		           'name' 			=> $request->school_name,
 		           'email' 			=> $request->email,
 		           'school_name' 	=> $request->school_name,
+		           'school_slug'	=> $school_slug,
 		           'password' 		=> bcrypt($request->password),
 		       ]);
 
