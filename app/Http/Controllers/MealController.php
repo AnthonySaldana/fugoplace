@@ -140,7 +140,7 @@ class MealController extends Controller
                     $meal = 'B';
                 break;
                 
-                case 'S':
+                case 'BR':
                     $meal = 'BR';
                 break;
 
