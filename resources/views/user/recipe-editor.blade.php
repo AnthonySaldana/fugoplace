@@ -153,7 +153,7 @@ function myFunction() {
                 </video>
 
             <?php
-        }else{
+        }else if( !empty( $media ) ){
 
             ?>
 

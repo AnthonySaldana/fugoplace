@@ -58,6 +58,24 @@ padding: 20px;
 .div1 {
 padding: 5px;
 }
+.folderfav{
+  display: inline-block;
+  float: right;
+  margin-right: 5px;
+}
+
+.folderfav button{
+  min-height: 30px;
+}
+.fav{
+  background-color: orange; 
+
+}
+
+.unfav{
+  background-color: red;
+  color:white;
+}
       </style>
   </head>
   <body>
@@ -83,6 +101,7 @@ padding: 5px;
               $desc = $recipe['content'];
               $media = $recipe['media'];
               $author = $recipe['author_id'];
+              $is_fav = $recipe['favorite'];
 
               $strlimit = 100;
 
@@ -98,12 +117,17 @@ padding: 5px;
                   $ext = 'ogv';
               }
 
-              if( ( isset( $recipe['videolink'] ) && !empty( $recipe['videolink'] ) ) && ( isset( $recipe['video_recipe'] ) && 1 == $recipe['video_recipe'] ) ){
+              if( ( isset( $recipe['videolink'] ) && !empty( $recipe['videolink'] ) ) ){
 
                 ?>
                   <tr>
                     <td><iframe width="300" height="200" src="{{ $recipe['videolink'] }}" frameborder="0" allowfullscreen>Please wait.</iframe>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="div1"></div></td>
-                    <td><p class="button button1"><br /><u><strong>Recipe Title:</strong>&nbsp;{{ $title }}</u>&nbsp;&nbsp;&nbsp;<u><strong>Creator Cited:&nbsp;</strong>{{ $author }}</u><br /><br /><br />{{ str_limit( $desc , $strlimit, $end = '...' ) }}<br/><a href="{{ action('RecipeController@show', array($id) ) }}" class='btn two'>Written Recipe</a></p></td> 
+                    <td class="button"><p class=" button1"><br /><u>
+                    <strong>Recipe Title:</strong>&nbsp;{{ $title }}</u>&nbsp;&nbsp;&nbsp;<u><strong>Creator Cited:&nbsp;</strong>{{ $author }}</u><br /><br /><br />
+                    {{ str_limit( $desc , $strlimit, $end = '...' ) }}<br/>
+                    @include('user.includes.favorite-written')
+
+                    </p></td> 
                   </tr>
                 <?php
 
@@ -116,7 +140,12 @@ padding: 5px;
                         <source src="{{ url('/images/recipes/' . $media) }}" type="video/{{ $ext }}">
                         Your browser does not support HTML5 video.
                       </video>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="div1"></div></td>
-                      <td><p class="button button1"><br /><u><strong>Recipe Title:</strong>&nbsp;{{ $title }}</u>&nbsp;&nbsp;&nbsp;<u><strong>Creator Cited:&nbsp;</strong>{{ $author }}</u><br /><br /><br />{{ str_limit( $desc , $strlimit, $end = '...' ) }}<br/><a href="{{ action('RecipeController@show', array($id) ) }}" class='btn two'>Written Recipe</a></p></td> 
+                      <td class="button"><p class="button1"><br /><u><strong>Recipe Title:</strong>&nbsp;{{ $title }}</u>&nbsp;&nbsp;&nbsp;<u>
+                      <strong>Creator Cited:&nbsp;</strong>{{ $author }}</u><br /><br /><br />
+                      {{ str_limit( $desc , $strlimit, $end = '...' ) }}<br/>
+                      @include('user.includes.favorite-written')
+
+                      </p></td> 
                     </tr>
                   <?php
               }else{
@@ -125,7 +154,11 @@ padding: 5px;
 
                     <tr>
                       <td><img src="{{ url('/images/recipes/' . $media) }}"width="300" height="200"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="div1"></div></td>
-                      <td><p class="button button1"><br /><u><strong>Recipe Title:</strong>&nbsp;{{ $title }}</u>&nbsp;&nbsp;&nbsp;<u><strong>Creator Cited:&nbsp;</strong>{{ $author }}</u><br /><br /><br />{{ str_limit( $desc , $strlimit, $end = '...' ) }}<br/><a href="{{ action('RecipeController@show', array($id) ) }}" class='btn two'>Written Recipe</a></p></td> 
+                      <td class="button"><p class="button1"><br /><u><strong>Recipe Title:</strong>&nbsp;{{ $title }}</u>&nbsp;&nbsp;&nbsp;<u><strong>Creator Cited:&nbsp;</strong>{{ $author }}</u><br /><br /><br />
+                      {{ str_limit( $desc , $strlimit, $end = '...' ) }}<br/>
+                      @include('user.includes.favorite-written')
+                      </p>
+                      </td> 
                     </tr>
 
                   <?php

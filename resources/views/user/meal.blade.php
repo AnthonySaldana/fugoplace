@@ -21,6 +21,17 @@ left: 527px;
     .img {
 	float:right;
 	}
+  .left{
+    float:left;
+  }
+
+  .right{
+    float:right;
+  }
+
+  .right .btn, .right form{
+    vertical-align: top;
+  }
 	
   </style>
   </head>
@@ -55,18 +66,23 @@ left: 527px;
         }
     }
         ?>
-    <div style="max-width:1000px;">
-	<a href="{{ action('RecipeController@edit', array($id) ) }}" class='btn two'>Edit</a>
-	<a href="{{ action('RecipeController@destroy', array($id) ) }}" class='btn two'>DELETE LINK</a>
-	<form action="{{ action('RecipeController@destroy', array($id) ) }}" method="post">
-	<input type="hidden" name="id" value="{{ $id }}" />
-	<input name="_method" type="hidden" value="delete" />
-	<button type="submit" value="delete" class='btn two' onclick="return myFunction()">Delete</button>
-	{{ csrf_field() }}
-	</form>
-	<h2 style="font-family: Garamond;">&nbsp;&nbsp;&nbsp;&nbsp;{{ $title }}</h2>
-	<div>{{ $content }}</div>
+    <div style="max-width:1000px; padding:25px;">
 
+  <div class="left">
+      
+  	<h2 style="font-family: Garamond;">{{ $title }}</h2>
+  	<div>{{ $content }}</div>
+  </div>
+
+  <div class="right" >
+  <a href="{{ action('RecipeController@edit', array($id) ) }}" class='btn'>Edit</a>
+      <form action="{{ action('RecipeController@destroy', array($id) ) }}" method="post" style="display:inline-block;">
+        <input type="hidden" name="id" value="{{ $id }}" />
+        <input name="_method" type="hidden" value="delete" />
+        <button type="submit" value="delete" class='btn' onclick="return myFunction()">Delete</button>
+        {{ csrf_field() }}
+      </form>
+      <br/><br/>
 	<?php if( ( isset( $recipe['videolink'] ) && !empty( $recipe['videolink'] ) ) && ( isset( $recipe['video_recipe'] ) && 1 == $recipe['video_recipe'] ) ){
 
           ?>
@@ -88,7 +104,7 @@ left: 527px;
 
             <?php
           } ?>
-
+          </div>
 	</div>
   </body>
 </html>

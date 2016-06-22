@@ -8,6 +8,8 @@ use App\Http\Requests;
 
 use App\Recipe;
 
+use Redirect;
+
 use Auth;
 
 use File;
@@ -227,6 +229,7 @@ class RecipeController extends Controller
 
     /**
      * Update the specified resource in storage.
+     * Quick Favorite for our recipes
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -234,8 +237,29 @@ class RecipeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        if( isset($request->quickfav) ){
+
+            if( isset( $request->fav ) ){
+                //return "hello";
+                $recipe = Recipe::find($request->id);
+                $recipe->favorite = 1;
+                $recipe->save();
+            }
+
+            if( isset( $request->unfav ) ){
+
+                $recipe = Recipe::find($request->id);
+                $recipe->favorite = 0;
+                $recipe->save();
+                
+            }
+           
+
+        }
+            return Redirect::back();
     }
+
 
     /**
      * Remove the specified resource from storage.
