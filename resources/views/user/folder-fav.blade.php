@@ -90,7 +90,7 @@ padding: 5px;
   <br />
 	<br />
   <h2 class="one">Folder Favorites</h2>
-	<p>We take the upmost care when selecting recipes but please consult with your states nutrition standard before serving meals based on our selected recipes.<br /> Please note. We will try to upload new recipes as often as we can. Please vote for your favorites.</p>
+	<!--<p>We take the upmost care when selecting recipes but please consult with your states nutrition standard before serving meals based on our selected recipes.<br /> Please note. We will try to upload new recipes as often as we can. Please vote for your favorites.</p>-->
 	<br />
   <table  style="width:97%">
 
