@@ -65,7 +65,7 @@ class RecipeController extends Controller
         if( isset( $request->send ) ){
 
             $rules = array(
-                'media'                     => 'max:5000|mimes:jpeg,png',
+                'media'                     => 'mimes:jpeg,png,mp4,ogv',
             );
 
             //$validator = Validator::make(Input::all(), $rules);
