@@ -39,7 +39,7 @@ left: 527px;
         $id = $recipe['id'];
         $title = $recipe['title'];
         $author = $recipe['author_id'];
-        $content = $recipe['content'];
+        $content = $recipe['content'] ;
         $media = $recipe['media'];
 
         $isvideo = false;
@@ -57,7 +57,7 @@ left: 527px;
         ?>
     <div style="max-width:1000px;">
 	<h2 style="font-family: Garamond;">&nbsp;&nbsp;&nbsp;&nbsp;{{ $title }}</h2>
-	<div>{{ $content }}</div>
+{!! html_entity_decode( $content ) !!}
 
 	<?php if( ( isset( $recipe['videolink'] ) && !empty( $recipe['videolink'] ) ) && ( isset( $recipe['video_recipe'] ) && 1 == $recipe['video_recipe'] ) ){
 

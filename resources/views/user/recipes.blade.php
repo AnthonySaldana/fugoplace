@@ -108,7 +108,7 @@ padding: 5px;
         $media = $recipe['media'];
         $is_fav = $recipe['favorite'];
 
-        $strlimit = 100; ///limit to the description on overview page
+        $strlimit = 50; ///limit to the description on overview page
 
         $isvideo = false;
 
@@ -127,7 +127,7 @@ padding: 5px;
           ?>
             <tr>
               <td><iframe width="300" height="200" src="{{ $recipe['videolink'] }}" frameborder="0" allowfullscreen>Please wait.</iframe>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="div1"></div></td>
-              <td class="button"><p class=" button1"><br /><u><strong>Recipe Title:</strong>&nbsp;{{ $title }}</u>&nbsp;&nbsp;&nbsp;<u><strong>Creator Cited:&nbsp;</strong>{{ $author }}</u><br /><br /><br />{{ str_limit( $desc , $strlimit, $end = '...' ) }}<br/>
+              <td class="button"><p class=" button1"><br /><u><strong>Recipe Title:</strong>&nbsp;{{ $title }}</u>&nbsp;&nbsp;&nbsp;<u><strong>Creator Cited:&nbsp;</strong>{{ $author }}</u><br /><br /><br />{!! str_limit( $desc , $strlimit, $end = '...' ) !!}<br/>
               @include('user.includes.favorite-written')
               </p></td> 
             </tr>
@@ -148,7 +148,7 @@ padding: 5px;
                 <u>
                 <strong>Recipe Title:</strong>&nbsp;{{ $title }}
                 </u>
-                &nbsp;&nbsp;&nbsp;<u><strong>Creator Cited:&nbsp;</strong>{{ $author }}</u><br /><br /><br />{{ str_limit( $desc ,$strlimit, $end = '...' ) }}<br/>
+                &nbsp;&nbsp;&nbsp;<u><strong>Creator Cited:&nbsp;</strong>{{ $author }}</u><br /><br /><br />{!! str_limit( $desc ,$strlimit, $end = '...' ) !!}<br/>
                 @include('user.includes.favorite-written')
                 </p></td> 
               </tr>
@@ -173,7 +173,7 @@ padding: 5px;
                   <u><strong>Recipe Title:</strong>&nbsp;{{ $title }}</u>&nbsp;&nbsp;&nbsp;
                   <u><strong>Creator Cited:&nbsp;</strong>{{ $author }}</u><br /><br /><br />
                   
-                  {{ str_limit( $desc , $strlimit , $end = '...' ) }}.<br/>
+                  {!! str_limit( $desc , $strlimit , $end = '...' ) !!}.<br/>
                   
                   @include('user.includes.favorite-written')
 

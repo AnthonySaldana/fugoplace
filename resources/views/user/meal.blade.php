@@ -71,7 +71,7 @@ left: 527px;
   <div class="left">
       
   	<h2 style="font-family: Garamond;">{{ $title }}</h2>
-  	<div>{{ $content }}</div>
+  	<div>{!! $content !!}</div>
   </div>
 
   <div class="right" >
