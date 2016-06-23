@@ -21,6 +21,17 @@ left: 527px;
     .img {
 	float:right;
 	}
+   .left{
+    float:left;
+  }
+
+  .right{
+    float:right;
+  }
+
+  .right .btn, .right form{
+    vertical-align: top;
+  }
 	
   </style>
   </head>
@@ -56,31 +67,34 @@ left: 527px;
     }
         ?>
     <div style="max-width:1000px;">
-	<h2 style="font-family: Garamond;">&nbsp;&nbsp;&nbsp;&nbsp;{{ $title }}</h2>
-{!! html_entity_decode( $content ) !!}
 
-	<?php if( ( isset( $recipe['videolink'] ) && !empty( $recipe['videolink'] ) ) && ( isset( $recipe['video_recipe'] ) && 1 == $recipe['video_recipe'] ) ){
+    <div class="left">
+    	<h2 style="font-family: Garamond;">&nbsp;&nbsp;&nbsp;&nbsp;{{ $title }}</h2>
+    {!! html_entity_decode( $content ) !!}
+    </div>
 
-          ?>
-          <iframe width="600" height="400" src="{{ $recipe['videolink'] }}" frameborder="0" allowfullscreen>Please wait.</iframe>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <?php
+    <div class="right">
+
+      <?php if( ( isset( $recipe['videolink'] ) && !empty( $recipe['videolink'] ) ) && ( isset( $recipe['video_recipe'] ) && 1 == $recipe['video_recipe'] ) ){
+
+      ?>
+        <iframe width="600" height="400" src="{{ $recipe['videolink'] }}" frameborder="0" allowfullscreen>Please wait.</iframe>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <?php
 
         }elseif( true == $isvideo ){
-            ?>
-                <video width="600" height="400" controls>
-                  <source src="{{ url('/images/recipes/' . $media) }}" type="video/{{ $ext }}">
-                  Your browser does not support HTML5 video.
-                </video>
-            <?php
+        ?>
+          <video width="600" height="400" controls>
+          <source src="{{ url('/images/recipes/' . $media) }}" type="video/{{ $ext }}">
+          Your browser does not support HTML5 video.
+          </video>
+        <?php
         }elseif( !empty( $media ) ) {
+        ?>
+          <img src="{{ url('/images/recipes/' . $media) }}"width="600" height="400"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-            ?>
-
-            	<img src="{{ url('/images/recipes/' . $media) }}"width="600" height="400"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-            <?php
-          } ?>
-
+      <?php
+      } ?>
+    </div>
 	</div>
   </body>
 </html>
