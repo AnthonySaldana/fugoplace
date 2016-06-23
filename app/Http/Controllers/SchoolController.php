@@ -25,6 +25,7 @@ class SchoolController extends Controller
     {
         $user = User::where('school_slug',$school)->get();
 
+
     	$school_name = $user[0]->school_name;
     	$school_slug = $user[0]->school_slug;
 
@@ -33,6 +34,7 @@ class SchoolController extends Controller
 
     	$user_id = $user[0]->id;
 
+        $videorecipes = Recipe::where('author_id', $user_id)->where('video_recipe' , 1)->get();
         /**
         *   Build our meal planner query
         *   We left join our recipes table to our meal planner, giving us access to each meal and recipe details for each meal.
@@ -61,7 +63,8 @@ class SchoolController extends Controller
 
         return view('school', [
             'meals'   => $newgroup,
-            'user'	  => $user[0]
+            'user'	  => $user[0],
+            'videorecipes' => $videorecipes
         ]);
     }
 
