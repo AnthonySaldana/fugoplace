@@ -124,7 +124,7 @@ padding: 5px;
                     <td><iframe width="300" height="200" src="{{ $recipe['videolink'] }}" frameborder="0" allowfullscreen>Please wait.</iframe>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="div1"></div></td>
                     <td class="button"><p class=" button1"><br /><u>
                     <strong>Recipe Title:</strong>&nbsp;{{ $title }}</u>&nbsp;&nbsp;&nbsp;<u><strong>Creator Cited:&nbsp;</strong>{{ $author }}</u><br /><br /><br />
-                    {!! str_limit( $desc , $strlimit, $end = '...' ) !!}<br/>
+                    {!! str_limit( strip_tags( $desc ) , $strlimit, $end = '...' ) !!}<br/>
                     @include('user.includes.favorite-written')
 
                     </p></td> 
@@ -142,7 +142,7 @@ padding: 5px;
                       </video>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="div1"></div></td>
                       <td class="button"><p class="button1"><br /><u><strong>Recipe Title:</strong>&nbsp;{{ $title }}</u>&nbsp;&nbsp;&nbsp;<u>
                       <strong>Creator Cited:&nbsp;</strong>{{ $author }}</u><br /><br /><br />
-                      {!! str_limit( $desc , $strlimit, $end = '...' ) !!}<br/>
+                      {!! str_limit( $strip_tags( $desc ) , $strlimit, $end = '...' ) !!}<br/>
                       @include('user.includes.favorite-written')
 
                       </p></td> 
@@ -155,7 +155,7 @@ padding: 5px;
                     <tr>
                       <td><img src="{{ url('/images/recipes/' . $media) }}"width="300" height="200"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="div1"></div></td>
                       <td class="button"><p class="button1"><br /><u><strong>Recipe Title:</strong>&nbsp;{{ $title }}</u>&nbsp;&nbsp;&nbsp;<u><strong>Creator Cited:&nbsp;</strong>{{ $author }}</u><br /><br /><br />
-                      {!! str_limit( $desc , $strlimit, $end = '...' ) !!}<br/>
+                      {!! str_limit( strip_tags( $desc ) , $strlimit, $end = '...' ) !!}<br/>
                       @include('user.includes.favorite-written')
                       </p>
                       </td> 
