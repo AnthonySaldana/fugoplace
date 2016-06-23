@@ -94,7 +94,7 @@ padding: 5px;
 
 
   <h2 class="one">All Recipes</h2>
-	<p>We take the upmost care when selecting recipes but please consult with your states nutrition standard before serving meals based on our selected recipes.<br /> Please note. We will try to upload new recipes as often as we can. Please vote for your favorites.</p>
+	<!--<p>We take the upmost care when selecting recipes but please consult with your states nutrition standard before serving meals based on our selected recipes.<br /> Please note. We will try to upload new recipes as often as we can. Please vote for your favorites.</p>-->
 	<br />
   <table  style="width:97%">
 
@@ -192,7 +192,7 @@ padding: 5px;
     }
   ?>
 
-  <tr><td><h2>Examples are below</h2></td></tr>
+  <!--<tr><td><h2>Examples are below</h2></td></tr>
   <tr>
     <td><img src="http://image005.flaticon.com/1/png/512/16/16294.png"width="200" height="178"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
     <td>
@@ -208,7 +208,7 @@ padding: 5px;
     <td><iframe width="200" height="185" src="https://www.youtube.com/embed/kXm5tvnEMgM" frameborder="0" allowfullscreen>Please wait.</iframe>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="div1"></div></td>
     <td><p class="button button1"><br /><u><strong>Recipe Title:</strong>&nbsp;Lasagna</u>&nbsp;&nbsp;&nbsp;<u><strong>Creator Cited:&nbsp;</strong>Emily Tao</u><br /><br /><br />Classic Lasagna with  boneless chicken breast halves, diced, Alfredo-style pasta sauce, and shredded mozzarella cheese.<form class="two" method="get" action=""><button class="two" type="submit">Written Recipe</button> </form></p></td>		
      
-  </tr>
+  </tr>-->
   
 </table>
   </body>
