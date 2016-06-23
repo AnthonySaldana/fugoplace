@@ -174,7 +174,7 @@ function myFunction() {
   <form method="post" action="{{ url('/user/notes') }}">
    <article class="head">
     <button class="two" type="submit" name="send" value="1">Save</button>
-  <button class="two" type="submit" name="edit" value="1">Edit</button>
+  <!--<button class="two" type="submit" name="edit" value="1">Edit</button>-->
   <button class="two" type="submit" name="delete" value="1" onclick="myFunction()">Discard</button>
  </article>
    <label for="title">Enter a title</label>
@@ -182,7 +182,7 @@ function myFunction() {
     <br/>
 
     <label for="content">Make a note</label>
-    <textarea name="content" placeholder="Enter your note here"><?php if(isset( $note )){ echo $note[0]['content']; } ?></textarea>
+    <textarea name="content" placeholder="Enter your note here" style="min-height:300px;"><?php if(isset( $note )){ echo $note[0]['content']; } ?></textarea>
     <?php if(isset( $note )){ ?>
         <input type="hidden" name="noteid" value="<?php echo $note[0]['id']; ?>" />
     <?php } ?>

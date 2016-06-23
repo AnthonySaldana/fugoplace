@@ -124,7 +124,7 @@ function myFunction() {
 <form method="post" action="{{ url('/user/recipes') }}" enctype="multipart/form-data">
    <article class="head">
     <button class="two" type="submit" name="send" value="1">Save</button>
-  <button class="two" type="submit" name="edit" value="1">Edit</button>
+  <!--<button class="two" type="submit" name="edit" value="1">Edit</button>-->
   <button class="two" type="submit" name="delete" value="1" onclick="return myFunction()">Discard</button>
  </article>
     <br/>
@@ -189,7 +189,7 @@ function myFunction() {
     <br/>
 
     <label for="content">Create your recipe</label>
-    <textarea name="content" placeholder="Enter your note here" style="background-color:white;"><?php if(isset( $recipe )){ echo $recipe[0]['content']; } ?></textarea>
+    <textarea name="content" placeholder="Enter your note here" style="background-color:white; min-height:300px;"><?php if(isset( $recipe )){ echo $recipe[0]['content']; } ?></textarea>
     <?php if(isset( $recipe )){ ?>
         <input type="hidden" name="recipeid" value="<?php echo $recipe[0]['id']; ?>" />
     <?php } ?>

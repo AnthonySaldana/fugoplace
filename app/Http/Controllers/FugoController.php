@@ -12,6 +12,8 @@ use Validator;
 
 use App\User;
 
+use App\Notes;
+
 use App\Recipe;
 
 use App\MealPlanner;
@@ -83,6 +85,46 @@ class FugoController extends Controller
 				//Example recipes to start
 
 				if ( Auth::attempt( ['email' => $request->email, 'password' => $request->password ] ) ) {
+
+					$notedata = array(
+
+						    array(
+						        'title'     	=> 'To do List',
+						        'content'    	=> '<ul>
+														<li>Task number 1</li>
+														<li>Task number 2</li>
+														<li>Task number 3</li>
+													</ul>',
+						        'author_id' 	=> Auth::user()->id,
+						        'created_at'=>date('Y-m-d H:i:s')
+
+						    ),array(
+						        'title'     	=> 'Organize',
+						        'content'    	=> '<ul>
+														<li>Task number 1</li>
+														<li>Task number 2</li>
+														<li>Task number 3</li>
+													</ul>',
+						        'author_id' 	=> Auth::user()->id,
+						        'created_at'=>date('Y-m-d H:i:s')
+
+						    ),
+						    array(
+						        'title'     	=> 'Email back',
+						        'content'    	=> '<ul>
+														<li>Email Person 1</li>
+														<li>Task number 2</li>
+														<li>Task number 3</li>
+													</ul>',
+						        'author_id' 	=> Auth::user()->id,
+						        'created_at'=>date('Y-m-d H:i:s')
+
+						    )
+
+					);
+
+					Notes::insert( $notedata );
+
 
 					$data = array(
 				    array(
