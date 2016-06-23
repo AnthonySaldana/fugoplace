@@ -146,7 +146,7 @@ class FugoController extends Controller
 												<li>2 pints ricotta cheese.</li>
 												<li>salt and ground black pepper to taste.</li>
 											</ul>',
-						'media'			=> 'Lasagna.jpg',
+						'media'			=> 'lasagna.jpg',
 				        'author_id' 	=> Auth::user()->id,
 				        'video_recipe'	=> 0,
 				        'videolink'	=> '',
