@@ -1,8 +1,8 @@
-<form class="folderfav" method="get" action="{{ action('RecipeController@edit', array($id) ) }}">
+<!--<form class="folderfav" method="get" action="{{ action('RecipeController@edit', array($id) ) }}">
   
   <button type="submit"> <img src="http://image005.flaticon.com/1/png/512/16/16294.png" width="auto" height="20"/>Edit</button>
 
-</form>
+</form>-->
 
 <form class="folderfav" method="post" action="{{ action('RecipeController@update' , array($id) ) }}">
                     

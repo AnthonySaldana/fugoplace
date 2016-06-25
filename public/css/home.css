@@ -7,6 +7,11 @@ Licensed under the MIT license - http://opensource.org/licenses/MIT
 Copyright (c) 2015 Daniel Eden
 */
 
+
+.icon .fa{
+  line-height: 2;
+}
+
 .animated {
   -webkit-animation-duration: 2s;
   animation-duration: 2s;
@@ -3434,7 +3439,7 @@ body {
   color: #444;
   font-size: 14px;
   font-weight: 300;
-  font-family: Roboto, 'Open Sans', Arial, sans-serif;
+  font-family: sans-serif, Arial;
   overflow: hidden;
 }
 
@@ -3495,13 +3500,13 @@ span.two {
     border: 2px solid #ff9900;
     margin: 0px;
     font-size:45px;
-    font-family:Helvetica;
+    font-family: sans-serif, Helvetica;
     position: relative;
     right: 170%;
 }
 u {
     font-size:45px;
-    font-family:Helvetica;
+    font-family: sans-serif, Helvetica;
     position: relative;
     right: 170%;
 }
@@ -3539,17 +3544,28 @@ ul.nav li a {
   Slider
 */
 
-.section .slider,
+.section.homeheader{
+background-image: url('https://ferrebeekeeper.files.wordpress.com/2012/11/cornucopia-fruit.jpg');
+    background-size: cover;
+    background-position: 0 50%;
+
+}
+
+.section .slider{
+  background: rgba(0,0,0,.3);
+      
+}
+
 .section .footer {
   background: #333;
-}
+  }
 
 .slidercontent {
   text-align: center;
 }
 
 .hero {
-  font-family: 'Roboto Slab', sans-serif;
+  font-family: sans-serif, 'Roboto Slab';
   color: white;
   font-weight: normal;
   letter-spacing: 1px;
@@ -3628,7 +3644,7 @@ h1.hero:after {
 .col .feature {
   font-size: 21px;
   font-weight: 300;
-  font-family: 'Roboto Slab', sans-serif;
+  font-family: sans-serif , 'Roboto Slab';
 }
 
 .col .service:after {
@@ -3743,7 +3759,7 @@ h1.hero:after {
 }
 
 h2 {
-  font-family: 'Roboto Slab', sans-serif;
+  font-family: sans-serif, 'Roboto Slab';
   text-align: center;
   font-weight: 400;
   font-size: 18px;
@@ -3790,7 +3806,7 @@ h2 {
   .col.four {
     width: 48%;
     margin: 1%;
-    font-family: arial, 
+    font-family: sans-serif, arial, 
   }
   .col.three {
     display: block;
@@ -3884,7 +3900,7 @@ text-align: center;
   text-align: center;
   font-weight: 600;
   transition: all 0.3s ease;
-  font-family: 'Raleway', sans-serif;
+  font-family: sans-serif, 'Raleway';
   text-decoration: none;
 }
 
@@ -5700,7 +5716,7 @@ text-align: center;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: sans-serif , 'Roboto';
 }
 .accordion {
     margin: auto;
@@ -5783,7 +5799,7 @@ font-size: 20px;
 .mealtitle {
 position: relative;
 right: 125px;
-font-family: Futura;
+font-family: sans-serif, Futura;
 }
 .mealtitle1 {
 position: relative;

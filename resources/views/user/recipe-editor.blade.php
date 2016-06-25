@@ -84,8 +84,6 @@ textarea {
 
   height: 94%;
 
-  background: transparent;
-
   line-height: 20px;
 
 }
@@ -110,11 +108,18 @@ top: -75px;
 left: 220px;
 }
 
+.nicEdit-main {
+        background-color: white !important;
+}
+
   </style>
   <body>
   @include('user.includes.userheader')
 	<section class="paper">
   @include('common.errors')
+  <script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
+<script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
+            
 	<script>
 function myFunction() {
     return confirm("Trash composed recipe?");

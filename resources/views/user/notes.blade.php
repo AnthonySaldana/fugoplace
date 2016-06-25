@@ -30,13 +30,26 @@ section h3{
   padding:0;
 }
 
+ul#list{
+
+  list-style: none;
+  padding-left: 0;
+  text-decoration: none;
+
+}
+
 #list li{
-  line-height:35px;
+  line-height:25px;
   position:relative;
   left:0px;
   border-top:1px solid #CCC;
   transition:background-color 0.5s;
   padding-left:15px;
+  text-decoration: none;
+}
+
+ul#list li a{
+  text-decoration: none;
 }
 #list li:last-child{border-bottom:1px solid #CCC;}
 #list li.checked{
@@ -67,18 +80,21 @@ section h3{
   <h3>Note/Task</h3>
 <form action="{{ action('NotesController@create' ) }}" method="get">
    <input type="submit" id="btnAddItem" onclick="btnAddItem_onclick()" value=" + Add Item">
-  <ol id="list">
+  <ul id="list">
       <?php 
         foreach( $Notes as $note ){
               $id = $note['id'];
-              $title = $note['title'];?>
-            <li><a href="{{ action('NotesController@edit', array( $id ) ) }}"> <?php echo $title; ?> </a></li>  
+              $title = $note['title'];
+              $content = $note['content'];
+              $strlimit = 100;
+              ?>
+            <li><a href="{{ action('NotesController@edit', array( $id ) ) }}"> {!! str_limit( strip_tags( $content) ,$strlimit, $end = '...' ) !!}</a></li>  
               <?php 
         }
       ?>
     <!--<li><a href="{{ action('NotesController@edit', array( 0 ) ) }}">to do list..</a></li>
     <li><a href="{{ action('NotesController@edit', array( 1 ) ) }}">call bill,..</a></li>-->
-  </ol>
+  </ul>
      
 
      

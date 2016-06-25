@@ -68,10 +68,12 @@
 	.minimal-cell th, .minimal-cell td{
 		border:none;
 	}
+
 	</style>
 
   </head>
   <body>
+						
 
 	<script>
 		

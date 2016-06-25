@@ -109,7 +109,7 @@ textarea {
 
   margin: 0 auto;
 
-  padding: 3.8% 3%;
+  padding-top:20px;
 
   border: none;
 
@@ -165,7 +165,8 @@ right: -433px;
 	<form class="three" method="get" action="#"><button class="two" type="submit">Edit</button></form>
 	<form class="four" method="get" action="#"><button class="two" type="submit" onclick="myFunction()">Discard</button></form>
  </article>-->
-  
+  <script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
+<script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
  <script>
 function myFunction() {
     confirm("Trash this note?");
@@ -182,7 +183,7 @@ function myFunction() {
     <br/>
 
     <label for="content">Make a note</label>
-    <textarea name="content" placeholder="Enter your note here" style="min-height:300px;"><?php if(isset( $note )){ echo $note[0]['content']; } ?></textarea>
+    <textarea name="content" placeholder="Enter your note here" style="min-height:800px;"><?php if(isset( $note )){ echo $note[0]['content']; } ?></textarea>
     <?php if(isset( $note )){ ?>
         <input type="hidden" name="noteid" value="<?php echo $note[0]['id']; ?>" />
     <?php } ?>

@@ -77,11 +77,6 @@ u {
     
   </tr>
   <tr>
-    <td><a href="{{ action('RecipeController@index') }}"  ><button class="button button1">Recipes</button></a></td>
-    <td><a href="{{ action('RecipeController@index') }}"  ><img src="http://i.istockimg.com/file_thumbview_approve/81553369/5/stock-illustration-81553369-notebook-notepad-flat-style.jpg" HEIGHT="100" WIDTH="110" BORDER="0"/></a></td>    
-    
-  </tr>
-  <tr>
     <td><a href="{{ action('VideoController@index') }}"><button class="button button1">Video Recipe</button></a></td>
     <td><a href="{{ action('VideoController@index') }}"><img src="http://www.glaucoma.co.il/wp-content/uploads/video-icon-green.jpg" HEIGHT="80" WIDTH="100" BORDER="0"/></a></td>		
     
@@ -89,6 +84,11 @@ u {
   <tr>
     <td><a href="{{ action('FolderController@index') }}"  ><button class="button button1">Folder Favorites</button></a></td>
     <td><a href="{{ action('FolderController@index') }}"  ><img src="http://thumbs.dreamstime.com/m/yellow-folder-red-heart-28433241.jpg" HEIGHT="80" WIDTH="100" BORDER="0"/></a></td>		
+    
+  </tr>
+    <tr>
+    <td><a href="{{ action('RecipeController@index') }}"  ><button class="button button1">All Recipes</button></a></td>
+    <td><a href="{{ action('RecipeController@index') }}"  ><img src="http://icookbook.com/images/icons/CookbookIcon.png" HEIGHT="100" WIDTH="110" BORDER="0"/></a></td>    
     
   </tr>
   <tr>
