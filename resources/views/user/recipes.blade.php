@@ -2,85 +2,9 @@
 <html>
   <head>
     <title>FugoPlace</title>
-      <style>
-            h2.one {
-  Font-family: Helvetica; text-align: left; 
-  }
-  .button {
-    
-  height: 180px;
-  width: 800px;
-    background-color: #f2f2f2;
-  font-family: sans-serif;
-    color: black;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 18px;
-    margin: 4px 2px;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
-}
-.two {
-float: right;
-}
-.comp {
-position: relative;
-left: 410px;
-}
-  div {
-padding: 20px;
-}
-.div1 {
-padding: 5px;
-}
-
-.btn{
-      align-items: flex-start;
-    text-align: center;
-    cursor: default;
-    color: buttontext;
-    border-image-source: initial;
-    border-image-slice: initial;
-    border-image-width: initial;
-    border-image-outset: initial;
-    border-image-repeat: initial;
-    background-color: buttonface;
-    box-sizing: border-box;
-    padding: 1px 6px;
-    border-width: 2px;
-    border-style: outset;
-    border-color: buttonface;
-}
-
-.btn.two{
-  top:20px;
-  text-decoration: none;
-}
-
-.folderfav{
-  display: inline-block;
-  float: right;
-  margin-right: 5px;
-}
-
-.folderfav button{
-  min-height: 30px;
-}
-.fav{
-  background-color: orange; 
-
-}
-
-.unfav{
-  background-color: red;
-  color:white;
-}
-
-
-      </style>
+    <link rel="stylesheet" href="{{ URL::asset('css/user.css') }}">
   </head>
-  <body>
+  <body id="recipes">
     @include('user.includes.userheader')
     <?php 
       if( isset( $id ) ){

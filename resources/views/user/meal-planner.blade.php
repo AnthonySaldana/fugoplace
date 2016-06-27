@@ -5,11 +5,11 @@
 
 <link rel="stylesheet" href="{{ URL::asset('css/user.css') }}">
   </head>
-  <body>
+  <body id="meal-planner">
 
   @include('user.includes.userheader')
   	<?php if( isset( $user_id )){
-  		echo "Showing form belonging to: ".  $user_id;
+  		//echo "Showing form belonging to: ".  $user_id;
   	} ?>
 
     <br />

@@ -6,17 +6,8 @@
 </head>
   <body>
   
-<link type="text/css" rel="stylesheet" href="font-awesome-4.3.0/css/font-awesome.css" />
-<link type="text/css" rel="stylesheet" href="font-awesome-4.3.0/css/font-awesome.min.css" />    
-    
-<link type="text/css" rel="stylesheet" href="css-home.css" />
-<link type="text/css" rel="stylesheet" href="2.css" />
-<link type="text/css" rel="stylesheet" href="js-home.js" />
-<link type="text/css" rel="stylesheet" href="2.js" />
-<link type="text/css" rel="stylesheet" href="animate.css" />
 <link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css'> 
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script src="animate-js.js"></script>
     
 
     
@@ -37,7 +28,7 @@
     </div>-->
     
 </div>
-<div class="section">
+<div class="section homeheader">
   <div class="slider">
     <div class="container slidercontent">
       <div class="animated flash obiecteslider"></div> 

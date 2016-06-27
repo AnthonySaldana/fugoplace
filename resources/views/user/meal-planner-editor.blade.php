@@ -6,73 +6,12 @@
 
 <link rel="stylesheet" href="{{ URL::asset('css/user.css') }}">
 	<style type="text/css">
-	body{
-		display: block;
-	}
-	input{
-		margin:15px;
-	}
-
-	.container{
-		padding:15px;
-	}
-
-	.meal-table-container{
-		width: 100%;
-	}
-
-	.meal-edit-table{
-		margin-top:15px;
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	.meal-edit-table tbody{
-		margin-top:15px;
-	}
-
-	.meal-edit-table tr{
-		width: 100%;
-	}
-
-	tr:nth-child(even) {background-color: white}
-
-	th, td{
-		border-bottom: 1px solid #ddd;
-	}
-
-	th{
-		background-color: #00BCD4;
-		color:white;
-		padding:15px;
-	}
-
-	.meal-edit-table tr td{
-		padding:15px;
-		min-width: 50px;
-	}
-
-	.seperator{
-		margin:15px;
-	}
-
-	.submit-btn{
-		padding:15px;
-	}
-
-	.delete-btn{
-		color:red;
-		text-decoration: none;
-	}
-
-	.minimal-cell th, .minimal-cell td{
-		border:none;
-	}
+	
 
 	</style>
 
   </head>
-  <body>
+  <body id="meal-editor">
 						
 
 	<script>

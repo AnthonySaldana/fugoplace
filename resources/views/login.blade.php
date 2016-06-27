@@ -407,7 +407,7 @@ html, body {
 
   {{ csrf_field() }}
   </form>
-  <h6><span class="two">Fugo</span>&nbsp;&nbsp;<u>Place</u><br /><span></h6>
+  <h1><a href="/" style="text-decoration:none; color:black;"><span class="two">Fugo</span>&nbsp;<u>Place</u><br /></a></h1>
   
 </div>
 <br />
@@ -428,7 +428,7 @@ html, body {
 
 <br />
 
-<img class="img2" src="http://www.iconsdb.com/icons/preview/black/mobile-phone-8-xxl.png" HEIGHT="60" WIDTH="60"/><p class="aspect">Aspect receptive</p>
+<img class="img2" src="{{ URL::asset('siteimages/mobile-phone-8-xxl.png') }}" HEIGHT="60" WIDTH="60"/><p class="aspect">Aspect receptive</p>
 
     </td>
 

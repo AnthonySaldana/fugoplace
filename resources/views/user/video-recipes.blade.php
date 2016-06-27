@@ -2,63 +2,9 @@
 <html>
   <head>
     <title>FugoPlace</title>
-	<style>
-	h2.one {
-	Font-family: Helvetica; text-align: left;
-	}
-	.button {
-    
-	height: 180px;
-	width: 800px;
-    background-color: #f2f2f2;
-	font-family: sans-serif;
-    color: black;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 18px;
-    margin: 4px 2px;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
-}
-.two {
-position: relative;
-top: -20px;
-left: 320px;
-}
-div {
-padding: 20px;
-}
-.div1 {
-padding: 15px;
-}
-.comp {
-    position: relative;
-    left: 410px;
-}
-.folderfav{
-  display: inline-block;
-  float: right;
-  margin-right: 5px;
-}
-
-.folderfav button{
-  min-height: 30px;
-}
-.fav{
-  background-color: orange; 
-
-}
-
-.unfav{
-  background-color: red;
-  color:white;
-}
-
-
-	</style>
+  <link rel="stylesheet" href="{{ URL::asset('css/user.css') }}">
   </head>
-  <body>
+  <body id="video-recipes">
   @include('user.includes.userheader')
   <div></div>
   <!--<form class="comp" method="get" action="/user/recipes/create"><button type="submit" class="comp"><img src="http://image005.flaticon.com/1/png/512/16/16294.png"width="35" height="30"/>Compose a Recipe</button></form>-->          

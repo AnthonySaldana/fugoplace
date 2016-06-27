@@ -2,40 +2,9 @@
 <html>
   <head>
     <title>FugoPlace</title>
-	<style>
-	.two {
-position: relative;
-top: -8px;
-left: 380px;
-}
-	.three {
-position: relative;
-top: -30px;
-left: 450px;
-}
-	.four {
-position: relative;
-top: -52px;
-left: 527px;
-}
-    .img {
-	float:right;
-	}
-  .left{
-    float:left;
-  }
-
-  .right{
-    float:right;
-  }
-
-  .right .btn, .right form{
-    vertical-align: top;
-  }
-	
-  </style>
+    <link rel="stylesheet" href="{{ URL::asset('css/user.css') }}">
   </head>
-  <body>
+  <body id="meal">
     @include('user.includes.userheader')
     <script>
 		function myFunction() {
