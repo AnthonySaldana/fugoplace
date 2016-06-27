@@ -5832,6 +5832,11 @@ left: 20px;
 padding: 7px;
 }
 
+.red-action{
+  font-size: 1.5em;
+  color:red;
+}
+
 /*
  *  Font Awesome 4.3.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)

@@ -5,7 +5,7 @@
 	@include('includes.head')
   </head>
   @include('includes.head')
-  <body>
+  <body class="contact">
   @include('includes.header')
     <div></div>
 	<br />

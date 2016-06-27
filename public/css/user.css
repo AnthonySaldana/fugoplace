@@ -1,32 +1,30 @@
-
-
 body {
-    height: calc(100% - 20px);
-    width: calc(100% - 20px);
-    margin: 0;
-    padding: 10px;
-    display: flex;
-    background: #f2f2f2;
-    color: rgba(0,0,0,.87);
-    font-family: 'Roboto', sans-serif;
-}
-.accordion {
+  font-family: sans-serif; }
+
+#meal-planner {
+  height: calc(100% - 20px);
+  width: calc(100% - 20px);
+  margin: 0;
+  padding: 10px;
+  display: flex;
+  background: #f2f2f2;
+  color: rgba(0, 0, 0, 0.87);
+  font-family: sans-serif, 'Roboto'; }
+  #meal-planner .accordion {
     margin: auto;
+    margin-bottom: 15%;
     width: 400px;
     position: relative;
     top: 120px;
-    right: 70px;
-}
-.accordion input {
-    display: none;
-}
-.box {
+    right: 70px; }
+  #meal-planner .accordion input {
+    display: none; }
+  #meal-planner .box {
     position: relative;
     background: white;
     height: 94px;
-    transition: all .15s ease-in-out;
-}
-.box::before {
+    transition: all .15s ease-in-out; }
+  #meal-planner .box::before {
     content: '';
     position: absolute;
     display: block;
@@ -35,76 +33,407 @@ body {
     left: 0;
     right: 0;
     pointer-events: none;
-    box-shadow: 0 -1px 0 #e5e5e5,0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);
-}
-header.box {
+    box-shadow: 0 -1px 0 #e5e5e5, 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24); }
+  #meal-planner header.box {
     background: #00BCD4;
     z-index: 100;
     cursor: initial;
-    box-shadow: 0 -1px 0 #e5e5e5,0 0 2px -2px rgba(0,0,0,.12),0 2px 4px -4px rgba(0,0,0,.24);
-}
-header .box-title {
+    box-shadow: 0 -1px 0 #e5e5e5, 0 0 2px -2px rgba(0, 0, 0, 0.12), 0 2px 4px -4px rgba(0, 0, 0, 0.24); }
+  #meal-planner header .box-title {
     margin: 0;
     font-weight: normal;
     font-size: 35pt;
     color: white;
     cursor: initial;
-        position: relative;
-        left: 38px;
-}
-.box-title {
+    position: relative;
+    left: 38px; }
+  #meal-planner .box-title {
     width: calc(100% - 40px);
     height: 94px;
     line-height: 64px;
     padding: 0 20px;
     display: inline-block;
-    cursor: pointer;
-}
-.box-content {
+    cursor: pointer; }
+  #meal-planner .box-content {
     width: calc(100% - 40px);
     padding: 30px 20px;
     font-size: 11pt;
-    color: rgba(0,0,0,.54);
-    display: none;
-}
-.box-close {
+    color: rgba(0, 0, 0, 0.54);
+    display: none; }
+  #meal-planner .box-close {
     position: absolute;
     height: 94px;
     width: 100%;
     top: 0;
     left: 0;
     cursor: pointer;
-    display: none;
-}
-input:checked + .box {
+    display: none; }
+  #meal-planner input:checked + .box {
     height: auto;
     margin: 16px 0;
-    box-shadow: 0 0 6px rgba(0,0,0,.16),0 6px 12px rgba(0,0,0,.32);
-}
-input:checked + .box .box-title {
-    border-bottom: 1px solid rgba(0,0,0,.18);
-}
-input:checked + .box .box-content,
-input:checked + .box .box-close {
-    display: inline-block;
-}
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.16), 0 6px 12px rgba(0, 0, 0, 0.32); }
+  #meal-planner input:checked + .box .box-title {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.18); }
+  #meal-planner input:checked + .box .box-content,
+  #meal-planner input:checked + .box .box-close {
+    display: inline-block; }
+  #meal-planner .two {
+    position: relative;
+    top: 15px;
+    right: -375px; }
+  #meal-planner .three {
+    position: relative;
+    top: 15px;
+    right: -385px; }
+  #meal-planner .four {
+    position: relative;
+    top: 15px;
+    right: -395px; }
 
-.two {
-position: relative;
-top: 15px;
-right: -375px;
-}
-    .three {
-position: relative;
-top: 15px;
-right: -385px;
-}
-    .four {
-position: relative;
-top: 15px;
-right: -395px;
-}
+#dashboard span.two {
+  border-radius: 17px;
+  width: 10px;
+  padding: 10px;
+  border: 2px solid #ff9900;
+  margin: 0;
+  font-size: 50px;
+  font-family: sans-serif,Helvetica; }
+#dashboard u {
+  font-size: 50px;
+  font-family: sans-serif,Helvetica; }
+#dashboard span {
+  font-size: 20px;
+  font-family: sans-serif,Helvetica,Arial Black; }
+#dashboard .button {
+  background-color: #ffffe6;
+  height: 110px;
+  width: 200px;
+  border: none;
+  color: black;
+  padding: 40px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s;
+  /* Safari */
+  transition-duration: 0.4s; }
+#dashboard .button1 {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
 
-.userheader , .userheader li{
-    display:inline-block;
-}
+#notes {
+  background-color: #EEE; }
+  #notes section {
+    width: 200px;
+    margin: 30px auto 0 auto;
+    font-family: sans-serif, Arial;
+    color: #333;
+    background-color: #FFF;
+    padding: 5px 15px;
+    border-radius: 4px;
+    box-shadow: 0px 1px 2px #999; }
+  #notes section h3 {
+    text-align: center;
+    font-weight: 100;
+    color: #333;
+    font-family: sans-serif, arial; }
+  #notes #list ol {
+    list-style-type: none;
+    margin-left: 0;
+    padding: 0; }
+  #notes ul#list {
+    list-style: none;
+    padding-left: 0;
+    text-decoration: none; }
+  #notes #list li {
+    line-height: 25px;
+    position: relative;
+    left: 0px;
+    border-top: 1px solid #CCC;
+    transition: background-color 0.5s;
+    padding-left: 15px;
+    text-decoration: none; }
+  #notes ul#list li a {
+    text-decoration: none; }
+  #notes #list li:last-child {
+    border-bottom: 1px solid #CCC; }
+  #notes #list li.checked {
+    text-decoration: line-through;
+    background-color: #91D1FF; }
+  #notes #list li input:checked li {
+    background-color: red; }
+  #notes #list li:hover {
+    background-color: #91D1FF;
+    cursor: pointer; }
+  #notes #btnAddItem {
+    margin: 0 auto;
+    padding: o auto;
+    text-align: center;
+    width: 100%;
+    height: 35px;
+    color: #1F86ED; }
+  #notes #NewItemName {
+    height: 300px;
+    width: 300px;
+    background-color: #333;
+    display: none; }
+
+#video-recipes h2.one {
+  Font-family: sans-serif, Helvetica;
+  text-align: left; }
+#video-recipes .button {
+  height: 180px;
+  width: 800px;
+  background-color: #f2f2f2;
+  font-family: sans-serif;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s;
+  /* Safari */
+  transition-duration: 0.4s; }
+#video-recipes .two {
+  position: relative;
+  top: -20px;
+  left: 320px; }
+#video-recipes div {
+  padding: 20px; }
+#video-recipes .div1 {
+  padding: 15px; }
+#video-recipes .comp {
+  position: relative;
+  left: 410px; }
+
+#recipes h2.one, #folderfav h2.one {
+  Font-family: sans-serif, Helvetica;
+  text-align: left; }
+#recipes .button, #folderfav .button {
+  height: 180px;
+  width: 800px;
+  background-color: #f2f2f2;
+  font-family: sans-serif;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s;
+  /* Safari */
+  transition-duration: 0.4s; }
+#recipes .two, #folderfav .two {
+  float: right; }
+#recipes .comp, #folderfav .comp {
+  position: relative;
+  left: 410px; }
+#recipes div, #folderfav div {
+  padding: 20px; }
+#recipes .div1, #folderfav .div1 {
+  padding: 5px; }
+#recipes .btn, #folderfav .btn {
+  align-items: flex-start;
+  text-align: center;
+  cursor: default;
+  color: buttontext;
+  border-image-source: initial;
+  border-image-slice: initial;
+  border-image-width: initial;
+  border-image-outset: initial;
+  border-image-repeat: initial;
+  background-color: buttonface;
+  box-sizing: border-box;
+  padding: 1px 6px;
+  border-width: 2px;
+  border-style: outset;
+  border-color: buttonface; }
+#recipes .btn.two, #folderfav .btn.two {
+  top: 20px;
+  text-decoration: none; }
+
+#meal .two {
+  position: relative;
+  top: -8px;
+  left: 380px; }
+#meal .three {
+  position: relative;
+  top: -30px;
+  left: 450px; }
+#meal .four {
+  position: relative;
+  top: -52px;
+  left: 527px; }
+#meal .img {
+  float: right; }
+#meal .left {
+  float: left; }
+#meal .right {
+  float: right; }
+#meal .right .btn, #meal .right form {
+  vertical-align: top; }
+
+/**
+*   Editor Styling
+*/
+#recipe-editor, #note-editor {
+  background: -webkit-linear-gradient(top, #88c7c9 58%, #cae8eb 100%);
+  padding: 3%;
+  height: 94%; }
+  #recipe-editor .paper, #note-editor .paper {
+    font: normal 12px/1.5 sans-serif, "Lucida Grande", arial;
+    width: 50%;
+    height: 80%;
+    margin: 0 auto;
+    padding: 6px 5px 4px 42px;
+    position: relative;
+    line-height: 20px;
+    -webkit-background-size: 100% 20px;
+    -moz-background-size: 100% 20px;
+    -ms-background-size: 100% 20px;
+    -o-background-size: 100% 20px;
+    background-size: 100% 20px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    width: 816px;
+    height: 1056px; }
+  #recipe-editor textarea, #note-editor textarea {
+    display: block;
+    width: 94%;
+    margin: 0 auto;
+    padding: 3.8% 3%;
+    border: none;
+    outline: none;
+    height: 94%;
+    line-height: 20px; }
+  #recipe-editor .two, #note-editor .two {
+    position: relative;
+    top: -8px;
+    left: 380px; }
+  #recipe-editor .three, #note-editor .three {
+    position: relative;
+    top: -30px;
+    left: 450px; }
+  #recipe-editor .four, #note-editor .four {
+    position: relative;
+    top: -52px;
+    left: 527px; }
+  #recipe-editor .five, #note-editor .five {
+    position: relative;
+    top: -75px;
+    left: 220px; }
+
+#recipe-editor .nicEdit-main {
+  background-color: white !important; }
+
+#note-editor .paper {
+  font: normal 12px/1.5 "Lucida Grande", arial, sans-serif;
+  width: 50%;
+  height: 80%;
+  margin: 0 auto;
+  padding: 6px 5px 4px 42px;
+  position: relative;
+  color: #444;
+  line-height: 20px;
+  border: 1px solid #d2d2d2;
+  background: #fff;
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(#d9eaf3), color-stop(4%, #fff)) 0 4px;
+  background: -webkit-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
+  background: -moz-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
+  background: -ms-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
+  background: -o-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
+  background: linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
+  -webkit-background-size: 100% 20px;
+  -moz-background-size: 100% 20px;
+  -ms-background-size: 100% 20px;
+  -o-background-size: 100% 20px;
+  background-size: 100% 20px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+  width: 816px;
+  height: 1056px; }
+#note-editor .paper::before {
+  content: '';
+  position: absolute;
+  width: 4px;
+  top: 0;
+  left: 30px;
+  bottom: 0;
+  border: 1px solid;
+  border-color: transparent #efe4e4; }
+#note-editor textarea {
+  display: block;
+  width: 94%;
+  margin: 0 auto;
+  padding-top: 20px;
+  border: none;
+  outline: none;
+  height: 94%;
+  background: transparent;
+  line-height: 20px; }
+
+#meal-editor {
+  display: block; }
+  #meal-editor input {
+    margin: 15px; }
+  #meal-editor .container {
+    padding: 15px; }
+  #meal-editor .meal-table-container {
+    width: 100%; }
+  #meal-editor .meal-edit-table {
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto; }
+  #meal-editor .meal-edit-table tbody {
+    margin-top: 15px; }
+  #meal-editor .meal-edit-table tr {
+    width: 100%; }
+  #meal-editor tr:nth-child(even) {
+    background-color: white; }
+  #meal-editor th, #meal-editor td {
+    border-bottom: 1px solid #ddd; }
+  #meal-editor th {
+    background-color: #00BCD4;
+    color: white;
+    padding: 15px; }
+  #meal-editor .meal-edit-table tr td {
+    padding: 15px;
+    min-width: 50px; }
+  #meal-editor .seperator {
+    margin: 15px; }
+  #meal-editor .submit-btn {
+    padding: 15px; }
+  #meal-editor .delete-btn {
+    color: red;
+    text-decoration: none; }
+  #meal-editor .minimal-cell th, #meal-editor .minimal-cell td {
+    border: none; }
+
+.folderfav {
+  display: inline-block;
+  float: right;
+  margin-right: 5px; }
+
+.folderfav button {
+  min-height: 30px; }
+
+.fav {
+  background-color: orange; }
+
+.unfav {
+  background-color: red;
+  color: white; }
+
+.red-action {
+  font-size: 1.5em;
+  color: red; }
+
+/*# sourceMappingURL=user.css.map */

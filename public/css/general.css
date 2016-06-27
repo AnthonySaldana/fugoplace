@@ -1,6 +1,5 @@
-<style>
-  .one {
-  Font-family: Helvetica; text-align: center;
+.one {
+  Font-family: sans-serif, Helvetica; text-align: center;
   }
   
   .elegant-aero {
@@ -10,11 +9,11 @@
     max-width: 500px;
     background: #D2E9FF;
     padding: 20px 20px 20px 20px;
-    font: 12px Arial, Helvetica, sans-serif;
+    font: 12px sans-serif, Arial, Helvetica;
     color: #666;
 }
 .elegant-aero h1 {
-    font: 46px "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font: 46px sans-serif, "Trebuchet MS", Arial, Helvetica, sans-serif;
     padding: 10px 10px 10px 20px;
     display: block;
     background: #C0E1FF;
@@ -52,7 +51,7 @@
     outline: 0;
     -webkit-box-shadow:inset 0px 1px 6px #ECF3F5;
     box-shadow: inset 0px 1px 6px #ECF3F5;
-    font: 200 12px/25px Arial, Helvetica, sans-serif;
+    font: 200 12px/25px sans-serif, Arial, Helvetica, sans-serif;
     height: 30px;
     line-height:15px;
     margin: 2px 6px 16px 0px;
@@ -91,10 +90,13 @@ p.one {
   
     line-height: 167%;
     position: absolute;
-    /*right: 630px;*/
     width: 300px;
     padding: 20px;
     font-family:sans-serif;
+}
+
+.contact p.one{
+    right: 630px;
 }
 
 span.one {
@@ -116,11 +118,11 @@ padding: 10px;
     max-width: 500px;
     background: #D2E9FF;
     padding: 20px 20px 20px 20px;
-    font: 12px Arial, Helvetica, sans-serif;
+    font: 12px sans-serif, Arial, Helvetica, sans-serif;
     color: #666;
 }
 .elegant-aero h1 {
-    font: 46px "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font: 46px sans-serif, "Trebuchet MS", Arial, Helvetica, sans-serif;
     padding: 10px 10px 10px 20px;
     display: block;
     background: #C0E1FF;
@@ -151,5 +153,8 @@ ul.nav {
 .userheader , .userheader li{
     display:inline-block;
 }
-  /* header styling */
-    </style>
+
+.red-action{
+  font-size: 1.5em;
+  color:red;
+}
