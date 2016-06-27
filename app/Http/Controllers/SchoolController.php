@@ -10,6 +10,10 @@ use App\User;
 
 use App\Recipe;
 
+use Datetime;
+use DateInterval;
+use DatetimeZone;
+
 use DB;
 
 class SchoolController extends Controller
@@ -40,7 +44,14 @@ class SchoolController extends Controller
         *   We left join our recipes table to our meal planner, giving us access to each meal and recipe details for each meal.
         *   We then first order the data by date, followed by another ordering by meal type. We made our meal types alphabetical.
         */
-        $meals = DB::table('meal_planner')->leftjoin('recipes', 'meal_planner.recipe_id', '=' , 'recipes.id')->where('meal_planner.user_id', $user_id )->whereDate('date', '>=' , date('Y-m-d') )->orderBy('date','asc')->orderBy('meal','asc')->take(20)->get();
+        $now = new DateTime;
+        $today = new DateTime;
+        $today->setTimeZone( new DateTimeZone('America/Los_Angeles') );
+        $interval = new DateInterval('P1W');
+
+        $next_week = $now->add( $interval )->format('Y-m-d');
+
+        $meals = DB::table('meal_planner')->leftjoin('recipes', 'meal_planner.recipe_id', '=' , 'recipes.id')->where('meal_planner.user_id', $user_id )->whereDate('date', '<=' , $next_week )->orderBy('date','asc')->orderBy('meal','asc')->get();
 
         $templevel = 0;
 
@@ -64,7 +75,8 @@ class SchoolController extends Controller
         return view('school', [
             'meals'   => $newgroup,
             'user'	  => $user[0],
-            'videorecipes' => $videorecipes
+            'videorecipes' => $videorecipes,
+            'today'   => $now
         ]);
     }
 
