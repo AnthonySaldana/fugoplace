@@ -264,11 +264,18 @@ class FugoController extends Controller
 
 					foreach ($recipes as $recipe) {
 
+						if( !empty( $recipe['videolink'] ) ){
+							$meal_media = 'V';
+						}else{
+							$meal_media = 'I';
+						}
+
 							$meal_data[] = array(
 
 									'user_id'     	=> Auth::user()->id,
 					        		'date'    		=> $meal_date[ $day ],
 									'meal'			=> $meals[ rand(0,2) ],
+									'mealmedia'		=> $meal_media,
 					        		'recipe_id' 	=> $recipe['id'],
 					        		'created_at'	=>date('Y-m-d H:i:s')
 								

@@ -42,7 +42,7 @@ Route::get('/school/{all}', 'SchoolController@showSchool');
 
 Route::get('/recipe/{id}', 'SchoolController@showRecipe');
 
-
+Route::get('/meal/{id}', 'PublicMealController@show');
 /**
 *	LOGIN / REGISTRATION ROUTE HANDLING
 */

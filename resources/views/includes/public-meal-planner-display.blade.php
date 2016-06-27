@@ -85,6 +85,8 @@
 
 			<?php
 
+			$day_limiter = 0;
+
 			foreach( $meals as $date => $mealdate ){
 				/**
 				*   Day Calculator and icon link maker
@@ -93,7 +95,7 @@
 
 				$day = date('l', $timestamp); 
 
-				if( $day == $weekday ){
+				if( $day == $weekday && 0 == $day_limiter ){
 					
 					?>
 					{{ $date }} </label>
@@ -203,7 +205,7 @@
 									$meal_id = $meal->meal_id;
 									?>
 
-										<li><a href="/recipe/{{ $meal->recipe_id }}"> <?php echo $recipe_name; ?></a></li>
+										<li><a href="/meal/{{ $meal->meal_id }}"> <?php echo $recipe_name; ?></a></li>
 
 									<?php
 									//echo "<pre>";print_r( $meal );echo "</pre>";
@@ -224,6 +226,8 @@
 					<?php
 
 					$date_counter++;
+
+					$day_limiter++;
 				}
 			} //end main foreach
 

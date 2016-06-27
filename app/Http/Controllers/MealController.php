@@ -179,6 +179,16 @@ class MealController extends Controller
             }
 
             /**
+            * Simple check on our media type radio buttons
+            */
+
+            if( 'I' == $request->meal_media || 'V' == $request->meal_media ){
+
+                $meal_object->mealmedia = $request->meal_media;
+            
+            }
+
+            /**
             *   Assign our properties to our model
             */
 

@@ -56,46 +56,60 @@
 		<form method="post" action="{{ url('/user/meal-planner') }}" >
 
 			<table style="width:100%" >
-			    <thead>
-				  <tr class="minimal-cell">
-				    <td><label for="meal_date">Date: </label>
-			    <input type="date" name="meal_date" ></td>
+				<tr class="minimal-cell">
+					<td>
+						<label for="meal_date">Date: </label>
+						<input type="date" name="meal_date" >
+					</td>
 
-				    <td><label for="recipe_select">Recipe</label>
-			    <select name="recipe_select" >
+					<td>
+						<label for="recipe_select">Recipe</label>
+						<select name="recipe_select" >
 
-			    	<option disabled selected value> -- select an option -- </option>
-			    	<?php 
-			    		if( isset( $recipes ) ){
-			    			
-			    			foreach( $recipes as $recipe ){
+						<option disabled selected value> -- select an option -- </option>
+						<?php 
+						if( isset( $recipes ) ){
 
-			    				$recipe_id = $recipe->id;
+						foreach( $recipes as $recipe ){
 
-			    				$recipe_name = $recipe->title;
+						$recipe_id = $recipe->id;
 
-			    				?>
+						$recipe_name = $recipe->title;
 
-			    					<option value="{{ $recipe_id }}" > {{ $recipe_name }} - {{ $recipe_id }} </option>
-			    				
-			    				<?php
+						?>
 
-			    			}
-			    		
-			    		}
-			    	 ?>
-	
-			    </select></td> 
-				    <td><label for="meal" >Meal: </label>
-			    <select name="meal"> 
-			    	<option disabled selected value> -- select an option -- </option>
-			    	<option Value="B" > Breakfast </option>
-			    	<option value="BR" > Snack/Break </option>
-			    	<option value="L" > Lunch </option>
-			    </select></td>
-				    <td><button type="submit" name="send" class="submit-btn">Save</button></td>
-				  </tr>
-				</thead>
+						<option value="{{ $recipe_id }}" > {{ $recipe_name }} - {{ $recipe_id }} </option>
+
+						<?php
+
+						}
+
+						}
+						?>
+
+						</select>
+					</td> 
+					<td>
+						<label for="meal" >Meal: </label>
+						<select name="meal"> 
+						<option disabled selected value> -- select an option -- </option>
+						<option Value="B" > Breakfast </option>
+						<option value="BR" > Snack/Break </option>
+						<option value="L" > Lunch </option>
+						</select>
+					</td>
+					<td>
+						<button type="submit" name="send" class="submit-btn">Save</button>
+					</td>
+				</tr>
+
+				<tr>
+					<td colspan="4">
+						<small>Chose preferred media type: </small>
+						<input type="radio" name="meal_media" value="I" checked> Image
+	  					<input type="radio" name="meal_media" value="V"> Video
+	  				</td>
+				</tr>
 
 			</table>
 
@@ -110,8 +124,10 @@
 		    <table style="width:100%" class="meal-edit-table">
 			    <thead>
 				  <tr>
+				  	<th>ID: </th>
 				    <th>Date</th>
 				    <th>Meal</th> 
+				    <th>Media Type</th>
 				    <th>Recipe</th>
 				    <th>Delete?</th>
 				  </tr>
@@ -132,6 +148,16 @@
 							$recipe_name = $meal->title;
 
 							$meal_id = $meal->meal_id;
+
+							if( $meal->mealmedia == "V" ){
+
+								$mediatype = "Video";
+
+							}else if( $meal->mealmedia == "I" ){
+								$mediatype = "Image";
+							}else{
+								$mediatype = "";
+							}
 
 							switch ($meal_type) {
 								case 'B':
@@ -159,9 +185,11 @@
 
 							?>
 								<tr>
+									<td><a href="/meal/{{ $meal->meal_id }}"> {{ $meal->meal_id }} </a></td>
 								    <td>{{ $date }}</td>
 								    <td>{{ $meal_category }}</td> 
-								    <td>{{ $recipe_name }} - {{ $meal->recipe_id }}</td>
+								    <td>{{ $mediatype }}</td>
+								    <td><a href="/user/recipes/{{ $meal->recipe_id }}/edit">{{ $recipe_name }} - {{ $meal->recipe_id }}</a></td>
 								    <td>
 									    <form action="{{ action('MealController@destroy', array($meal_id) ) }}" method="post">
 											<input type="hidden" name="id" value="{{ $meal_id }}" />

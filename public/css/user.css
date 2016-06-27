@@ -281,9 +281,11 @@ body {
 #meal .img {
   float: right; }
 #meal .left {
-  float: left; }
+  float: left;
+  width: 40%; }
 #meal .right {
-  float: right; }
+  float: right;
+  width: 50%; }
 #meal .right .btn, #meal .right form {
   vertical-align: top; }
 
