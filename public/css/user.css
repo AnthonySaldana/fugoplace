@@ -11,12 +11,12 @@ body {
   color: rgba(0, 0, 0, 0.87);
   font-family: sans-serif, 'Roboto'; }
   #meal-planner .accordion {
-    margin: auto;
     margin-bottom: 15%;
     width: 400px;
-    position: relative;
+    /*position: relative;
     top: 120px;
-    right: 70px; }
+    right: 70px;*/
+    float: right; }
   #meal-planner .accordion input {
     display: none; }
   #meal-planner .box {
@@ -78,9 +78,20 @@ body {
   #meal-planner input:checked + .box .box-close {
     display: inline-block; }
   #meal-planner .two {
-    position: relative;
+    /*position: relative;
     top: 15px;
-    right: -375px; }
+    right: -375px;*/
+    text-align: right;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    font-size: 18px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s; }
+  #meal-planner .meal-planner-container {
+    float: right;
+    width: 50%; }
   #meal-planner .three {
     position: relative;
     top: 15px;
@@ -310,10 +321,6 @@ body {
     outline: none;
     height: 94%;
     line-height: 20px; }
-  #recipe-editor .two, #note-editor .two {
-    position: relative;
-    top: -8px;
-    left: 380px; }
   #recipe-editor .three, #note-editor .three {
     position: relative;
     top: -30px;
@@ -327,9 +334,15 @@ body {
     top: -75px;
     left: 220px; }
 
+#recipe-editor .two {
+  position: relative;
+  top: -8px;
+  left: 380px; }
 #recipe-editor .nicEdit-main {
   background-color: white !important; }
 
+#note-editor .two {
+  float: right; }
 #note-editor .paper {
   font: normal 12px/1.5 "Lucida Grande", arial, sans-serif;
   width: 50%;
@@ -367,7 +380,7 @@ body {
   top: 0;
   left: 30px;
   bottom: 0;
-  border: 1px solid;
+  border: 2px solid;
   border-color: transparent #efe4e4; }
 #note-editor textarea {
   display: block;

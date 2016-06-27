@@ -13,11 +13,12 @@
   	} ?>
 
     <br />
-	<form class="two" method="get" action="{{ url('user/meal-planner/'.$user_id.'/edit') }}"><button class="two" type="submit">Edit</button></form>
-	<!--<form class="three" method="get" action="#"><button class="two" type="submit">Upload</button></form>
-	<form class="four" method="get" action="#"><button class="two" type="submit">Clear</button></form>-->
+    <div class="meal-planner-container">
+    	<form class="two" method="get" action="{{ url('user/meal-planner/'.$user_id.'/edit') }}"><button class="two" type="submit">Edit</button></form>
+    	<!--<form class="three" method="get" action="#"><button class="two" type="submit">Upload</button></form>
+    	<form class="four" method="get" action="#"><button class="two" type="submit">Clear</button></form>-->
 
-	@include('includes.meal-planner-display')
-
+    	@include('includes.meal-planner-display')
+    </div>
   </body>
 </html>
