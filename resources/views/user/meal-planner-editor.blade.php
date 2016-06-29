@@ -90,7 +90,6 @@
 						</select>
 					</td> 
 					<td>
-						{{ Session::get('mealtype') }}
 						<label for="meal" >Meal: </label>
 						<select name="meal"> 
 						<option disabled <?php if( true != Session::has('mealtype') ){echo "selected";} ?> value> -- select an option -- </option>
