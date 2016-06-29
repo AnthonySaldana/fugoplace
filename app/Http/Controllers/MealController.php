@@ -202,6 +202,12 @@ class MealController extends Controller
 
             $meal_object->save(); //save it :)
 
+            $request->session()->forget('mealdate');
+            $request->session()->put('mealdate', $request->meal_date);
+
+            $request->session()->forget('mealtype');
+            $request->session()->put('mealtype', $meal);
+
             $request->session()->flash('alert-success', 'Meal was created successfully!');
 
             return redirect('user/meal-planner/'. $user_id .'/edit');

@@ -59,7 +59,7 @@
 				<tr class="minimal-cell">
 					<td>
 						<label for="meal_date">Date: </label>
-						<input type="date" name="meal_date" >
+						<input type="date" name="meal_date" value="{{ Session::get('mealdate') }}">
 					</td>
 
 					<td>
@@ -90,12 +90,13 @@
 						</select>
 					</td> 
 					<td>
+						{{ Session::get('mealtype') }}
 						<label for="meal" >Meal: </label>
 						<select name="meal"> 
-						<option disabled selected value> -- select an option -- </option>
-						<option Value="B" > Breakfast </option>
-						<option value="BR" > Snack/Break </option>
-						<option value="L" > Lunch </option>
+						<option disabled <?php if( true != Session::has('mealtype') ){echo "selected";} ?> value> -- select an option -- </option>
+						<option Value="B" <?php if( "B" == Session::get('mealtype') ){echo "selected";} ?> > Breakfast </option>
+						<option value="BR" <?php if( "BR" == Session::get('mealtype') ){echo "selected";} ?> > Snack/Break </option>
+						<option value="L" <?php if( "L" == Session::get('mealtype') ){echo "selected";} ?> > Lunch </option>
 						</select>
 					</td>
 					<td>
