@@ -314,6 +314,12 @@ body {
     border-radius: 3px;
     width: 816px;
     height: 1056px; }
+  #recipe-editor .head, #note-editor .head {
+    background-color: #FFF;
+    min-height: 124px;
+    margin-left: -42px;
+    margin-right: -5px;
+    margin-top: -4px; }
   #recipe-editor textarea, #note-editor textarea {
     display: block;
     width: 94%;
@@ -343,6 +349,8 @@ body {
 #recipe-editor .nicEdit-main {
   background-color: white !important; }
 
+#note-editor .nicEdit-main {
+  border: none; }
 #note-editor .two {
   float: right; }
 #note-editor .paper {
@@ -386,12 +394,12 @@ body {
   border-color: transparent #efe4e4; }
 #note-editor textarea {
   display: block;
-  width: 94%;
+  width: 95.5%;
   margin: 0 auto;
   padding-top: 20px;
   border: none;
   outline: none;
-  height: 94%;
+  height: 100%;
   background: transparent;
   line-height: 20px; }
 
