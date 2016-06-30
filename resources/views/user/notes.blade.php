@@ -23,7 +23,7 @@
               $content = $note['content'];
               $strlimit = 100;
               ?>
-            <li><a href="{{ action('NotesController@edit', array( $id ) ) }}"> {!! str_limit( strip_tags( $content) ,$strlimit, $end = '...' ) !!}</a></li>  
+            <li><a href="{{ action('NotesController@edit', array( $id ) ) }}"> {!! str_limit( strip_tags( $title) ,$strlimit, $end = '...' ) !!}</a></li>  
               <?php 
         }
       ?>
