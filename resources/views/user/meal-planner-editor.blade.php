@@ -6,8 +6,13 @@
 
 <link rel="stylesheet" href="{{ URL::asset('css/user.css') }}">
 	<style type="text/css">
-	
+	.alert-success{
+		color:#66ff33;
+	}
 
+	.alert-danger li{
+		color:red;
+	}
 	</style>
 
   </head>

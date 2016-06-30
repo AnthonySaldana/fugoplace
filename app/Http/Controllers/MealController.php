@@ -138,7 +138,12 @@ class MealController extends Controller
             // if the validator fails, redirect back to the form
             if ($validator->fails()) {
 
-                return view('user.meal-planner-editor')->withErrors($validator)->withInput( $request ); // send back the input (not the password) so that we can repopulate the form
+                $user_id = Auth::user()->id;
+                $recipes = Recipe::where('author_id',$user_id)->get();
+                $meals = DB::table('meal_planner')->leftjoin('recipes', 'meal_planner.recipe_id', '=' , 'recipes.id')->where('meal_planner.user_id', $user_id )->orderBy('date','asc')->orderBy('meal','asc')->get();
+
+
+                return view('user.meal-planner-editor',['meals' => $meals, 'recipes' => $recipes, 'user_id' => $user_id ])->withErrors($validator)->withInput( $request ); // send back the input (not the password) so that we can repopulate the form
             
             }
 
