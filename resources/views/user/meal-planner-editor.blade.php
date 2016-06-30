@@ -36,11 +36,6 @@
 	</script>
 
   @include('user.includes.userheader')
-  	<?php
-  	 	if( isset( $user_id )){
-  			echo "Showing form belonging to: ".  $user_id;
-  		} 
-  	?>
 
   	<div class="container">
   		 @include('common.errors')
