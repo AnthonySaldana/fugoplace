@@ -1,7 +1,13 @@
 <html>
 <head>
 <title>FugoPlace</title>
+<style>
+  .box-content ul li{
+    list-style: none;
+    padding-left:0;
+  }
 
+</style>
 <link rel="stylesheet" href="{{ URL::asset('css/home.css') }}">
 <link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'> 
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
@@ -85,7 +91,7 @@
 
 
 <div class="section bg">
-  <div class="container">
+  <div class="container" style="list-style:none;">
     <h1><nav class="accordion">
         <header class="box">
             <label for="acc-close" class="box-title">Meal Planner</label>
