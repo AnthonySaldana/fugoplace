@@ -94,11 +94,11 @@
 				$timestamp = strtotime($date);
 
 				$day = date('l', $timestamp); 
-				
-				if( $day == $weekday && $day_limiter == 0){
+
+				if( $day == $weekday && 0 == $day_limiter ){
 					
 					?>
-					<span class="available">{{ $date }}</span> </label>
+					{{ $date }} </label>
 					<label class="box-close" for="acc-close"></label>
 
 					<div class="box-content">
@@ -161,9 +161,13 @@
 
 						<?php
 
-						foreach( $mealdate as $mealkey => $mealtype ){
+						$mealtype_map = array(
+							'B', 'BR', 'L'
+							);
 
-							switch ($mealkey) {
+						foreach( $mealtype_map as $mealtype_map_single ){
+
+							switch ($mealtype_map_single) {
 								case 'B':
 								$meal_category = "breakfast";
 								break;
@@ -187,6 +191,9 @@
 								break;
 							}
 
+							foreach( $mealdate as $mealkey => $mealtype ){
+							if( $mealkey == $mealtype_map_single ){
+
 							?>
 
 							<h1 style="font-family: Futura;"> {{ $meal_category }} </h1>
@@ -205,7 +212,7 @@
 									$meal_id = $meal->meal_id;
 									?>
 
-										<li><a href="/meal/{{ $meal->meal_id }}"> <?php echo $recipe_name; ?></a></li>
+										<li><a href="/meal-planner/{{ $meal->meal_id }}"> <?php echo $recipe_name; ?></a></li>
 
 									<?php
 									//echo "<pre>";print_r( $meal );echo "</pre>";
@@ -217,8 +224,17 @@
 								?>
 							</ul> <?php
 
+							}else{
+								?><h1 style="font-family: Futura;"> {{ $meal_category }} </h1>
+								  <span class="red-action">X</span> No meals found
+								<?php
+							}
+
 							
 						} //end date -> mealtype foreach
+
+						}
+
 						?>
 					</div>
 
@@ -226,21 +242,27 @@
 					<?php
 
 					$date_counter++;
+
 					$day_limiter++;
 				}
 			} //end main foreach
 
 			if( 0 == $amount_counter ){
 				$date_counter++;
-
-				$default_date = date('Y-m-d', strtotime("+".$days_counter." days"));
+				$monday = date( 'Y-m-d' , strtotime('Monday this week') ); //, strtotime("+".$days_counter." days") );
+				$default_date = date( 'Y-m-d', strtotime($monday . "+".$days_counter." days") );
 				?>
-					<span class="unavailable">{{ $default_date }}</span>
+					{{ $default_date }}
 				</label>
 				<label class="box-close" for="acc-close"></label>
 
 				<div class="box-content">
-					<span class="red-action">X</span> Nothing written for today
+					<h1 style="font-family: Futura;"> Breakfast </h1>
+				  <span class="red-action">X</span> No meals found
+				  <h1 style="font-family: Futura;"> Snack / Break </h1>
+				  <span class="red-action">X</span> No meals found
+				  <h1 style="font-family: Futura;"> Lunch </h1>
+				  <span class="red-action">X</span> No meals found
 				</div>
 				</section>
 				<?php

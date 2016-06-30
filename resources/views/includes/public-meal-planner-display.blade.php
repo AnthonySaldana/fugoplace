@@ -161,9 +161,13 @@
 
 						<?php
 
-						foreach( $mealdate as $mealkey => $mealtype ){
+						$mealtype_map = array(
+							'B', 'BR', 'L'
+							);
 
-							switch ($mealkey) {
+						foreach( $mealtype_map as $mealtype_map_single ){
+
+							switch ($mealtype_map_single) {
 								case 'B':
 								$meal_category = "breakfast";
 								break;
@@ -186,6 +190,9 @@
 
 								break;
 							}
+
+							foreach( $mealdate as $mealkey => $mealtype ){
+							if( $mealkey == $mealtype_map_single ){
 
 							?>
 
@@ -217,8 +224,17 @@
 								?>
 							</ul> <?php
 
+							}else{
+								?><h1 style="font-family: Futura;"> {{ $meal_category }} </h1>
+								  <span class="red-action">X</span> No meals found
+								<?php
+							}
+
 							
 						} //end date -> mealtype foreach
+
+						}
+
 						?>
 					</div>
 
@@ -233,15 +249,20 @@
 
 			if( 0 == $amount_counter ){
 				$date_counter++;
-
-				$default_date = date('Y-m-d', strtotime("+".$days_counter." days"));
+				$monday = date( 'Y-m-d' , strtotime('Monday this week') ); //, strtotime("+".$days_counter." days") );
+				$default_date = date( 'Y-m-d', strtotime($monday . "+".$days_counter." days") );
 				?>
 					{{ $default_date }}
 				</label>
 				<label class="box-close" for="acc-close"></label>
 
 				<div class="box-content">
-					<span class="red-action">X</span> Nothing written for today
+					<h1 style="font-family: Futura;"> Breakfast </h1>
+				  <span class="red-action">X</span> No meals found
+				  <h1 style="font-family: Futura;"> Snack / Break </h1>
+				  <span class="red-action">X</span> No meals found
+				  <h1 style="font-family: Futura;"> Lunch </h1>
+				  <span class="red-action">X</span> No meals found
 				</div>
 				</section>
 				<?php
