@@ -77,7 +77,7 @@
 <div class="section bg">
   <div class="container">
 
-  @include('includes.public-meal-planner-display')
+  @include('includes.meal-planner-display')
     
     
   <h2><div class="section">

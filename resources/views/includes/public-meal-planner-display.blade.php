@@ -190,13 +190,12 @@
 
 								break;
 							}
-
+							?><h1 style="font-family: Futura;"> {{ $meal_category }} </h1><?php
+							$mealcounter = 0;
 							foreach( $mealdate as $mealkey => $mealtype ){
 							if( $mealkey == $mealtype_map_single ){
-
 							?>
-
-							<h1 style="font-family: Futura;"> {{ $meal_category }} </h1>
+							
 							<ul>
 
 								<?php
@@ -223,15 +222,15 @@
 
 								?>
 							</ul> <?php
-
-							}else{
-								?><h1 style="font-family: Futura;"> {{ $meal_category }} </h1>
-								  <span class="red-action">X</span> No meals found
-								<?php
+							$mealcounter ++;
 							}
-
 							
 						} //end date -> mealtype foreach
+							if( 0 == $mealcounter ){
+								?>
+									  <span class="red-action">X</span> No meals found
+									<?php
+							}
 
 						}
 
