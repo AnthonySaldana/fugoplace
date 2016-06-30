@@ -291,7 +291,14 @@ class MealController extends Controller
     public function destroy($id)
     {
 
-        /**
+        if(  '*ALL*' == $id ){
+            $user_id = Auth::user()->id;
+
+            MealPlanner::where('user_id' , $user_id)->delete();
+            return redirect('user/meal-planner/');
+        }else{
+
+            /**
         *   A try catch to handle deletion errors
         */
         try
@@ -318,5 +325,16 @@ class MealController extends Controller
         }
 
         return redirect('user/meal-planner/'. $user_id .'/edit');
+
+        }
+
+        
+    }
+
+    public function destroyall($id)
+    {
+
+       print_r($id);
+
     }
 }
