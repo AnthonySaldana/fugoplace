@@ -29,7 +29,9 @@ class SchoolController extends Controller
     {
         $user = User::where('school_slug',$school)->get();
 
-
+        if( $user->isEmpty() ){
+            return redirect('/');
+        }
     	$school_name = $user[0]->school_name;
     	$school_slug = $user[0]->school_slug;
 
