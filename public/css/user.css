@@ -315,7 +315,6 @@ body {
     width: 816px;
     height: 1056px; }
   #recipe-editor .head, #note-editor .head {
-    background-color: #FFF;
     min-height: 124px;
     margin-left: -42px;
     margin-right: -5px;
@@ -349,6 +348,8 @@ body {
 #recipe-editor .nicEdit-main {
   background-color: white !important; }
 
+#note-editor .head {
+  background-color: #FFF; }
 #note-editor .nicEdit-main {
   border: none; }
 #note-editor .two {

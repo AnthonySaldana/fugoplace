@@ -29,14 +29,16 @@
 	<form class="four" method="get" action="#"><button class="two" type="submit" onclick="myFunction()">Discard</button></form>
  </article>-->
   <form method="post" action="{{ url('/user/notes') }}">
-  <article class="head">
-    <button class="two" type="submit" name="send" value="1">Save</button>
+  <article class="head" style="padding:15px;">
+    <button class="two" type="submit" name="send" value="1" style="margin-left:5px;">Save</button>
     <!--<button class="two" type="submit" name="edit" value="1">Edit</button>-->
     <button class="two" type="submit" name="delete" value="1" onclick="myFunction()">Discard</button>
   </article>
   <div style="position:absolute; top: 98px; width:100%;left: 37px;">
-    <label for="title">Enter a title</label>
-    <input type="text" name="title" value="<?php if(isset( $note )){ echo $note[0]['title']; }?>"/>
+    <div style="position: absolute; right: 38px; top: 23px; display:inline-block;">
+      <label for="title"><b>Title:</b> </label>
+      <input type="text" name="title" value="<?php if(isset( $note )){ echo $note[0]['title']; }?>"/>
+    </div>
     <br/>
     <textarea name="content" placeholder="Enter your note here" style="min-height:913px;"><?php if(isset( $note )){ echo $note[0]['content']; } ?></textarea>
   </div>
