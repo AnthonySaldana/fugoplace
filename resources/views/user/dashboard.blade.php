@@ -7,6 +7,13 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <style>
+    .nav-container tr td{
+        width:200px;
+    }
+
+    .nav-container{
+        margin-left: 15px;
+    }
       .two {
 border-radius: 17px;
 width: 10px;
@@ -31,10 +38,6 @@ font-size:80px;
 position: relative;
 bottom: -20px;
 right: -20px;
-}
-
-body{
-background:ghostwhite;
 }
 
 .container{
@@ -172,10 +175,10 @@ padding: 10px;
     @endforeach
   </div> <!-- end .flash-message -->
     
-		<table style="width:32%">
+		<table class="nav-container" style="width:32%">
     <div class="space"></div>
   <tr>
-    <td><a href="{{ action('MealController@index') }}"  ><button class="button button1">Meal Planner</button></a></td>
+    <td colspan="1"><a href="{{ action('MealController@index') }}"  ><button class="button button1">Meal Planner</button></a></td>
     <td><a href="{{ action('MealController@index') }}"  ><img src="{{ URL::asset('siteimages/stock-illustration-62639690-vector-flat-calendar-illustration.jpg') }}" HEIGHT="95" WIDTH="110" BORDER="0"/></a></td>		
     
   </tr>
