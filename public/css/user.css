@@ -113,8 +113,7 @@ body {
   font-size: 50px;
   font-family: sans-serif,Helvetica; }
 #dashboard span {
-  font-size: 20px;
-  font-family: sans-serif,Helvetica,Arial Black; }
+  font-size: 20px; }
 #dashboard .button {
   background-color: #ffffe6;
   height: 110px;
