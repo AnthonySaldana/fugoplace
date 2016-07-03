@@ -286,28 +286,30 @@ body#dashboard .button1, body #dashboard .button1 {
     top: 20px;
     text-decoration: none; }
 
-#meal .two {
-  position: relative;
-  top: -8px;
-  left: 380px; }
-#meal .three {
-  position: relative;
-  top: -30px;
-  left: 450px; }
-#meal .four {
-  position: relative;
-  top: -52px;
-  left: 527px; }
-#meal .img {
-  float: right; }
-#meal .left {
-  float: left;
-  width: 25%; }
-#meal .right {
-  float: left;
-  width: 50%; }
-#meal .right .btn, #meal .right form {
-  vertical-align: top; }
+#meal {
+  /*.two {
+      position: relative;
+      top: -8px;
+      left: 380px;
+  }*/ }
+  #meal .three {
+    position: relative;
+    top: -30px;
+    left: 450px; }
+  #meal .four {
+    position: relative;
+    top: -52px;
+    left: 527px; }
+  #meal .img {
+    float: right; }
+  #meal .left {
+    float: left;
+    width: 25%; }
+  #meal .right {
+    float: left;
+    width: 50%; }
+  #meal .right .btn, #meal .right form {
+    vertical-align: top; }
 
 /**
 *   Editor Styling
