@@ -12,6 +12,10 @@
         .delete-form, .btn.edit{
           padding-right:10px;
         }
+
+        img, video, iframe{
+          margin-top: 15px;
+        }
     </style>
   </head>
   <body id="meal">
