@@ -10,13 +10,13 @@
     </script>
     <script>
       function myFunction() {
-        confirm("Trash this note?");
+        return confirm("Trash this note?");
       }
 
       
     </script>
 
-  @include('user.includes.userheader')
+  @include('user.includes.userheader-two')
 
   <?php if( isset($note_id) ){ ?>
   <h2> Form #: <?php echo $note_id;  ?></h2>

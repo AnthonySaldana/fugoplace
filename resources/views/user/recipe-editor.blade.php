@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="{{ URL::asset('css/user.css') }}">
   </head>
   <body id="recipe-editor">
-  @include('user.includes.userheader')
+  @include('user.includes.userheader-two')
 	<section class="paper">
   @include('common.errors')
   <script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>

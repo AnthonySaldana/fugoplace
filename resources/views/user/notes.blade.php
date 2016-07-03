@@ -8,6 +8,7 @@
   </head>
   <body id="notes">
   @include('user.includes.userheader')
+  <div class="page-container">
   <?php if(isset( $user_id ) ){
       echo "Notes & Tasks for user #: " . $user_id;
     } ?>
@@ -40,5 +41,6 @@
        <input type="text" id="item" value="" />
        <input type="submit" value="Submit" id="submitNewItem" />
      </div>
+</div>
   </body>
 </html>

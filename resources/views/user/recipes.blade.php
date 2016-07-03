@@ -6,6 +6,7 @@
   </head>
   <body id="recipes">
     @include('user.includes.userheader')
+    <div class="page-container">
     <?php 
       if( isset( $id ) ){
           echo "showing favorites for id: " . $id;
@@ -136,5 +137,6 @@
   </tr>-->
   
 </table>
+</div>
   </body>
 </html>

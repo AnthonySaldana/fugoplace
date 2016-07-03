@@ -1,12 +1,19 @@
 body {
-  font-family: sans-serif; }
+  font-family: sans-serif;
+  background-color: white !important; }
+
+.page-container {
+  float: left;
+  width: 75%;
+  margin-top: 10%;
+  padding-left: 25px; }
 
 #meal-planner {
-  height: calc(100% - 20px);
+  /*height: calc(100% - 20px);
   width: calc(100% - 20px);
   margin: 0;
   padding: 10px;
-  display: flex;
+  display: flex;*/
   background: #f2f2f2;
   color: rgba(0, 0, 0, 0.87);
   font-family: sans-serif, 'Roboto'; }
@@ -16,7 +23,10 @@ body {
     /*position: relative;
     top: 120px;
     right: 70px;*/
-    float: right; }
+    /*float:right;*/ }
+    #meal-planner .accordion .box-content h1 {
+      font-size: 1.17em;
+      font-weight: bold; }
   #meal-planner .accordion input {
     display: none; }
   #meal-planner .box {
@@ -84,14 +94,16 @@ body {
     text-align: right;
     margin-bottom: 10px;
     border-radius: 3px;
-    background-color: #f2f2f2;
+    /*background-color: #f2f2f2;*/
     font-size: 18px;
     margin: 4px 2px;
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s; }
   #meal-planner .meal-planner-container {
-    float: right;
-    width: 50%; }
+    /*float: right;*/
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto; }
   #meal-planner .three {
     position: relative;
     top: 15px;
@@ -101,7 +113,7 @@ body {
     top: 15px;
     right: -395px; }
 
-#dashboard span.two {
+body#dashboard span.two, body #dashboard span.two {
   border-radius: 17px;
   width: 10px;
   padding: 10px;
@@ -109,12 +121,12 @@ body {
   margin: 0;
   font-size: 50px;
   font-family: sans-serif,Helvetica; }
-#dashboard u {
+body#dashboard u, body #dashboard u {
   font-size: 50px;
   font-family: sans-serif,Helvetica; }
-#dashboard span {
+body#dashboard span, body #dashboard span {
   font-size: 20px; }
-#dashboard .button {
+body#dashboard .button, body #dashboard .button {
   background-color: #ffffe6;
   height: 110px;
   width: 200px;
@@ -130,14 +142,16 @@ body {
   -webkit-transition-duration: 0.4s;
   /* Safari */
   transition-duration: 0.4s; }
-#dashboard .button1 {
+body#dashboard .button1, body #dashboard .button1 {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
 
 #notes {
   background-color: #EEE; }
   #notes section {
     width: 200px;
-    margin: 30px auto 0 auto;
+    /*margin:30px auto 0 auto;*/
+    margin-left: auto;
+    margin-right: auto;
     font-family: sans-serif, Arial;
     color: #333;
     background-color: #FFF;
@@ -190,80 +204,87 @@ body {
     background-color: #333;
     display: none; }
 
-#video-recipes h2.one {
-  Font-family: sans-serif, Helvetica;
-  text-align: left; }
-#video-recipes .button {
-  height: 180px;
-  width: 800px;
-  background-color: #f2f2f2;
-  font-family: sans-serif;
-  color: black;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 18px;
-  margin: 4px 2px;
-  -webkit-transition-duration: 0.4s;
-  /* Safari */
-  transition-duration: 0.4s; }
-#video-recipes .two {
+#video-recipes {
+  /*.two {
   position: relative;
   top: -20px;
-  left: 320px; }
-#video-recipes div {
-  padding: 20px; }
-#video-recipes .div1 {
-  padding: 15px; }
-#video-recipes .comp {
-  position: relative;
-  left: 410px; }
+  left: 320px;
+  }*/
+  /*div {
+  padding: 20px;
+  }*/ }
+  #video-recipes h2.one {
+    Font-family: sans-serif, Helvetica;
+    text-align: left; }
+  #video-recipes .button {
+    height: 180px;
+    width: 800px;
+    background-color: #f2f2f2;
+    font-family: sans-serif;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s;
+    /* Safari */
+    transition-duration: 0.4s; }
+  #video-recipes .div1 {
+    padding: 15px; }
+  #video-recipes .comp {
+    position: relative;
+    /*left: 410px;*/ }
 
-#recipes h2.one, #folderfav h2.one {
-  Font-family: sans-serif, Helvetica;
-  text-align: left; }
-#recipes .button, #folderfav .button {
-  height: 180px;
-  width: 800px;
-  background-color: #f2f2f2;
-  font-family: sans-serif;
-  color: black;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 18px;
-  margin: 4px 2px;
-  -webkit-transition-duration: 0.4s;
-  /* Safari */
-  transition-duration: 0.4s; }
-#recipes .two, #folderfav .two {
-  float: right; }
-#recipes .comp, #folderfav .comp {
-  position: relative;
-  left: 410px; }
-#recipes div, #folderfav div {
-  padding: 20px; }
-#recipes .div1, #folderfav .div1 {
-  padding: 5px; }
-#recipes .btn, #folderfav .btn {
-  align-items: flex-start;
-  text-align: center;
-  cursor: default;
-  color: buttontext;
-  border-image-source: initial;
-  border-image-slice: initial;
-  border-image-width: initial;
-  border-image-outset: initial;
-  border-image-repeat: initial;
-  background-color: buttonface;
-  box-sizing: border-box;
-  padding: 1px 6px;
-  border-width: 2px;
-  border-style: outset;
-  border-color: buttonface; }
-#recipes .btn.two, #folderfav .btn.two {
-  top: 20px;
-  text-decoration: none; }
+#recipes, #folderfav {
+  /*.two {
+  float: right;
+  }*/
+  /*  div {
+  padding: 20px;
+  }*/
+  /*.btn{
+        align-items: flex-start;
+      text-align: center;
+      cursor: default;
+      color: buttontext;
+      border-image-source: initial;
+      border-image-slice: initial;
+      border-image-width: initial;
+      border-image-outset: initial;
+      border-image-repeat: initial;
+      background-color: buttonface;
+      box-sizing: border-box;
+      padding: 1px 6px;
+      border-width: 2px;
+      border-style: outset;
+      border-color: buttonface;
+  }*/ }
+  #recipes h2.one, #folderfav h2.one {
+    Font-family: sans-serif, Helvetica;
+    text-align: left; }
+  #recipes .button, #folderfav .button {
+    height: 180px;
+    width: 800px;
+    background-color: #f2f2f2;
+    font-family: sans-serif;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s;
+    /* Safari */
+    transition-duration: 0.4s; }
+  #recipes .comp, #folderfav .comp {
+    position: relative;
+    /*left: 410px;*/ }
+  #recipes .div1, #folderfav .div1 {
+    padding: 5px; }
+  #recipes .btn.two, #folderfav .btn.two {
+    top: 20px;
+    text-decoration: none; }
 
 #meal .two {
   position: relative;
@@ -281,9 +302,9 @@ body {
   float: right; }
 #meal .left {
   float: left;
-  width: 40%; }
+  width: 25%; }
 #meal .right {
-  float: right;
+  float: left;
   width: 50%; }
 #meal .right .btn, #meal .right form {
   vertical-align: top; }

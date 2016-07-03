@@ -40,10 +40,9 @@
     }
 
 		function myFunction() {
-		    confirm("Trash composed recipe?");
+		    return confirm("Trash composed recipe?");
 		}
 	</script>
-	<br />
 	<?php 
     if(isset( $Recipe )){
     	$recipe = $Recipe[0]; //reassign for ease
@@ -67,7 +66,7 @@
         }
     }
         ?>
-    <div style="max-width:1000px; padding:25px;">
+    <div class="page-container">
 
   <div class="left">
       

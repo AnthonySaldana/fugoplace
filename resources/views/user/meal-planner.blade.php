@@ -8,6 +8,7 @@
   <body id="meal-planner">
 
   @include('user.includes.userheader')
+  <div class="page-container">
   	<?php if( isset( $user_id )){
   		//echo "Showing form belonging to: ".  $user_id;
   	} ?>
@@ -28,6 +29,6 @@
     	<!--<form class="three" method="get" action="#"><button class="two" type="submit">Upload</button></form>
     	<form class="four" method="get" action="#"><button class="two" type="submit">Clear</button></form>-->
     </div>
-
+      </div>
   </body>
 </html>
