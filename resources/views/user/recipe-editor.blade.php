@@ -5,24 +5,23 @@
     <link rel="stylesheet" href="{{ URL::asset('css/user.css') }}">
   </head>
   <body id="recipe-editor">
-  @include('user.includes.userheader-two')
+  @include('user.includes.userheader')
+  <div class="page-container">
 	<section class="paper">
   @include('common.errors')
   <script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
 <script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
             
-	<script>
-function myFunction() {
+<script>
+  function myFunction(){
     return confirm("Trash composed recipe?");
-}
+  }
 </script>
 
 <form method="post" action="{{ url('/user/recipes') }}" enctype="multipart/form-data">
-   <article class="head">
     <button class="two" type="submit" name="send" value="1">Save</button>
   <!--<button class="two" type="submit" name="edit" value="1">Edit</button>-->
   <button class="two" type="submit" name="delete" value="1" onclick="return myFunction()">Discard</button>
- </article>
     <br/>
     <?php if(isset( $recipe[0]['media'] )){
 
@@ -95,5 +94,6 @@ function myFunction() {
 
 
 </section>
+</div>
   </body>
 </html>

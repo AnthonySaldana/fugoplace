@@ -316,8 +316,10 @@ body#dashboard .button1, body #dashboard .button1 {
 */
 #recipe-editor, #note-editor {
   background: -webkit-linear-gradient(top, #88c7c9 58%, #cae8eb 100%);
-  padding: 3%;
   height: 94%; }
+  #recipe-editor #dashboard, #note-editor #dashboard {
+    background-color: white;
+    min-height: 1250px; }
   #recipe-editor .paper, #note-editor .paper {
     font: normal 12px/1.5 sans-serif, "Lucida Grande", arial;
     width: 50%;
@@ -363,68 +365,76 @@ body#dashboard .button1, body #dashboard .button1 {
     top: -75px;
     left: 220px; }
 
-#recipe-editor .two {
-  position: relative;
-  top: -8px;
-  left: 380px; }
-#recipe-editor .nicEdit-main {
-  background-color: white !important; }
+#recipe-editor {
+  /*.two {
+    position: relative;
+    top: -8px;
+    left: 380px;
+  }*/ }
+  #recipe-editor .paper {
+    height: auto !important; }
+  #recipe-editor .nicEdit-main {
+    background-color: white !important; }
 
-#note-editor .head {
-  background-color: #FFF; }
-#note-editor .nicEdit-main {
-  border: none; }
-#note-editor .two {
-  float: right; }
-#note-editor .paper {
-  font: normal 12px/1.5 "Lucida Grande", arial, sans-serif;
-  width: 50%;
-  height: 80%;
-  margin: 0 auto;
-  padding: 6px 5px 4px 42px;
-  position: relative;
-  color: #444;
-  line-height: 20px;
-  border: 1px solid #d2d2d2;
-  background: #fff;
-  background: -webkit-gradient(linear, 0 0, 0 100%, from(#d9eaf3), color-stop(4%, #fff)) 0 4px;
-  background: -webkit-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
-  background: -moz-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
-  background: -ms-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
-  background: -o-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
-  background: linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
-  -webkit-background-size: 100% 20px;
-  -moz-background-size: 100% 20px;
-  -ms-background-size: 100% 20px;
-  -o-background-size: 100% 20px;
-  background-size: 100% 20px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
-  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
-  width: 816px;
-  height: 1056px; }
-#note-editor .paper::before {
-  content: '';
-  position: absolute;
-  width: 4px;
-  top: 0;
-  left: 30px;
-  bottom: 0;
-  border: 2px solid;
-  border-color: transparent #efe4e4; }
-#note-editor textarea {
-  display: block;
-  width: 95.5%;
-  margin: 0 auto;
-  padding-top: 20px;
-  border: none;
-  outline: none;
-  height: 100%;
-  background: transparent;
-  line-height: 20px; }
+#note-editor {
+  /*.two {
+    float:right;
+  }*/ }
+  #note-editor .head {
+    background-color: #FFF;
+    text-align: right; }
+  #note-editor .nicEdit-main {
+    border: none; }
+  #note-editor .paper {
+    font: normal 12px/1.5 "Lucida Grande", arial, sans-serif;
+    width: 50%;
+    height: 80%;
+    margin: 0 auto;
+    padding: 6px 5px 4px 42px;
+    position: relative;
+    color: #444;
+    line-height: 20px;
+    border: 1px solid #d2d2d2;
+    background: #fff;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#d9eaf3), color-stop(4%, #fff)) 0 4px;
+    background: -webkit-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
+    background: -moz-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
+    background: -ms-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
+    background: -o-linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
+    background: linear-gradient(top, #d9eaf3 0%, #fff 8%) 0 4px;
+    -webkit-background-size: 100% 20px;
+    -moz-background-size: 100% 20px;
+    -ms-background-size: 100% 20px;
+    -o-background-size: 100% 20px;
+    background-size: 100% 20px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+    width: 865px;
+    height: 1056px; }
+  #note-editor .paper::before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    top: 0;
+    left: 30px;
+    bottom: 0;
+    border: 2px solid;
+    border-color: transparent #efe4e4;
+    -webkit-box-sizing: initial; }
+  #note-editor textarea {
+    display: block;
+    width: 95.9%;
+    margin: 0 auto;
+    padding-top: 20px;
+    border: none;
+    outline: none;
+    height: 100%;
+    background: transparent;
+    line-height: 20px; }
 
 #meal-editor {
   display: block; }

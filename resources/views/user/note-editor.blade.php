@@ -16,11 +16,9 @@
       
     </script>
 
-  @include('user.includes.userheader-two')
+  @include('user.includes.userheader')
 
-  <?php if( isset($note_id) ){ ?>
-  <h2> Form #: <?php echo $note_id;  ?></h2>
-  <?php } ?>
+  <div class="page-container">
   <section class="paper">
   @include('common.errors')
  <!--<article class="head">
@@ -35,12 +33,12 @@
     <button class="two" type="submit" name="delete" value="1" onclick="myFunction()">Discard</button>
   </article>
   <div style="position:absolute; top: 98px; width:100%;left: 37px;">
-    <div style="position: absolute; right: 38px; top: 23px; display:inline-block;">
+    <div style="position: absolute; right: 37px; top: 20px; display:inline-block;">
       <label for="title"><b>Title:</b> </label>
       <input type="text" name="title" value="<?php if(isset( $note )){ echo $note[0]['title']; }?>"/>
     </div>
     <br/>
-    <textarea name="content" placeholder="Enter your note here" style="min-height:913px;"><?php if(isset( $note )){ echo $note[0]['content']; } ?></textarea>
+    <textarea name="content" placeholder="Enter your note here" style="min-height:900px;"><?php if(isset( $note )){ echo $note[0]['content']; } ?></textarea>
   </div>
    
     <?php if(isset( $note )){ ?>
@@ -50,6 +48,7 @@
     {{ csrf_field() }}
   </form>   
 </section>
+</div>
 
 <!--<script>
 setTimeout(1000);
