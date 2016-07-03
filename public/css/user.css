@@ -428,10 +428,13 @@ body#dashboard .button1, body #dashboard .button1 {
 
 #meal-editor {
   display: block; }
+  #meal-editor .page-container {
+    padding-right: 25px; }
   #meal-editor input {
     margin: 15px; }
   #meal-editor .container {
-    padding: 15px; }
+    width: 100%;
+    margin: 0; }
   #meal-editor .meal-table-container {
     width: 100%; }
   #meal-editor .meal-edit-table {
@@ -450,6 +453,8 @@ body#dashboard .button1, body #dashboard .button1 {
     background-color: #00BCD4;
     color: white;
     padding: 15px; }
+  #meal-editor #dashboard th, #meal-editor #dashboard td {
+    border-bottom: none !important; }
   #meal-editor .meal-edit-table tr td {
     padding: 15px;
     min-width: 50px; }

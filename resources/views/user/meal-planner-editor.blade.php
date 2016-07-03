@@ -35,8 +35,9 @@
 	
 	</script>
 
-  @include('user.includes.userheader-two')
+  @include('user.includes.userheader')
 
+<div class="page-container">
   	<div class="container">
   		 @include('common.errors')
 
@@ -212,7 +213,7 @@
 			</table>
 		</div>
 		    <!--<input type="hidden" name="_token" value="{{ csrf_token() }}"/>-->
-
+</div>
 
   </body>
 </html>
