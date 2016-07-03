@@ -165,8 +165,10 @@ padding: 10px;
 </div>
 </div>
 <br />
-		
-    <div class="flash-message">
+    
+		<table class="nav-container" style="width:32%">
+    <div class="space"></div>
+        <div class="flash-message" style="width:22%; margin-left:15px;">
     @foreach (['danger', 'warning', 'success', 'info'] as $msg)
       @if(Session::has('alert-' . $msg))
 
@@ -174,9 +176,6 @@ padding: 10px;
       @endif
     @endforeach
   </div> <!-- end .flash-message -->
-    
-		<table class="nav-container" style="width:32%">
-    <div class="space"></div>
   <tr>
     <td colspan="1"><a href="{{ action('MealController@index') }}"  ><button class="button button1">Meal Planner</button></a></td>
     <td><a href="{{ action('MealController@index') }}"  ><img src="{{ URL::asset('siteimages/stock-illustration-62639690-vector-flat-calendar-illustration.jpg') }}" HEIGHT="95" WIDTH="110" BORDER="0"/></a></td>		
