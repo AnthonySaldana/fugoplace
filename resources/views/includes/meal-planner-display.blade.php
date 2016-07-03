@@ -27,7 +27,6 @@
 		'Sunday'
 		);
 
-
 		foreach( $weekdays as $weekday ){
 			$amount_counter = 0;
 			switch ($weekday) {
@@ -248,7 +247,7 @@
 
 			if( 0 == $amount_counter ){
 				$date_counter++;
-				$monday = date( 'Y-m-d' , strtotime('Monday this week') ); //, strtotime("+".$days_counter." days") );
+				$monday = date( 'Y-m-d' , strtotime('next Monday -1 week'));//date( 'Y-m-d' , strtotime('Monday this week') ); //, strtotime("+".$days_counter." days") );
 				$default_date = date( 'Y-m-d', strtotime($monday . "+".$days_counter." days") );
 				?>
 					{{ $default_date }}
