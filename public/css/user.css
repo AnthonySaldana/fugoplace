@@ -8,6 +8,15 @@ body {
   margin-top: 10%;
   padding-left: 25px; }
 
+#video-recipes .page-container, #recipes .page-container, #folderfav .page-container, #tutorials .page-container {
+  padding-left: 135px; }
+#video-recipes td.button, #recipes td.button, #folderfav td.button, #tutorials td.button {
+  position: relative; }
+  #video-recipes td.button .favorite-written-buttons, #recipes td.button .favorite-written-buttons, #folderfav td.button .favorite-written-buttons, #tutorials td.button .favorite-written-buttons {
+    bottom: 20px;
+    right: 20px;
+    position: absolute; }
+
 #meal-planner {
   /*height: calc(100% - 20px);
   width: calc(100% - 20px);
@@ -147,6 +156,8 @@ body#dashboard .button1, body #dashboard .button1 {
 
 #notes {
   background-color: #EEE; }
+  #notes .page-container {
+    margin-top: 11%; }
   #notes section {
     width: 200px;
     /*margin:30px auto 0 auto;*/

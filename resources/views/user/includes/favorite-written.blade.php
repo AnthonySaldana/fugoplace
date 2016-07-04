@@ -3,7 +3,7 @@
   <button type="submit"> <img src="http://image005.flaticon.com/1/png/512/16/16294.png" width="auto" height="20"/>Edit</button>
 
 </form>-->
-
+<div class="favorite-written-buttons">
 <form class="folderfav" method="post" action="{{ action('RecipeController@update' , array($id) ) }}">
                     
   <button type="submit"  class="<?php if( isset( $is_fav ) && 1 == $is_fav ){ echo 'unfav'; }else{ echo 'fav'; } ?>" > <?php if( isset( $is_fav ) && 1 == $is_fav ){ echo "&#8722;"; }else{ ?>✚<?php } ?> Folder Favorite </button>
@@ -26,3 +26,4 @@
   <button type="submit"> Written Recipe</button>
 
 </form>
+</div>

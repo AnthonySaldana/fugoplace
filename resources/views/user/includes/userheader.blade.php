@@ -133,7 +133,7 @@ padding: 60px;
 position: relative;
 /**left: 950px; **/
 bottom: 10px;
-width: 	200px;
+width: 	155px;
 margin-right: 0;
 margin-left: auto;
 }

@@ -36,7 +36,7 @@ padding: 12px;
 
 	</style>
   </head>
-  <body>
+  <body id="tutorials">
   <div class="container"></div>
     @include('user.includes.userheader')
   <div class="page-container">
