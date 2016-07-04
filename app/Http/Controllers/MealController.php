@@ -52,15 +52,24 @@ class MealController extends Controller
         *   We then first order the data by date, followed by another ordering by meal type. We made our meal types alphabetical.
         */
 
-        $now = new DateTime;
+        //$now = new DateTime;
         $today = new DateTime;
         $today->setTimeZone( new DateTimeZone('America/Los_Angeles') );
+        $today_day = date('l', strtotime( $today->format('Y-m-d') ) );
+        if( 'Monday' == $today_day ){
+            $monday = $today->format('Y-m-d');//date( 'Y-m-d' , strtotime('Monday this week') );
+        }else{
+            $monday = date( 'Y-m-d' , strtotime('Next monday -1 week'));//date( 'Y-m-d' , strtotime('Monday this week') );
+        }
+
         $interval = new DateInterval('P1W');
-        $monday = date( 'Y-m-d' , strtotime('next Monday -1 week'));//date( 'Y-m-d' , strtotime('Monday this week') );
+        
         //$nextmonday = date( 'Y-m-d' , strtotime('Next monday') );
         $monday_datetime = DateTime::createFromFormat('Y-m-d', trim($monday));
+        $monday_datetime->setTimeZone( new DateTimeZone('America/Los_Angeles') );
+        $monday = $monday_datetime->format('Y-m-d');
         $nextmonday = $monday_datetime->add( $interval )->format('Y-m-d');
-        //print_r( "Monday: " . $monday . " / Next Monday: " . $nextmonday );
+        //print_r( "Monday: " . $monday . " / Next Monday: " . $nextmonday . "Today: " . $today->format('Y-m-d') );
         //die();
         $meals = DB::table('meal_planner')->leftjoin('recipes', 'meal_planner.recipe_id', '=' , 'recipes.id')->where('meal_planner.user_id', $user_id )->whereDate('date', '<' , $nextmonday )->whereDate('date', '>=' , $monday )->orderBy('date','asc')->orderBy('meal','asc')->get();
         //$meals = DB::table('meal_planner')->leftjoin('recipes', 'meal_planner.recipe_id', '=' , 'recipes.id')->where('meal_planner.user_id', $user_id )->whereBetween('date', array( $monday , $nextmonday) )->orderBy('date','asc')->orderBy('meal','asc')->get();

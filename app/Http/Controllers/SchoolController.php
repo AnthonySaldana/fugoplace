@@ -49,8 +49,14 @@ class SchoolController extends Controller
         $now = new DateTime;
         $today = new DateTime;
         $today->setTimeZone( new DateTimeZone('America/Los_Angeles') );
+        $today_day = date('l', strtotime( $today->format('Y-m-d') ) );
+        if( 'Monday' == $today_day ){
+            $monday = $today->format('Y-m-d');//date( 'Y-m-d' , strtotime('Monday this week') );
+        }else{
+            $monday = date( 'Y-m-d' , strtotime('Next monday -1 week'));//date( 'Y-m-d' , strtotime('Monday this week') );
+        }
         $interval = new DateInterval('P1W');
-        $monday = date( 'Y-m-d' , strtotime('next Monday -1 week'));//date( 'Y-m-d' , strtotime('Monday this week') );
+        //$monday = date( 'Y-m-d' , strtotime('next Monday -1 week'));//date( 'Y-m-d' , strtotime('Monday this week') );
         $monday_datetime = DateTime::createFromFormat('Y-m-d', trim($monday));
         $nextmonday = $monday_datetime->add( $interval )->format('Y-m-d');
 

@@ -247,7 +247,15 @@
 
 			if( 0 == $amount_counter ){
 				$date_counter++;
-				$monday = date( 'Y-m-d' , strtotime('next Monday -1 week'));//date( 'Y-m-d' , strtotime('Monday this week') ); //, strtotime("+".$days_counter." days") );
+				$today = new DateTime;
+		        $today->setTimeZone( new DateTimeZone('America/Los_Angeles') );
+		        $today_day = date('l', strtotime( $today->format('Y-m-d') ) );
+		        if( 'Monday' == $today_day ){
+		            $monday = $today->format('Y-m-d');//date( 'Y-m-d' , strtotime('Monday this week') );
+		        }else{
+		            $monday = date( 'Y-m-d' , strtotime('Next monday -1 week'));//date( 'Y-m-d' , strtotime('Monday this week') );
+		        }
+				//$monday = date( 'Y-m-d' , strtotime('next Monday -1 week'));//date( 'Y-m-d' , strtotime('Monday this week') ); //, strtotime("+".$days_counter." days") );
 				$default_date = date( 'Y-m-d', strtotime($monday . "+".$days_counter." days") );
 				?>
 					{{ $default_date }}
