@@ -41,7 +41,7 @@ right: -20px;
 }
 
 .container{
-width:1100px;
+width:100%;
 height:130px;
 display:block;
 background-color:#99ccff;
@@ -137,8 +137,11 @@ padding: 60px;
 
 .logout {
 position: relative;
-left: 950px;
+/*left: 950px;*/
 bottom: 10px;
+margin-right: 0;
+margin-left: auto;
+width: 155px;
 }
 
 .tablespace {
