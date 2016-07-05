@@ -286,9 +286,12 @@ class FugoController extends Controller
 				}
 
 				MealPlanner::insert( $meal_data );
+				//$request->session()->flash('alert-success', 'You were registered successfully.');
+		        //return redirect('/user'); 
 
-				$request->session()->flash('alert-success', 'You were registered successfully.');
-		        return redirect('/user'); 
+		         return view('user.dashboard', [
+		            'new_user' => 1
+		        ]);
 
 			    } else {        
 

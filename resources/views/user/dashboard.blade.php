@@ -169,6 +169,15 @@ padding: 10px;
 		<table class="nav-container" style="width:32%">
     <div class="space"></div>
         <div class="flash-message" style="width:22%; margin-left:15px;">
+
+        <?php if( isset( $new_user ) && !empty($new_user) && 1 == $new_user ){
+          ?>
+            <div style='text-align: center; background-color: #e6ffff; width: 100%; padding: 35px; margin: 25px; font-family: Helvetica; margin-left:0;' >
+            <h2 style='text-align: center;'>Welcome to FugoPlace!</h2>
+            You have now activated your FugoPlace account. We hope everything is to your liking and if you have any questions or suggestions you can contact us below. <br />We thank you for using FugoPlace.
+            </div>
+          <?php
+          } ?>
     @foreach (['danger', 'warning', 'success', 'info'] as $msg)
       @if(Session::has('alert-' . $msg))
 
