@@ -48,7 +48,7 @@
 
                 ?>
                   <tr>
-                    <td><iframe width="300" height="200" src="{{ $recipe['videolink'] }}" frameborder="0" allowfullscreen>Please wait.</iframe>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="div1"></div></td>
+                    <td class="recipe-thumb"><iframe height="100%" src="{{ $recipe['videolink'] }}" frameborder="0" allowfullscreen>Please wait.</iframe>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="div1"></div></td>
                     <td class="button"><p class=" button1"><br /><u>
                     <strong>Recipe Title:</strong>&nbsp;{{ $title }}</u>
                     <!--&nbsp;&nbsp;&nbsp;<u><strong>Creator Cited:&nbsp;</strong>{{ $author }}</u><br /><br /><br />
@@ -62,9 +62,9 @@
               }else if ( true == $isvideo ){
                   ?>
                     <tr>
-                      <td>
+                      <td class="recipe-thumb">
 
-                      <video width="300" height="200" controls>
+                      <video height="100%" controls>
                         <source src="{{ url('/images/recipes/' . $media) }}" type="video/{{ $ext }}">
                         Your browser does not support HTML5 video.
                       </video>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="div1"></div></td>
@@ -82,7 +82,7 @@
                   ?>
 
                     <tr>
-                      <td><img src="{{ url('/images/recipes/' . $media) }}"width="300" height="200"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="div1"></div></td>
+                      <td class="recipe-thumb"><img src="{{ url('/images/recipes/' . $media) }}"width="300" height="100%"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="div1"></div></td>
                       <td class="button"><p class="button1"><br /><u><strong>Recipe Title:</strong>&nbsp;{{ $title }}</u><br/>
                       <!--&nbsp;&nbsp;&nbsp;<u><strong>Creator Cited:&nbsp;</strong>{{ $author }}</u><br /><br /><br />
                       {!! str_limit( strip_tags( $desc ) , $strlimit, $end = '...' ) !!}<br/>-->

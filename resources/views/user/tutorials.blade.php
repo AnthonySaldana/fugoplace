@@ -10,7 +10,8 @@
 	.button {
     
 	height: 180px;
-	width: 800px;
+	/*width: 800px;*/
+  width:100%;
     background-color: #f2f2f2;
 	font-family: sans-serif;
     color: black;
@@ -46,28 +47,28 @@ padding: 12px;
   <table  style="width:97%">
 
   <tr>
-    <td><div class="div1"></div><iframe width="200" height="185" src="https://www.youtube.com/embed/kXm5tvnEMgM" frameborder="0" allowfullscreen>Please wait.</iframe>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</form></td>
-    <td><p class="button button1"><br /><u><strong>TUTORIAL:&nbsp;</strong>[text.text.]</u><br /><br /><br />[Description]text.text.text.</p></td>		
+    <td class="recipe-thumb"><iframe height="auto" src="https://www.youtube.com/embed/kXm5tvnEMgM" frameborder="0" allowfullscreen>Please wait.</iframe>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</form></td>
+    <td class="button"><p class="button"><br /><u><strong>TUTORIAL:&nbsp;</strong>[text.text.]</u><br /><br /><br />[Description]text.text.text.</p></td>		
      
   </tr>
   <tr>
-    <td><div class="div1"></div><iframe width="200" height="185" src="https://www.youtube.com/embed/kXm5tvnEMgM" frameborder="0" allowfullscreen>Please wait.</iframe>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-    <td><p class="button button1"><br /><u><strong>TUTORIAL:&nbsp;</strong>[text.text.]</u><br /><br /><br />[Description]text.text.text.</p></td>		
+    <td class="recipe-thumb"><iframe height="auto" src="https://www.youtube.com/embed/kXm5tvnEMgM" frameborder="0" allowfullscreen>Please wait.</iframe>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td class="button"><p class="button"><br /><u><strong>TUTORIAL:&nbsp;</strong>[text.text.]</u><br /><br /><br />[Description]text.text.text.</p></td>		
      
   </tr>
   <tr>
-    <td><div class="div1"></div><iframe width="200" height="185" src="https://www.youtube.com/embed/kXm5tvnEMgM" frameborder="0" allowfullscreen>Please wait.</iframe>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-    <td><p class="button button1"><br /><u><strong>TUTORIAL:&nbsp;</strong>[text.text.]</u><br /><br /><br />[Description]text.text.text.</p></td>		
+    <td class="recipe-thumb"><iframe height="auto" src="https://www.youtube.com/embed/kXm5tvnEMgM" frameborder="0" allowfullscreen>Please wait.</iframe>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td class="button"><p class="button"><br /><u><strong>TUTORIAL:&nbsp;</strong>[text.text.]</u><br /><br /><br />[Description]text.text.text.</p></td>		
      
   </tr>
   <tr>
-    <td><div class="div1"></div><iframe width="200" height="185" src="https://www.youtube.com/embed/kXm5tvnEMgM" frameborder="0" allowfullscreen>Please wait.</iframe>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-    <td><p class="button button1"><br /><u><strong>TUTORIAL:&nbsp;</strong>[text.text.]</u><br /><br /><br />[Description]text.text.text.</p></td>		
+    <td class="recipe-thumb"><iframe height="auto" src="https://www.youtube.com/embed/kXm5tvnEMgM" frameborder="0" allowfullscreen>Please wait.</iframe>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td class="button"><p class="button"><br /><u><strong>TUTORIAL:&nbsp;</strong>[text.text.]</u><br /><br /><br />[Description]text.text.text.</p></td>		
      
   </tr>
   <tr>
-    <td><div class="div1"></div><iframe width="200" height="185" src="https://www.youtube.com/embed/kXm5tvnEMgM" frameborder="0" allowfullscreen>Please wait.</iframe>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-    <td><p class="button button1"><br /><u><strong>TUTORIAL:&nbsp;</strong>[text.text.]</u><br /><br /><br />[Description]text.text.text.</p></td>		
+    <td class="recipe-thumb"><iframe height="auto" src="https://www.youtube.com/embed/kXm5tvnEMgM" frameborder="0" allowfullscreen>Please wait.</iframe>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td class="button"><p class="button"><br /><u><strong>TUTORIAL:&nbsp;</strong>[text.text.]</u><br /><br /><br />[Description]text.text.text.</p></td>		
      
   </tr>
   <!--<tr>

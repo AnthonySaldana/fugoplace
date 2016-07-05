@@ -42,7 +42,7 @@
 
                 ?>
                   <tr>
-                    <td><iframe width="300" height="200" src="{{ $recipe['videolink'] }}" frameborder="0" allowfullscreen>Please wait.</iframe>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="div1"></div></td>
+                    <td class="recipe-thumb"><iframe height="100%" src="{{ $recipe['videolink'] }}" frameborder="0" allowfullscreen>Please wait.</iframe><div class="div1"></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                     <td class="button"><p class="button1"><br /><u><strong>Recipe Title:</strong>&nbsp;{{ $title }}</u>&nbsp;&nbsp;&nbsp;<!--<u>
                     <strong>Creator Cited:&nbsp;</strong>{{ $author }}</u><br /><br /><br />
                     {!! str_limit( strip_tags( $desc ) , $strlimit, $end = '...' ) !!}--><br/>
@@ -53,7 +53,7 @@
               }else if ( true == $isvideo && ( isset( $recipe['video_recipe'] ) && 1 == $recipe['video_recipe'] )){
                   ?>
                     <tr>
-                      <td>
+                      <td class="recipe-thumb">
 
                       <video width="300" height="200" controls>
                         <source src="{{ url('/images/recipes/' . $media) }}" type="video/{{ $ext }}">

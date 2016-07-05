@@ -10,12 +10,25 @@ body {
 
 #video-recipes .page-container, #recipes .page-container, #folderfav .page-container, #tutorials .page-container {
   padding-left: 135px; }
+#video-recipes td.recipe-thumb, #recipes td.recipe-thumb, #folderfav td.recipe-thumb, #tutorials td.recipe-thumb {
+  width: 29%;
+  height: 180px;
+  overflow: hidden; }
+  #video-recipes td.recipe-thumb iframe, #video-recipes td.recipe-thumb img, #recipes td.recipe-thumb iframe, #recipes td.recipe-thumb img, #folderfav td.recipe-thumb iframe, #folderfav td.recipe-thumb img, #tutorials td.recipe-thumb iframe, #tutorials td.recipe-thumb img {
+    max-width: 300px;
+    max-height: 180px; }
 #video-recipes td.button, #recipes td.button, #folderfav td.button, #tutorials td.button {
   position: relative; }
   #video-recipes td.button .favorite-written-buttons, #recipes td.button .favorite-written-buttons, #folderfav td.button .favorite-written-buttons, #tutorials td.button .favorite-written-buttons {
     bottom: 20px;
     right: 20px;
     position: absolute; }
+@media screen and (max-width: 1000px) {
+  #video-recipes .page-container, #recipes .page-container, #folderfav .page-container, #tutorials .page-container {
+    margin-top: 15%; }
+  #video-recipes td.recipe-thumb iframe, #video-recipes td.recipe-thumb img, #recipes td.recipe-thumb iframe, #recipes td.recipe-thumb img, #folderfav td.recipe-thumb iframe, #folderfav td.recipe-thumb img, #tutorials td.recipe-thumb iframe, #tutorials td.recipe-thumb img {
+    max-width: 200px;
+    height: 180px !important; } }
 
 #meal-planner {
   /*height: calc(100% - 20px);
@@ -229,7 +242,7 @@ body#dashboard .button1, body #dashboard .button1 {
     text-align: left; }
   #video-recipes .button {
     height: 180px;
-    width: 800px;
+    width: 100%;
     background-color: #f2f2f2;
     font-family: sans-serif;
     color: black;
@@ -276,7 +289,7 @@ body#dashboard .button1, body #dashboard .button1 {
     text-align: left; }
   #recipes .button, #folderfav .button {
     height: 180px;
-    width: 800px;
+    width: 100%;
     background-color: #f2f2f2;
     font-family: sans-serif;
     color: black;
