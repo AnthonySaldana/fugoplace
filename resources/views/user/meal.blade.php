@@ -114,12 +114,12 @@
       } else if( ( isset( $recipe['videolink'] ) && !empty( $recipe['videolink'] ) ) && ( isset( $recipe['video_recipe'] ) && 1 == $recipe['video_recipe'] ) ){
 
           ?>
-          <iframe width="600" height="400" src="{{ $recipe['videolink'] }}" frameborder="0" allowfullscreen>Please wait.</iframe>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <iframe src="{{ $recipe['videolink'] }}" frameborder="0" allowfullscreen>Please wait.</iframe>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <?php
 
         }elseif( true == $isvideo ){
             ?>
-                <video width="600" height="400" controls>
+                <video controls>
                   <source src="{{ url('/images/recipes/' . $media) }}" type="video/{{ $ext }}">
                   Your browser does not support HTML5 video.
                 </video>
@@ -128,7 +128,7 @@
 
             ?>
 
-            	<img src="{{ url('/images/recipes/' . $media) }}"width="600" height="400"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            	<img src="{{ url('/images/recipes/' . $media) }}"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
             <?php
           } ?>

@@ -2,6 +2,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <style>
+
+    #dashboard{
+        float:left; 
+        width:25%;
+    }
+
     #dashboard .nav-container tr td{
         width:200px;
         text-align: right;
@@ -160,7 +166,7 @@ padding: 10px;
 <br/>
 <li>Your School link is: <a href="http://{{ $link }}"> {{ $link }} </a> </li>
 </ul>-->
-<div id="dashboard" style="	float:left; width:25%;">
+<div id="dashboard">
 <!--<div class="box"></div>-->
 <div></div>
 <div class="container">
