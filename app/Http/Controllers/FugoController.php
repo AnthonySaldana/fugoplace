@@ -170,7 +170,7 @@ class FugoController extends Controller
 												<li>1 pound crumbled hot Italian sausage</li>
 												<li>1 cup grated Parmesan</li>
 											</ul>',
-						'media'			=> 'deep-dish.jpg',
+						'media'			=> 'deepdish.jpg',
 				        'author_id' 	=> Auth::user()->id,
 				        'video_recipe'	=> 0,
 				        'videolink'	=> '',
