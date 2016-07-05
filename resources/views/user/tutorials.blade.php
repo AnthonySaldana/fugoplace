@@ -47,27 +47,27 @@ padding: 12px;
   <table  style="width:97%">
 
   <tr>
-    <td class="recipe-thumb"><iframe height="auto" src="https://www.youtube.com/embed/kXm5tvnEMgM" frameborder="0" allowfullscreen>Please wait.</iframe>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</form></td>
+    <td class="recipe-thumb"><iframe height="100%" src="https://www.youtube.com/embed/kXm5tvnEMgM" frameborder="0" allowfullscreen>Please wait.</iframe>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</form></td>
     <td class="button"><p class="button"><br /><u><strong>TUTORIAL:&nbsp;</strong>[text.text.]</u><br /><br /><br />[Description]text.text.text.</p></td>		
      
   </tr>
   <tr>
-    <td class="recipe-thumb"><iframe height="auto" src="https://www.youtube.com/embed/kXm5tvnEMgM" frameborder="0" allowfullscreen>Please wait.</iframe>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td class="recipe-thumb"><iframe height="100%" src="https://www.youtube.com/embed/kXm5tvnEMgM" frameborder="0" allowfullscreen>Please wait.</iframe>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
     <td class="button"><p class="button"><br /><u><strong>TUTORIAL:&nbsp;</strong>[text.text.]</u><br /><br /><br />[Description]text.text.text.</p></td>		
      
   </tr>
   <tr>
-    <td class="recipe-thumb"><iframe height="auto" src="https://www.youtube.com/embed/kXm5tvnEMgM" frameborder="0" allowfullscreen>Please wait.</iframe>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td class="recipe-thumb"><iframe height="100%" src="https://www.youtube.com/embed/kXm5tvnEMgM" frameborder="0" allowfullscreen>Please wait.</iframe>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
     <td class="button"><p class="button"><br /><u><strong>TUTORIAL:&nbsp;</strong>[text.text.]</u><br /><br /><br />[Description]text.text.text.</p></td>		
      
   </tr>
   <tr>
-    <td class="recipe-thumb"><iframe height="auto" src="https://www.youtube.com/embed/kXm5tvnEMgM" frameborder="0" allowfullscreen>Please wait.</iframe>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td class="recipe-thumb"><iframe height="100%" src="https://www.youtube.com/embed/kXm5tvnEMgM" frameborder="0" allowfullscreen>Please wait.</iframe>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
     <td class="button"><p class="button"><br /><u><strong>TUTORIAL:&nbsp;</strong>[text.text.]</u><br /><br /><br />[Description]text.text.text.</p></td>		
      
   </tr>
   <tr>
-    <td class="recipe-thumb"><iframe height="auto" src="https://www.youtube.com/embed/kXm5tvnEMgM" frameborder="0" allowfullscreen>Please wait.</iframe>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td class="recipe-thumb"><iframe height="100%" src="https://www.youtube.com/embed/kXm5tvnEMgM" frameborder="0" allowfullscreen>Please wait.</iframe>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
     <td class="button"><p class="button"><br /><u><strong>TUTORIAL:&nbsp;</strong>[text.text.]</u><br /><br /><br />[Description]text.text.text.</p></td>		
      
   </tr>
