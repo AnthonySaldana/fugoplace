@@ -167,6 +167,14 @@ padding: 10px;
 <li>Your School link is: <a href="http://{{ $link }}"> {{ $link }} </a> </li>
 </ul>-->
 <div id="dashboard">
+<script>
+    $( document ).ready(function() {
+        $('.active').on("click", function (e) {
+        e.preventDefault();
+    });
+
+    });
+</script>
 <!--<div class="box"></div>-->
 <div></div>
 <div class="container">
@@ -189,36 +197,36 @@ padding: 10px;
 <table class="nav-container">
 <div class="space"></div>
 <tr>
-<td colspan="1"><a href="{{ action('MealController@index') }}"  ><button class="button button1">Meal Planner</button></a></td>
+<td colspan="1"><a href="{{ action('MealController@index') }}"  {{{ (Request::is('user/meal-planner') ? 'class=active' : '') }}}><button class="button button1">Meal Planner</button></a></td>
 <td><a href="{{ action('MealController@index') }}"  ><img src="{{ URL::asset('siteimages/stock-illustration-62639690-vector-flat-calendar-illustration.jpg') }}" HEIGHT="95" WIDTH="110" BORDER="0"/></a></td>		
 
 </tr>
 <tr>
-<td><a href="{{ action('NotesController@index') }}"  ><button class="button button1">Notes</button></a></td>
+<td><a href="{{ action('NotesController@index') }}" {{{ (Request::is('user/notes') ? 'class=active' : '') }}} ><button class="button button1">Notes</button></a></td>
 <td><a href="{{ action('NotesController@index') }}"  ><img src="{{ URL::asset('siteimages/stock-illustration-81553369-notebook-notepad-flat-style.jpg') }}" HEIGHT="100" WIDTH="110" BORDER="0"/></a></td>		
 
 </tr>
 <tr>
-<td><a href="{{ action('VideoController@index') }}"><button class="button button1">Video Recipes</button></a></td>
+<td><a href="{{ action('VideoController@index') }}" {{{ (Request::is('user/video-recipes') ? 'class=active' : '') }}}><button class="button button1">Video Recipes</button></a></td>
 <td><a href="{{ action('VideoController@index') }}"><img src="{{ URL::asset('siteimages/video-icon-green.jpg') }}" HEIGHT="80" WIDTH="100" BORDER="0"/></a></td>		
 
 </tr>
 <tr>
-<td><a href="{{ action('FolderController@index') }}"  ><button class="button button1">Folder Favorites</button></a></td>
+<td><a href="{{ action('FolderController@index') }}"  {{{ (Request::is('user/folder-fav') ? 'class=active' : '') }}}><button class="button button1">Folder Favorites</button></a></td>
 <td><a href="{{ action('FolderController@index') }}"  ><img src="{{ URL::asset('siteimages/yellow-folder-red-heart-28433241.jpg') }}" HEIGHT="80" WIDTH="100" BORDER="0"/></a></td>		
 
 </tr>
 <tr>
-<td><a href="{{ action('RecipeController@index') }}"  ><button class="button button1">All Recipes</button></a></td>
+<td><a href="{{ action('RecipeController@index') }}" {{{ (Request::is('user/recipes') ? 'class=active' : '') }}} ><button class="button button1">All Recipes</button></a></td>
 <td><a href="{{ action('RecipeController@index') }}"  ><img src="{{ URL::asset('siteimages/CookbookIcon.png') }}" HEIGHT="100" WIDTH="110" BORDER="0"/></a></td>    
 
 </tr>
 <tr>
-<td><a href="http://{{ $link }}"><button class="button button1">Public Page</button></a></td>
+<td><a href="http://{{ $link }}" ><button class="button button1">Public Page</button></a></td>
 <td><a href="http://{{ $link }}"><img src="http://images.all-free-download.com/images/graphicthumb/offline_web_pages_37174.jpg" HEIGHT="100" WIDTH="110" BORDER="0"/></a></td> 
 </tr>
 <tr>
-<td><a href="{{ action('TutorialController@index') }}"><button class="button button1">Tutorial</button></a></td>
+<td><a href="{{ action('TutorialController@index') }}" {{{ (Request::is('user/tutorials') ? 'class=active' : '') }}}><button class="button button1">Tutorial</button></a></td>
 <td><a href="{{ action('TutorialController@index') }}"><img src="{{ URL::asset('siteimages/video-play-xxl.png') }}" HEIGHT="80" WIDTH="85" BORDER="0"/></a></td>		
 
 </tr>

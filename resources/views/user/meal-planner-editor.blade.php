@@ -60,11 +60,11 @@
 				<tr class="minimal-cell">
 					<td>
 						<label for="meal_date">Date: </label>
-						<input type="date" name="meal_date" value="{{ Session::get('mealdate') }}">
+						<input type="date" class="date_input" name="meal_date" value="{{ Session::get('mealdate') }}">
 					</td>
 
 					<td>
-						<label for="recipe_select">Recipe</label>
+						<label for="recipe_select">Recipe: </label>
 						<select name="recipe_select" >
 
 						<option disabled selected value> -- select an option -- </option>
@@ -127,9 +127,9 @@
 				  <tr>
 				  	<th>ID: </th>
 				    <th>Date</th>
-				    <th>Meal</th> 
+				    <th>Meal: </th> 
 				    <th>Media Type</th>
-				    <th>Recipe</th>
+				    <th>Recipe: </th>
 				    <th>Delete?</th>
 				  </tr>
 				</thead>

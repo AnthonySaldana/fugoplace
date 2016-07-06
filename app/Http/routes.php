@@ -67,7 +67,8 @@ Route::get('/register', function(){
 */
 
 Route::get('/user/', ['middleware' => 'auth', function(){
-	return view('user.dashboard');
+	//return view('user.dashboard');
+	return redirect('/user/meal-planner');
 }
 ]);
 
@@ -75,6 +76,8 @@ Route::get('/user/dashboard', ['middleware' => 'auth', function(){
 		return view('user.dashboard');
 } 
 ]);
+
+Route::get('/test/mail/{message}' , ['uses' => 'MailController@sendmail'] );
 
 Route::resource('/user/meal-planner', 'MealController');
 

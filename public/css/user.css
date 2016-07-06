@@ -20,11 +20,13 @@ body {
   .page-container, #notes .page-container {
     margin-top: 15%; } }
 #video-recipes .page-container, #recipes .page-container, #folderfav .page-container, #tutorials .page-container {
-  width: 70%;
+  width: calc( 100% - 350px );
   padding-left: 100px; }
+@media screen and (max-width: 1350px) {
+  #video-recipes .page-container, #recipes .page-container, #folderfav .page-container, #tutorials .page-container {
+    padding-left: 25px; } }
 @media screen and (max-width: 1120px) {
   #video-recipes .page-container, #recipes .page-container, #folderfav .page-container, #tutorials .page-container {
-    width: 60%;
     padding-left: 25px; } }
 #video-recipes td.recipe-thumb, #recipes td.recipe-thumb, #folderfav td.recipe-thumb, #tutorials td.recipe-thumb {
   width: 29%;
@@ -516,6 +518,8 @@ body#dashboard .button1, body #dashboard .button1 {
     padding-right: 25px; }
   #meal-editor input {
     margin: 15px; }
+  #meal-editor .date_input {
+    margin: 0; }
   #meal-editor .container {
     width: 100%;
     margin: 0; }
