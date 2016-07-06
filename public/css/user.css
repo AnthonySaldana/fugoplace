@@ -1,15 +1,31 @@
+#dashboard {
+  max-width: 330px;
+  width: 330px !important; }
+
 body {
   font-family: sans-serif;
   background-color: white !important; }
 
 .page-container {
   float: left;
-  width: 75%;
-  margin-top: 10%;
+  width: 50%;
+  width: calc( 100% - 330px );
+  margin-top: 180px;
   padding-left: 25px; }
 
+#notes .page-container {
+  margin-top: 11%; }
+
+@media screen and (max-width: 1300px) {
+  .page-container, #notes .page-container {
+    margin-top: 15%; } }
 #video-recipes .page-container, #recipes .page-container, #folderfav .page-container, #tutorials .page-container {
-  padding-left: 135px; }
+  width: 70%;
+  padding-left: 100px; }
+@media screen and (max-width: 1120px) {
+  #video-recipes .page-container, #recipes .page-container, #folderfav .page-container, #tutorials .page-container {
+    width: 60%;
+    padding-left: 25px; } }
 #video-recipes td.recipe-thumb, #recipes td.recipe-thumb, #folderfav td.recipe-thumb, #tutorials td.recipe-thumb {
   width: 29%;
   height: 180px;
@@ -169,8 +185,6 @@ body#dashboard .button1, body #dashboard .button1 {
 
 #notes {
   background-color: #EEE; }
-  #notes .page-container {
-    margin-top: 11%; }
   #notes section {
     width: 200px;
     /*margin:30px auto 0 auto;*/
@@ -338,10 +352,7 @@ body#dashboard .button1, body #dashboard .button1 {
   #meal .right .btn, #meal .right form {
     vertical-align: top; }
   @media screen and (max-width: 1300px) {
-    #meal #dashboard {
-      width: 40% !important; }
     #meal .page-container {
-      width: 60% !important;
       margin-top: 13%; }
       #meal .page-container .left {
         width: 40%; }
@@ -353,8 +364,12 @@ body#dashboard .button1, body #dashboard .button1 {
         width: 400px;
         height: 266px; } }
   @media screen and (max-width: 1000px) {
-    #meal .page-container {
-      margin-top: 15%;
+    #meal {
+      /*#dashboard{
+        width: 35% !important;
+      }*/ }
+      #meal .page-container {
+        margin-top: 15%;
           /*.left{
             //width: 40%;
 
@@ -363,12 +378,12 @@ body#dashboard .button1, body #dashboard .button1 {
             }
 
           }*/
-      /*.right{
-        width:60%;
-      }*/ }
-      #meal .page-container iframe, #meal .page-container video, #meal .page-container img {
-        width: 300px;
-        height: 200px; } }
+        /*.right{
+          width:60%;
+        }*/ }
+        #meal .page-container iframe, #meal .page-container video, #meal .page-container img {
+          width: 300px;
+          height: 200px; } }
 
 /**
 *   Editor Styling
