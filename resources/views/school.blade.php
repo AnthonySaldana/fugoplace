@@ -3,8 +3,17 @@
 <title>FugoPlace</title>
 
 <link rel="stylesheet" href="{{ URL::asset('css/home.css') }}">
+<style type="text/css">
+  .accordion header.box{
+    text-align: center;
+  }
+
+  .accordion a{
+    color:#337ab7;
+  }
+</style>
 </head>
-  <body>
+  <body id='school'>
   
 <link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css'> 
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
@@ -17,7 +26,14 @@
     
       </div>
     
-      @include('includes.header')
+      <ul class="nav">
+        <li><span class="two">Fugo</span>&nbsp;&nbsp;<u>Place</u><br /><span></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/faq">FAQ</a></li>
+        <li><a href="/contact">Contact Us</a></li>
+        <?php if( $isuser ){ ?><li><a href="/user">user</a></li><?php } ?>
+      </ul>
     </div>
     
     <!--<div>
@@ -31,18 +47,19 @@
 <div class="section homeheader">
   <div class="slider">
     <div class="container slidercontent">
-      <div class="animated flash obiecteslider"></div> 
+      <!--<div class="animated flash obiecteslider"></div>--> 
       <div class="call"><span>{{ $user->school_name }}</span></div>
       <h2 class="hero">Is this your school?</h2>
       
-      <div class="animated zoomIn"><h1 class="hero">The food facts start here.</h1></div>
+      <!--<div class="animated zoomIn"><h1 class="hero">The food facts start here.</h1></div>-->
     </div>
   </div>
 </div>
 <div class="section motto">
   <div class="container">
-      <div class="motto-en"><div class="animated bounceInRight">We are FugoPlace!</div></div>
-      <p><div class="motto-ro"><div class="animated bounceInLeft">We are a nutrition information provider. We aim to shine light on the meals consumed by young Americans on a weekly basis. This is done so by a trusted partnership between <strong>participating</strong> districts. FugoPlace and foodservice work in conjuncture to bring healthy, tasty meals to our youths. See <strong>About Us</strong> for details. </div></div></p>
+    <!-- class="animated bounceInRight"  class="animated bounceInLeft" -->
+      <div class="motto-en"><div >We are FugoPlace!</div></div>
+      <p><div class="motto-ro"><div >We are a nutrition information provider. We aim to shine light on the meals consumed by young Americans on a weekly basis. This is done so by a trusted partnership between <strong>participating</strong> districts. FugoPlace and foodservice work in conjuncture to bring healthy, tasty meals to our youths. See <strong>About Us</strong> for details. </div></div></p>
   </div>
 </div>
 <div class="section">

@@ -10,6 +10,8 @@ use App\User;
 
 use App\Recipe;
 
+use Auth;
+
 use Datetime;
 use DateInterval;
 use DatetimeZone;
@@ -80,14 +82,19 @@ class SchoolController extends Controller
         print_r( $newgroup );
         echo "</pre>";*/
 
-        
+        if (Auth::check()) {
+            $isuser = true;
+        }else{
+            $isuser = false;
+        }
 
 
         return view('school', [
             'meals'   => $newgroup,
             'user'	  => $user[0],
             'videorecipes' => $videorecipes,
-            'today'   => $now
+            'today'   => $now,
+            'isuser'  => $isuser
         ]);
     }
 
