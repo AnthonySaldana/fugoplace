@@ -5,11 +5,7 @@
 @include('includes.head')
 </head>
 <body>
- <div class="header">
-    <div class="container">
 @include('includes.header')
-</div>
-</div>
 <div></div>
 <form class="elegant-aero">
     <h1>About Us</h1>

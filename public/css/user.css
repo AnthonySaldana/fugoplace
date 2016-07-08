@@ -1,6 +1,6 @@
 #dashboard {
-  max-width: 330px;
-  width: 330px !important; }
+  max-width: 360px;
+  width: 360px !important; }
 
 body {
   font-family: sans-serif;
@@ -9,7 +9,7 @@ body {
 .page-container {
   float: left;
   width: 50%;
-  width: calc( 100% - 330px );
+  width: calc( 100% - 360px );
   margin-top: 180px;
   padding-left: 25px; }
 

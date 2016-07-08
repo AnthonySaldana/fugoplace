@@ -1,3 +1,78 @@
+body{
+font-family: sans-serif , 'Roboto';
+}
+
+::-webkit-scrollbar-thumb {
+    background: #7c017c;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.header > .container {
+    position: relative;
+    width: 1170px;
+    margin: 0 auto;
+    color: #444;
+    font-size: 14px;
+    font-weight: 300;
+    font-family: sans-serif, Arial;
+    overflow: hidden;
+    padding: 0;
+}
+
+.header {
+    line-height: 80px;
+    width: 100%;
+    transition: line-height 0.2s linear, box-shadow 0.2s linear;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    background: rgba(245, 245, 245, 0.97);
+    padding:0;
+    margin-bottom: 50px;
+}
+
+.holder{
+    height: 80px;
+}
+
+span.two {
+    
+    border-radius: 17px;
+    width: 10px;
+    padding: 10px;
+    border: 2px solid #ff9900;
+    margin: 0px;
+    font-size:45px;
+    font-family: sans-serif, Helvetica;
+    position: relative;
+    right: 170%;
+}
+.header u {
+    font-size:45px;
+    font-family: sans-serif, Helvetica;
+    position: relative;
+    right: 170%;
+}
+
+ul.nav li a {
+    padding: 21px;
+    color: initial;
+    text-decoration: initial;
+}
+
+ul.nav li a {
+    transition: color 0.2s linear;
+    font-size: 18px;
+}
+
 .one {
   Font-family: sans-serif, Helvetica; text-align: center;
   }
@@ -141,14 +216,17 @@ div {
 }
 
 ul.nav {
-    float: none;
+    float: right;
     display: block;
     text-align: center;
     margin: 0 auto;
   }
   ul.nav li {
-    float: initial;
-    display: inline-block;
+    /*float: initial;
+    display: inline-block;*/
+    list-style: none;
+    position: relative;
+    float: left;
   }
 .userheader , .userheader li{
     display:inline-block;

@@ -231,8 +231,8 @@ padding: 10px;
 
 </tr>
 <tr>
-<td><button class="button button1">Contact FS</button></td>
-<td><img src="{{ URL::asset('siteimages/contact_us_icon.png') }}" HEIGHT="100" WIDTH="110" BORDER="0"/></td>		
+<td><a href="/contact"><button class="button button1">Contact FS</button></a></td>
+<td><a href="/contact"><img src="{{ URL::asset('siteimages/contact_us_icon.png') }}" HEIGHT="100" WIDTH="110" BORDER="0"/></a></td>		
 
 </tr>
 <!--<tr>

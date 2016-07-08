@@ -28,7 +28,8 @@ body{
 }
 
 .container{
-  width:1100px;
+  width:100%;
+  min-width: 1100px;
   height:80px;
   display:block;
   background-color:#99ccff;

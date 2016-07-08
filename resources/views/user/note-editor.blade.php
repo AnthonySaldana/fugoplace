@@ -33,9 +33,9 @@
     <button class="two" type="submit" name="delete" value="1" onclick="myFunction()">Discard</button>
   </article>
   <div style="position:absolute; top: 98px; width:100%;left: 37px;">
-    <div style="position: absolute; right: 37px; top: 20px; display:inline-block;">
+    <div style="position: absolute; right: 40px; top: 20px; display:inline-block;">
       <label for="title"><b>Title:</b> </label>
-      <input type="text" name="title" value="<?php if(isset( $note )){ echo $note[0]['title']; }?>"/>
+      <input type="text" name="title" value="<?php if(isset( $note )){ echo $note[0]['title']; }?>" style="height:18px; margin-top:4px;"/>
     </div>
     <br/>
     <textarea name="content" placeholder="Enter your note here" style="min-height:900px;"><?php if(isset( $note )){ echo $note[0]['content']; } ?></textarea>
