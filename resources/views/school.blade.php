@@ -11,6 +11,14 @@
   .accordion a{
     color:#337ab7;
   }
+
+  span.two{
+    right: 170%;
+  }
+
+  ul.nav u{
+    right: 170%;
+  }
 </style>
 </head>
   <body id='school'>
