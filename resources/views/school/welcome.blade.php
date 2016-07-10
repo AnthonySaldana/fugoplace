@@ -1,30 +1,29 @@
 <html>
 <head>
 <title>FugoPlace</title>
-
-<link rel="stylesheet" href="{{ URL::asset('css/home.css') }}">
-<style type="text/css">
-  .accordion header.box{
-    text-align: center;
+<style>
+  .box-content ul li{
+    list-style: none;
+    padding-left:0;
   }
 
-  .accordion a{
-    color:#337ab7;
-  }
-
-  span.two{
-    right: 170%;
-  }
-
-  ul.nav u{
-    right: 170%;
-  }
 </style>
-</head>
-  <body id='school'>
-  
-<link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css'> 
+<link rel="stylesheet" href="{{ URL::asset('css/home.css') }}">
+<link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'> 
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+</head>
+  <body>
+  
+<!--<link type="text/css" rel="stylesheet" href="font-awesome-4.3.0/css/font-awesome.css" />
+<link type="text/css" rel="stylesheet" href="font-awesome-4.3.0/css/font-awesome.min.css" />    
+    
+<link type="text/css" rel="stylesheet" href="css-home.css" />
+<link type="text/css" rel="stylesheet" href="2.css" />
+<link type="text/css" rel="stylesheet" href="js-home.js" />
+<link type="text/css" rel="stylesheet" href="2.js" />
+<link type="text/css" rel="stylesheet" href="animate.css" />-->
+
+<!--<script src="animate-js.js"></script>-->
     
 
     
@@ -48,19 +47,18 @@
 <div class="section homeheader">
   <div class="slider">
     <div class="container slidercontent">
-      <!--<div class="animated flash obiecteslider"></div>--> 
-      <div class="call"><span>{{ $user->school_name }}</span></div>
+      <div class="animated flash obiecteslider"></div> 
+      <div class="call"><span>WOODBRIDGE HIGH SCHOOL</span></div>
       <h2 class="hero">Is this your school?</h2>
       
-      <!--<div class="animated zoomIn"><h1 class="hero">The food facts start here.</h1></div>-->
+      <div class="animated zoomIn"><h1 class="hero">The food facts start here.</h1></div>
     </div>
   </div>
 </div>
 <div class="section motto">
   <div class="container">
-    <!-- class="animated bounceInRight"  class="animated bounceInLeft" -->
-      <div class="motto-en"><div >We are FugoPlace!</div></div>
-      <p><div class="motto-ro"><div >We are a nutrition information provider. We aim to shine light on the meals consumed by young Americans on a weekly basis. This is done so by a trusted partnership between <strong>participating</strong> districts. FugoPlace and foodservice work in conjuncture to bring healthy, tasty meals to our youths. See <strong>About Us</strong> for details. </div></div></p>
+      <div class="motto-en"><div class="animated bounceInRight">We are FugoPlace!</div></div>
+      <p><div class="motto-ro"><div class="animated bounceInLeft">We are a nutrition information provider. We aim to shine light on the meals consumed by young Americans on a weekly basis. This is done so by a trusted partnership between <strong>participating</strong> districts. FugoPlace and foodservice work in conjuncture to bring healthy, tasty meals to our youths. See <strong>About Us</strong> for details. </div></div></p>
   </div>
 </div>
 <div class="section">
@@ -93,12 +91,134 @@
 
 
 <div class="section bg">
-  <div class="container">
+  <div class="container" style="list-style:none;">
+    <h1><nav class="accordion">
+        <header class="box">
+            <label for="acc-close" class="box-title">Meal Planner</label>
+        </header>
 
-  @include('includes.meal-planner-display')
+        <input type="radio" name="accordion" id="cb1" />
+        <section class="box">
+            <label class="box-title" for="cb1"><img src="https://image.freepik.com/free-icon/monday-calendar-page_318-58292.jpg" HEIGHT="80" WIDTH="100" BORDER="0"/> <span class="date">3/08/2016</span></label>
+            <label class="box-close" for="acc-close"></label>
+            <div class="box-content">
+    
+    <h1 class="mealtitle">Breakfast</h1>
+    <ul>
+    <li class="mealtitle1"><a href="example-meal5.html">Pancake</a></li>
+    <li class="mealtitle2">Plain Scrambled eges</li>
+    </ul>
+    
+    <h1 class="mealtitle">Snack/Break</h1>
+    <ul>
+    <li class="mealtitle3"><a href="example-meal3.html">Banana Bread</a></li>
+    <li class="mealtitle4"><a href="example-meal4.html">Carrot Muffin</a></li>
+    </ul>
+    
+    <h1 class="mealtitle">Lunch</h1>
+    <ul>
+    <li class="mealtitle5"><a href="example-meal.html">Lasagna</a></li>
+    <li class="mealtitle6"><a href="example-meal2.html">Meatloaf</a></li>
+    </ul></div>
+        </section>
+
+<input type="radio" name="accordion" id="cb4" />
+        <section class="box">
+            <label class="box-title" for="cb4"><img src="https://image.freepik.com/free-icon/tuesday-daily-calendar-page_318-58073.jpg" HEIGHT="80" WIDTH="100" BORDER="0"/> <span class="date">3/09/2016</span></label>
+            <label class="box-close" for="acc-close"></label>
+            <div class="box-content"><h1 class="mealtitle">Breakfast</h1>
+    <ul>
+    <li class="mealtitle1"><a href="example-meal5.html">Pancake</a></li>
+    <li class="mealtitle2">Plain Scrambled eges</li>
+    </ul>
+    
+    <h1 class="mealtitle">Snack/Break</h1>
+    <ul>
+    <li class="mealtitle3"><a href="example-meal3.html">Banana Bread</a></li>
+    <li class="mealtitle4"><a href="example-meal4.html">Carrot Muffin</a></li>
+    </ul>
+    
+    <h1 class="mealtitle">Lunch</h1>
+    <ul>
+    <li class="mealtitle5"><a href="example-meal.html">Lasagna</a></li>
+    <li class="mealtitle6"><a href="example-meal2.html">Meatloaf</a></li>
+    </ul></div>
+        </section>
+
+<input type="radio" name="accordion" id="cb5" />
+        <section class="box">
+            <label class="box-title" for="cb5"><img src="https://image.freepik.com/free-icon/wednesday-calendar-daily-page_318-58282.jpg" HEIGHT="80" WIDTH="100" BORDER="0"/> <span class="date">3/10/2016</span></label>
+            <label class="box-close" for="acc-close"></label>
+            <div class="box-content"><h1 class="mealtitle">Breakfast</h1>
+    <ul>
+    <li class="mealtitle1"><a href="example-meal5.html">Pancake</a></li>
+    <li class="mealtitle2">Plain Scrambled eges</li>
+    </ul>
+    
+    <h1 class="mealtitle">Snack/Break</h1>
+    <ul>
+    <li class="mealtitle3"><a href="example-meal3.html">Banana Bread</a></li>
+    <li class="mealtitle4"><a href="example-meal4.html">Carrot Muffin</a></li>
+    </ul>
+    
+    <h1 class="mealtitle">Lunch</h1>
+    <ul>
+    <li class="mealtitle5"><a href="example-meal.html">Lasagna</a></li>
+    <li class="mealtitle6"><a href="example-meal2.html">Meatloaf</a></li>
+    </ul></div>
+        </section>
+
+        <input type="radio" name="accordion" id="cb2" />
+        <section class="box">
+            <label class="box-title" for="cb2"><img src="https://image.freepik.com/free-icon/thursday-calendar-daily-page-interface-symbol_318-58232.jpg" HEIGHT="80" WIDTH="100" BORDER="0"/> <span class="date">3/11/2016</span></label>
+            <label class="box-close" for="acc-close"></label>
+            <div class="box-content"><h1 class="mealtitle">Breakfast</h1>
+    <ul>
+    <li class="mealtitle1"><a href="example-meal5.html">Pancake</a></li>
+    <li class="mealtitle2">Plain Scrambled eges</li>
+    </ul>
+    
+    <h1 class="mealtitle">Snack/Break</h1>
+    <ul>
+    <li class="mealtitle3"><a href="example-meal3.html">Banana Bread</a></li>
+    <li class="mealtitle4"><a href="example-meal4.html">Carrot Muffin</a></li>
+    </ul>
+    
+    <h1 class="mealtitle">Lunch</h1>
+    <ul>
+    <li class="mealtitle5"><a href="example-meal.html">Lasagna</a></li>
+    <li class="mealtitle6"><a href="example-meal2.html">Meatloaf</a></li>
+    </ul></div>
+        </section>
+
+        <input type="radio" name="accordion" id="cb3" />
+        <section class="box">
+            <label class="box-title" for="cb3"><img src="https://image.freepik.com/free-icon/friday-daily-calendar-page_318-58120.jpg" HEIGHT="80" WIDTH="100" BORDER="0"/> <span class="date">3/12/2016</span></label>
+            <label class="box-close" for="acc-close"></label>
+            <div class="box-content"><h1 class="mealtitle">Breakfast</h1>
+    <ul>
+    <li class="mealtitle1"><a href="example-meal5.html">Pancake</a></li>
+    <li class="mealtitle2">Plain Scrambled eges</li>
+    </ul>
+    
+    <h1 class="mealtitle">Snack/Break</h1>
+    <ul>
+    <li class="mealtitle3"><a href="example-meal3.html">Banana Bread</a></li>
+    <li class="mealtitle4"><a href="example-meal4.html">Carrot Muffin</a></li>
+    </ul>
+    
+    <h1 class="mealtitle">Lunch</h1>
+    <ul>
+    <li class="mealtitle5"><a href="example-meal.html">Lasagna</a></li>
+    <li class="mealtitle6"><a href="example-meal2.html">Meatloaf</a></li>
+    </ul></div>
+        </section>
+
+        <input type="radio" name="accordion" id="acc-close" />
+    </nav></h1>
     
     
-  <h2><div class="section">
+    <h2><div class="section">
   <div class="container">
     <h1>Video Recipe Sample</h1>
     <h2>To help you get an idea for the nutritional inspiration we try to provide to our users here are some brief recipe examples. If you wish to contact us please visit our 'Contact Us' page. We are eager to answer any questions and are open to suggestions.</h2></h2>
@@ -136,100 +256,12 @@
     <div class="group"></div>
   </div>
 </div>
-    <?php 
-    /*
-    foreach( $videorecipes as $recipe ){
-              $id = $recipe['id'];
-              $title = $recipe['title'];
-              $desc = $recipe['content'];
-              $media = $recipe['media'];
-              $author = $recipe['author_id'];
-              $is_fav = $recipe['favorite'];
 
-              $strlimit = 50;
-              
-
-              $isvideo = false;
-
-              if (strpos($media, '.mp4') !== false ){
-
-                $isvideo = true;
-                $ext = 'mp4';
-
-              }else if(  strpos($media, '.ogv') !== false) {
-                  $isvideo = true; 
-                  $ext = 'ogv';
-              }
-
-              if( ( isset( $recipe['videolink'] ) && !empty( $recipe['videolink'] ) ) && ( isset( $recipe['video_recipe'] ) && 1 == $recipe['video_recipe'] ) ){
-
-                ?>
-
-                  <div class="col three bg nopad pointer">
-                    <div class="imgholder"><iframe width="100%" height="300" src="{{ $recipe['videolink'] }}" frameborder="0" allowfullscreen>Please wait.</iframe></div>
-                    <h1 class="feature">Recipe:&nbsp;{{ $title }}&nbsp;&nbsp;&nbsp;Cited:&nbsp;{{ $author }}</h1>
-                    <p>{!! str_limit( strip_tags( $desc ) , $strlimit, $end = '...' ) !!}</p>
-                  </div>
-
-                <?php
-
-              }else if ( true == $isvideo && ( isset( $recipe['video_recipe'] ) && 1 == $recipe['video_recipe'] )){
-                  ?>
-
-                  <div class="col three bg nopad pointer">
-                    <div class="imgholder">
-                      <video width="100%" height="300" controls>
-                        <source src="{{ url('/images/recipes/' . $media) }}" type="video/{{ $ext }}">
-                        Your browser does not support HTML5 video.
-                      </video>
-                    </div>
-                    <h1 class="feature">Recipe:&nbsp;{{ $title }}&nbsp;&nbsp;&nbsp;Cited:&nbsp;{{ $author }}</h1>
-                    <p>{!! str_limit( strip_tags( $desc ) , $strlimit, $end = '...' ) !!}</p>
-                  </div>
-                  <?php
-              }
-
-        }*/ ?>
-    <!--<div class="col three bg nopad pointer">
-      <div class="imgholder"><iframe  width="303"height="300" src="https://www.youtube.com/embed/kXm5tvnEMgM" frameborder="0" allowfullscreen>Please wait.</iframe></div>
-      <h1 class="feature">Recipe:&nbsp;Meatloaf&nbsp;&nbsp;&nbsp;Cited:&nbsp;Jane Lee</h1>
-      <p>Ground beef, onion, garlic, and green pepper, makes this a truely tastey dish.</p>
-    </div>
-    <div class="col three bg nopad pointer">
-      <div class="imgholder"><iframe  width="303"height="300" src="https://www.youtube.com/embed/kXm5tvnEMgM" frameborder="0" allowfullscreen>Please wait.</iframe></div>
-      <h1 class="feature">Recipe:&nbsp;Pancake&nbsp;&nbsp;&nbsp;Cited:&nbsp;John Stein</h1>
-      <p>This is a fluffy sweet treat anyone can easily enjoy.</p>
-    </div>
-    <div class="col three bg nopad pointer">
-      <div class="imgholder"><iframe  width="303"height="300" src="https://www.youtube.com/embed/kXm5tvnEMgM" frameborder="0" allowfullscreen>Please wait.</iframe></div>
-      <h1 class="feature">Recipe:&nbsp;Banana Bread&nbsp;&nbsp;&nbsp;Cited:&nbsp;William Smith</h1>
-      <p>This is a moist, sweet treat. There are bits of peanuts, Cinnamon and mashed bananas.</p>
-    </div>
-    <div class="group margin"></div>
-    <div class="col three bg nopad pointer">
-      <div class="imgholder"><iframe  width="303"height="300" src="https://www.youtube.com/embed/kXm5tvnEMgM" frameborder="0" allowfullscreen>Please wait.</iframe></div>
-      <h1 class="feature">Recipe:&nbsp;Carrot Muffin&nbsp;&nbsp;&nbsp;Cited:&nbsp;Daniel schemit</h1>
-      <p>Raisins, brown sugar, and shredded carrots, yum!</p>
-    </div>
-    <div class="col three bg nopad pointer">
-      <div class="imgholder"><iframe  width="303"height="300" src="https://www.youtube.com/embed/kXm5tvnEMgM" frameborder="0" allowfullscreen>Please wait.</iframe></div>
-      <h1 class="feature">Recipe:&nbsp;Lasagna&nbsp;&nbsp;&nbsp;Cited:&nbsp;Emily Tao</h1>
-      <p>Classic Lasagna with  boneless chicken breast halves, diced, Alfredo-style pasta sauce, and shredded mozzarella cheese.</p>
-    </div>
-    <div class="col three bg nopad pointer">
-      <div class="imgholder"><iframe  width="303"height="300" src="https://www.youtube.com/embed/kXm5tvnEMgM" frameborder="0" allowfullscreen>Please wait.</iframe></div>
-      <h1 class="feature">Recipe:&nbsp;Lasagna&nbsp;&nbsp;&nbsp;Cited:&nbsp;Emily Tao</h1>
-      <p>Classic Lasagna with  boneless chicken breast halves, diced, Alfredo-style pasta sauce, and shredded mozzarella cheese.</p>
-    </div>-->
-    <div class="group"></div>
-  </div>
-</div>
-
-<!--<div class="section">
+<div class="section">
   <div class="container">
     <h1 class="reset">All recipe providers Cited:</h1> <p>Jane Lee, John Stein, William Smith, Daniel schemit, Emily Tao, Abby Harper, Tayler Hyde, Adam Klaus, Jordan Hamilton, Judy Craufurd. </p>
   </div>
-</div>-->
+</div>
 <div class="section">
   <div class="footer"><section class="wow slideInUp" data-wow-delay="0.3s" style="visibility: visible; -webkit-animation-delay: 0.3s; -moz-animation-delay: 0.3s; animation-delay: 0.3s;"> 
     <div class="container white">                    

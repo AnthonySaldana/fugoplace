@@ -21,6 +21,39 @@ use DB;
 class SchoolController extends Controller
 {
 
+    public function schoolData($school){
+
+        $user = User::where('school_slug',$school)->get();
+
+        if( $user->isEmpty() ){
+            return redirect('/');
+        }
+        $school_name = $user[0]->school_name;
+        $school_slug = $user[0]->school_slug;
+
+
+        //return view('school' , [ 'user' => $user ]);
+
+        $user_id = $user[0]->id;
+
+
+        if (Auth::check()) {
+            $isuser = true;
+        }else{
+            $isuser = false;
+        }
+
+        $userdata = array(
+            'school_name'   => $school_name,
+            'school_slug'   => $school_slug,
+            'school_id'     => $user_id,
+            'is_user'       => $isuser
+            );
+
+        return $userdata;
+
+    }
+
     /**
      * Display the specified resource.
      *
@@ -94,7 +127,8 @@ class SchoolController extends Controller
             'user'	  => $user[0],
             'videorecipes' => $videorecipes,
             'today'   => $now,
-            'isuser'  => $isuser
+            'isuser'  => $isuser,
+            'school_link' => $school_slug 
         ]);
     }
 
@@ -110,5 +144,54 @@ class SchoolController extends Controller
 
 
     }
+
+    public function showabout($school){
+
+        $school = $this->schoolData( $school );
+        //return $school_data;
+
+        //$school_link = $_SERVER['HTTP_HOST'] . '/school/' . $school['school_slug'];
+
+        return view('school/about', [
+            'school_link'    => $school['school_slug'],
+            'isuser'  => $school['is_user']
+        ]);
+
+    }
+
+    public function showfaq($school){
+
+        $school = $this->schoolData( $school );
+
+        return view('school/faq', [
+            'school_link'    => $school['school_slug'],
+            'isuser'  => $school['is_user']
+        ]);
+
+    }
+
+    public function showcontact($school){
+
+        $school = $this->schoolData( $school );
+
+        return view('school/contact', [
+            'school_link'    => $school['school_slug'],
+            'isuser'  => $school['is_user']
+        ]);
+
+    }
+
+    public function showfugo($school){
+
+        $school = $this->schoolData( $school );
+
+        return view('school/welcome', [
+            'school_link'    => $school['school_slug'],
+            'isuser'  => $school['is_user']
+        ]);
+
+    }
+
+
 
 }

@@ -40,6 +40,15 @@ Route::get('/contact',function(){
 
 Route::get('/school/{all}', 'SchoolController@showSchool');
 
+Route::get('/school/{all}/about', 'SchoolController@showabout');
+
+Route::get('/school/{all}/faq', 'SchoolController@showfaq');
+
+Route::get('/school/{all}/contact', 'SchoolController@showcontact');
+
+Route::get('/school/{all}/fugo', 'SchoolController@showfugo');
+
+
 Route::get('/recipe/{id}', 'SchoolController@showRecipe');
 
 Route::get('/meal/{id}', 'PublicMealController@show');
