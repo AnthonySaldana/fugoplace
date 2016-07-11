@@ -20,6 +20,8 @@ use App\MealPlanner;
 
 use Auth;
 
+use Session;
+
 use DateTime;
 
 use DateInterval;
@@ -347,6 +349,7 @@ class FugoController extends Controller
 
     public function doLogout(){
     	Auth::logout(); // log the user out of our application
+    	Session::flush();
     	return redirect('login'); 
     }
 

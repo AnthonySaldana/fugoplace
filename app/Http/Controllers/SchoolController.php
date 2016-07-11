@@ -12,6 +12,8 @@ use App\Recipe;
 
 use Auth;
 
+use Session;
+
 use Datetime;
 use DateInterval;
 use DatetimeZone;
@@ -22,6 +24,46 @@ class SchoolController extends Controller
 {
 
     public function schoolData($school){
+
+        $schoolvariable = strtolower( $school . 'schoolsite' );
+        //die( $schoolvariable );
+
+        if( !empty( $_SERVER['HTTP_REFERER'] ) ){
+
+            $referer = $_SERVER['HTTP_REFERER'];
+
+        }else{
+
+            $referer = false;
+
+        }
+
+        
+
+        if ( true == strpos($referer, 'fugoplace') ) {
+            $fugosite = true;
+        }else{
+            $fugosite = false;
+        }
+
+
+        if(isset($_SERVER['HTTP_REFERER']) && empty(Session::get( $schoolvariable ) ) && false == $fugosite ){
+
+            $schoolsite = $_SERVER['HTTP_REFERER'];
+            Session::put( $schoolvariable , $schoolsite);
+            $schoolsiteincluded = true;
+
+        }elseif( !empty( Session::get( $schoolvariable ) ) ){
+            $schoolsite = Session::get( $schoolvariable );
+            //return Session::get( $schoolvariable );
+            $schoolsiteincluded = true;
+
+        }else{
+
+            $schoolsiteincluded = false;
+            $schoolsite = false;
+
+        }
 
         $user = User::where('school_slug',$school)->get();
 
@@ -47,7 +89,9 @@ class SchoolController extends Controller
             'school_name'   => $school_name,
             'school_slug'   => $school_slug,
             'school_id'     => $user_id,
-            'is_user'       => $isuser
+            'is_user'       => $isuser,
+            'schoolsiteincluded' => $schoolsiteincluded,
+            'schoolsite'    => $schoolsite
             );
 
         return $userdata;
@@ -62,6 +106,52 @@ class SchoolController extends Controller
      */
     public function showSchool($school)
     {
+
+        $schoolvariable = strtolower( $school . 'schoolsite' );
+        //die( $schoolvariable );
+
+        if( !empty( $_SERVER['HTTP_REFERER'] ) ){
+
+            $referer = $_SERVER['HTTP_REFERER'];
+
+        }else{
+
+            $referer = false;
+
+        }
+
+        
+
+        if ( true == strpos($referer, 'fugoplace') ) {
+            $fugosite = true;
+        }else{
+            $fugosite = false;
+        }
+
+
+        if(isset($_SERVER['HTTP_REFERER']) && empty(Session::get( $schoolvariable ) ) && false == $fugosite ){
+
+            $schoolsite = $_SERVER['HTTP_REFERER'];
+            Session::put( $schoolvariable , $schoolsite);
+            $schoolsiteincluded = true;
+
+        }elseif( !empty( Session::get( $schoolvariable ) ) ){
+            $schoolsite = Session::get( $schoolvariable );
+            //return Session::get( $schoolvariable );
+            $schoolsiteincluded = true;
+
+        }else{
+
+            $schoolsiteincluded = false;
+            $schoolsite = false;
+
+        }/*elseif( Session::get( 'schoolsite' ) ){
+
+            $schoolsiteincluded = false;
+            Session::forget('schoolsite');
+
+        }*/
+
         $user = User::where('school_slug',$school)->get();
 
         if( $user->isEmpty() ){
@@ -128,7 +218,9 @@ class SchoolController extends Controller
             'videorecipes' => $videorecipes,
             'today'   => $now,
             'isuser'  => $isuser,
-            'school_link' => $school_slug 
+            'school_link' => $school_slug,
+            'schoolsiteincluded' => $schoolsiteincluded,
+            'schoolsite'    => $schoolsite
         ]);
     }
 
@@ -154,7 +246,9 @@ class SchoolController extends Controller
 
         return view('school/about', [
             'school_link'    => $school['school_slug'],
-            'isuser'  => $school['is_user']
+            'isuser'  => $school['is_user'],
+            'schoolsiteincluded' => $school['schoolsiteincluded'],
+            'schoolsite'    => $school['schoolsite']
         ]);
 
     }
@@ -165,7 +259,9 @@ class SchoolController extends Controller
 
         return view('school/faq', [
             'school_link'    => $school['school_slug'],
-            'isuser'  => $school['is_user']
+            'isuser'  => $school['is_user'],
+            'schoolsiteincluded' => $school['schoolsiteincluded'],
+            'schoolsite'    => $school['schoolsite']
         ]);
 
     }
@@ -176,7 +272,9 @@ class SchoolController extends Controller
 
         return view('school/contact', [
             'school_link'    => $school['school_slug'],
-            'isuser'  => $school['is_user']
+            'isuser'  => $school['is_user'],
+            'schoolsiteincluded' => $school['schoolsiteincluded'],
+            'schoolsite'    => $school['schoolsite']
         ]);
 
     }
@@ -187,7 +285,9 @@ class SchoolController extends Controller
 
         return view('school/welcome', [
             'school_link'    => $school['school_slug'],
-            'isuser'  => $school['is_user']
+            'isuser'  => $school['is_user'],
+            'schoolsiteincluded' => $school['schoolsiteincluded'],
+            'schoolsite'    => $school['schoolsite']
         ]);
 
     }
