@@ -40,7 +40,7 @@ class SchoolController extends Controller
 
         
 
-        if ( true == strpos($referer, 'fugoplace') ) {
+        if ( true == strpos($referer, 'fugo') ) {
             $fugosite = true;
         }else{
             $fugosite = false;
