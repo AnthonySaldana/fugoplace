@@ -498,14 +498,14 @@ body#dashboard .button1, body #dashboard .button1 {
     top: 0;
     left: 30px;
     bottom: 0;
-    border: 2px solid;
+    border: 1px solid;
     border-color: transparent #efe4e4;
     -webkit-box-sizing: initial; }
   #note-editor textarea {
     display: block;
     width: 95.9%;
     margin: 0 auto;
-    padding-top: 20px;
+    padding-top: 30px;
     border: none;
     outline: none;
     height: 100%;
