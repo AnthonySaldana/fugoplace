@@ -5,9 +5,9 @@
   <link rel="stylesheet" href="{{ URL::asset('css/user.css') }}">
   </head>
   <body id="note-editor">
-    <script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
+    <!--<script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
     <script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);
-    </script>
+    </script>-->
     <script>
       function myFunction() {
         return confirm("Trash this note?");
