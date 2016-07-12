@@ -51,7 +51,7 @@ Route::get('/school/{all}/fugo', 'SchoolController@showfugo');
 
 Route::get('/recipe/{id}', 'SchoolController@showRecipe');
 
-Route::get('/meal/{id}', 'PublicMealController@show');
+Route::get('school/{all}/meal/{id}', 'SchoolController@showmeal');
 /**
 *	LOGIN / REGISTRATION ROUTE HANDLING
 */

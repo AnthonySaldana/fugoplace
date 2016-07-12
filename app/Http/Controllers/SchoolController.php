@@ -292,6 +292,34 @@ class SchoolController extends Controller
 
     }
 
+    public function showmeal($schoolslug , $mealid)
+    {
+
+        $school = $this->schoolData( $schoolslug );
+
+
+        $meal = DB::table('meal_planner')->leftjoin('recipes', 'meal_planner.recipe_id', '=' , 'recipes.id')->where('meal_planner.meal_id', $mealid )->get();
+        
+        //print_r( $meals );
+
+        //$recipe = Recipe::where('id',$id)->get();
+
+        //$author_id = Auth::user()->id;
+
+        //$recipe_author = $recipe[0]->author_id;
+
+         return view('publicMeal', [
+            'school_link'    => $school['school_slug'],
+            'isuser'  => $school['is_user'],
+            'schoolsiteincluded' => $school['schoolsiteincluded'],
+            'schoolsite'    => $school['schoolsite'],
+            'meal'          => $meal[0]
+        ]);
+
+        //return view('publicMeal', ['meal' => $meal[0]]);
+       
+    
+    }
 
 
 }

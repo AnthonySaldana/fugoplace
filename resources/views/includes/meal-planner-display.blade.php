@@ -210,7 +210,7 @@
 									$meal_id = $meal->meal_id;
 									?>
 
-										<li><a href="/meal/{{ $meal->meal_id }}"> <?php echo $recipe_name; ?></a></li>
+										<li><a href="/school/{{ $school_link }}/meal/{{ $meal->meal_id }}"> <?php echo $recipe_name; ?></a></li>
 
 									<?php
 									//echo "<pre>";print_r( $meal );echo "</pre>";

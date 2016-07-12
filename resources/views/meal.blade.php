@@ -2,7 +2,8 @@
 <html>
   <head>
     <title>FugoPlace</title>
-	<style>
+	<link rel="stylesheet" href="{{ URL::asset('css/user.css') }}">
+  <style>
 	.two {
 position: relative;
 top: -8px;
@@ -36,7 +37,7 @@ left: 527px;
   </style>
   </head>
   <body>
-    @include('includes.header')
+    @include('schools.includes.header')
     <script>
 		function myFunction() {
 		    confirm("Trash composed recipe?");

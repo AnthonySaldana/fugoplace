@@ -2,12 +2,13 @@
 <html>
   <head>
     <title>FugoPlace</title>
+    <link rel="stylesheet" href="{{ URL::asset('css/general.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/user.css') }}">
   </head>
   <body id="meal">
     
-
-<ul class="nav">
+@include('school.includes.header')
+<!--<ul class="nav">
     <li><span>Fugo</span><u>Place</u><br /><span></li>
     <li><a href="/">Home</a></li>
     <li><a href="/about">About Us</a></li>
@@ -15,7 +16,7 @@
     <li><a href="/contact">Contact Us</a></li>
     <li><a href="/user">user</a></li>
     <br/>
-  </ul>
+  </ul>-->
 	<br />
 	<?php 
     if(isset( $meal )){
