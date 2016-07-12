@@ -2,7 +2,7 @@
 	<div class="header">
 		<div class="container"></div>
 			<ul class="nav">
-				<li><a href="/"><span class="two">Fugo</span>&nbsp;&nbsp;<u>Place</u><br /></a></li>
+				<li style="position:absolute; left:0;"><a href="/"><span class="two" style="position:static;">Fugo</span>&nbsp;&nbsp;<u style="position:static;">Place</u><br /></a></li>
 				<li><a href="/">Home</a></li>
 				<li><a href="/about">About Us</a></li>
 				<li><a href="/faq">FAQ</a></li>

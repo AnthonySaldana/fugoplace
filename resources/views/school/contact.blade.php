@@ -43,7 +43,11 @@
     <div></div>
 	<br />
 
-    <form action="" method="post" class="elegant-aero">
+	<p class="one"><span class="one"><u>Contact Fugo Studio</u></span>
+				<br /> <br />
+			If you have any questions or concerns we would love to hear from you. We are a young company and are eager to improve your experience, so please send us any suggestions. You can contact us through email, as you see to your right, or via phone call; (949)999-999. <br /><strong>Office hours:</strong> Monday-Saturday 9AM-5PM. Fugo Studio is located at 130 Chapman Ave, Fullerton, CA 92832.</p>
+
+<form action="" method="post" class="elegant-aero">
     <h1>Contact Us
         <span>Please fill all the texts in the fields.</span>
     </h1>
@@ -73,9 +77,5 @@
         <input type="button" class="button" value="Send" />
     </label>    
 </form>
-	<p class="one"><span class="one"><u>Contact Fugo Studio</u></span>
-				<br /> <br />
-			If you have any questions or concerns we would love to hear from you. We are a young company and are eager to improve your experience, so please send us any suggestions. You can contact us through email, as you see to your right, or via phone call; (949)999-999. <br /><strong>Office hours:</strong> Monday-Saturday 9AM-5PM. Fugo Studio is located at 130 Chapman Ave, Fullerton, CA 92832.</p>
-
   </body>
 </html>
