@@ -98,7 +98,7 @@
   @include('includes.meal-planner-display')
     
     
-  <h2><div class="section">
+  <!--<h2><div class="section">
   <div class="container">
     <h1>Video Recipe Sample</h1>
     <h2>To help you get an idea for the nutritional inspiration we try to provide to our users here are some brief recipe examples. If you wish to contact us please visit our 'Contact Us' page. We are eager to answer any questions and are open to suggestions.</h2></h2>
@@ -135,7 +135,7 @@
     </div>
     <div class="group"></div>
   </div>
-</div>
+</div>-->
     <?php 
     /*
     foreach( $videorecipes as $recipe ){
