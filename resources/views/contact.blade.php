@@ -5,7 +5,7 @@
 	@include('includes.head')
   <style type="text/css">
   form.elegant-aero{ 
-    margin-left: 0;
+    margin-left: 5%;
     margin-right: 0;
     min-width: 500px;
     float:left;
@@ -27,7 +27,7 @@
     <div></div>
 	<br />
 	<p class="one"><span class="one"><u>Contact Fugo Studio</u></span>
-				<br /> <br />
+				<br /> 
 			If you have any questions or concerns we would love to hear from you. We are a young company and are eager to improve your experience, so please send us any suggestions. You can contact us through email, as you see to your right, or via phone call; (949)999-999. <br /><strong>Office hours:</strong> Monday-Saturday 9AM-5PM. Fugo Studio is located at 130 Chapman Ave, Fullerton, CA 92832.</p>
     <form action="" method="post" class="elegant-aero">
     <h1>Contact Us
