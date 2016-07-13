@@ -218,11 +218,11 @@
     </nav></h1>
     
     
-    <h2><div class="section">
+    <!--<h2><div class="section">
   <div class="container">
-    <h1>Video Recipe Sample</h1>
+    <!--<h1>Video Recipe Sample</h1>
     <h2>To help you get an idea for the nutritional inspiration we try to provide to our users here are some brief recipe examples. If you wish to contact us please visit our 'Contact Us' page. We are eager to answer any questions and are open to suggestions.</h2></h2>
-    <div class="col three bg nopad pointer">
+    <!--<div class="col three bg nopad pointer">
       <div class="imgholder"><iframe  width="303"height="300" src="https://www.youtube.com/embed/kXm5tvnEMgM" frameborder="0" allowfullscreen>Please wait.</iframe></div>
       <h1 class="feature">Recipe:&nbsp;Meatloaf&nbsp;&nbsp;&nbsp;Cited:&nbsp;Jane Lee</h1>
       <p>Ground beef, onion, garlic, and green pepper, makes this a truely tastey dish.</p>
@@ -252,16 +252,16 @@
       <div class="imgholder"><iframe  width="303"height="300" src="https://www.youtube.com/embed/kXm5tvnEMgM" frameborder="0" allowfullscreen>Please wait.</iframe></div>
       <h1 class="feature">Recipe:&nbsp;Lasagna&nbsp;&nbsp;&nbsp;Cited:&nbsp;Emily Tao</h1>
       <p>Classic Lasagna with  boneless chicken breast halves, diced, Alfredo-style pasta sauce, and shredded mozzarella cheese.</p>
-    </div>
-    <div class="group"></div>
+    </div>-->
+    <!--<div class="group"></div>-->
   </div>
 </div>
 
-<div class="section">
+<!--<div class="section">
   <div class="container">
     <h1 class="reset">All recipe providers Cited:</h1> <p>Jane Lee, John Stein, William Smith, Daniel schemit, Emily Tao, Abby Harper, Tayler Hyde, Adam Klaus, Jordan Hamilton, Judy Craufurd. </p>
   </div>
-</div>
+</div>-->
 <div class="section">
   <div class="footer"><section class="wow slideInUp" data-wow-delay="0.3s" style="visibility: visible; -webkit-animation-delay: 0.3s; -moz-animation-delay: 0.3s; animation-delay: 0.3s;"> 
     <div class="container white">                    
