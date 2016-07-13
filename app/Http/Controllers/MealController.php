@@ -96,7 +96,8 @@ class MealController extends Controller
         return view('user.meal-planner', [
             'user_id' => $user_id,
             'meals'   => $newgroup,
-            'today'   => $today
+            'today'   => $today,
+            'school_link'   => Auth::user()->school_slug
         ]);
 
         //return "hello world index";
