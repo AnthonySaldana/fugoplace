@@ -77,7 +77,7 @@
                       </p></td> 
                     </tr>
                   <?php
-              }else{
+              }else if( !empty( $media ) ){
 
                   ?>
 
@@ -92,7 +92,38 @@
                     </tr>
 
                   <?php
-                } 
+                } else{
+
+            ?>
+              <tr>
+                
+                <td class="recipe-thumb">
+
+                  <img src="{{ URL::asset('siteimages/no-image.jpg') }}"width="300" height="200"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                  <div class="div1"></div>
+
+                </td>
+
+                <td class="button">
+
+                  <p class="button1"><br />
+                  <u><strong>Recipe Title:</strong>&nbsp;{{ $title }}</u>&nbsp;&nbsp;&nbsp;
+                  <!--<u><strong>Creator Cited:&nbsp;</strong>{{ $author }}</u><br /><br /><br />
+                  
+                  {!! str_limit( strip_tags( $desc ) , $strlimit , $end = '...' ) !!}.--><br/>
+                  
+                  @include('user.includes.favorite-written')
+
+
+                  <!--<a href="{{ action('RecipeController@show', array($id) ) }}" class='btn two'>Written Recipe</a></p>-->
+                  </p>
+                </td> 
+
+              </tr>
+            <?php
+
+          }
         } 
       ?>
 <!--
