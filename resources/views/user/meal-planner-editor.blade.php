@@ -186,7 +186,7 @@
 
 							?>
 								<tr>
-									<td><a href="/meal/{{ $meal->meal_id }}"> {{ $meal->meal_id }} </a></td>
+									<td><a href="/school/{{ Auth::user()->school_slug}}/meal/{{ $meal->meal_id }}"> {{ $meal->meal_id }} </a></td>
 								    <td>{{ $date }}</td>
 								    <td>{{ $meal_category }}</td> 
 								    <td>{{ $mediatype }}</td>
