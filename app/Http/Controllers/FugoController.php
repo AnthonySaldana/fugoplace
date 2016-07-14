@@ -92,32 +92,26 @@ class FugoController extends Controller
 
 						    array(
 						        'title'     	=> 'To do List',
-						        'content'    	=> '<ul>
-														<li>Task number 1</li>
-														<li>Task number 2</li>
-														<li>Task number 3</li>
-													</ul>',
+						        'content'    	=> 'Task number 1
+													Task number 2
+													Task number 3',
 						        'author_id' 	=> Auth::user()->id,
 						        'created_at'=>date('Y-m-d H:i:s')
 
 						    ),array(
 						        'title'     	=> 'Organize',
-						        'content'    	=> '<ul>
-														<li>Task number 1</li>
-														<li>Task number 2</li>
-														<li>Task number 3</li>
-													</ul>',
+						        'content'    	=> 'Task number 1
+													Task number 2
+													Task number 3',
 						        'author_id' 	=> Auth::user()->id,
 						        'created_at'=>date('Y-m-d H:i:s')
 
 						    ),
 						    array(
 						        'title'     	=> 'Email back',
-						        'content'    	=> '<ul>
-														<li>Email Person 1</li>
-														<li>Task number 2</li>
-														<li>Task number 3</li>
-													</ul>',
+						        'content'    	=> 'Email Person 1
+													Task number 2
+													Task number 3',
 						        'author_id' 	=> Auth::user()->id,
 						        'created_at'=>date('Y-m-d H:i:s')
 
