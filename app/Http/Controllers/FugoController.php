@@ -198,43 +198,67 @@ class FugoController extends Controller
 				        'created_at'=>date('Y-m-d H:i:s')
 					 ),
 					array( 
-						'title'     	=> 'Healthy Vegan Recipes',
-				        'content'    	=> '<ul><li>1. Hurom Slow Juicer</li>
-												<li>2. Traditional Medicinals Mint Tea</li>
-												<li>3. Traditional Medicinals Chamomile Tea</li>
-												<li>4. Sunwarrior Protein Powder</li>
-												<li>5. Dr. Ohhiras Probiotics</li>
-												<li>6. Prairie Naturals Chlorella</li>
-												<li>7. VitaVegan Multivitamin</li>
-												<li>8. Marys Organic Crackers</li>
-												<li>9. Crazy Sexy Diet Book</li>
-												<li>10. Fablunch Containers</li>
+						'title'     	=> 'Chicken & Couscous',
+				        'content'    	=> '<ul>
+												<li>9 oz. (250 g) couscous</li>
+												<li>12 oz. (350 g) chicken breast</li>
+												<li>7 oz. (200 g) rocket</li>
+												<li>2tbsp butter</li>
+												<li>10cherry tomatoes</li>
+												<li>Black olives</li>
+												<li>Sultanas</li>
+												<li>1tbsp oil </li>
+												<li>Salt</li>
 											</ul>',
 						'media'			=> '',
 				        'author_id' 	=> Auth::user()->id,
 				        'video_recipe'	=> 1,
-				        'videolink'	=> 'https://www.youtube.com/embed/kXm5tvnEMgM',
+				        'videolink'	=> 'https://www.youtube.com/embed/qPIjWW28E3A',
 				        'favorite'		=> 0,
 				        'created_at'=>date('Y-m-d H:i:s')
 					 ),
 					array( 
-						'title'     	=> 'Healthy Vegan Recipes',
+						'title'     	=> 'Stuffed peppers',
 				        'content'    	=> '<ul>
-												<li>1. Hurom Slow Juicer</li>
-												<li>2. Traditional Medicinals Mint Tea</li>
-												<li>3. Traditional Medicinals Chamomile Tea</li>
-												<li>4. Sunwarrior Protein Powder</li>
-												<li>5. Dr. Ohhiras Probiotics</li>
-												<li>6. Prairie Naturals Chlorella</li>
-												<li>7. VitaVegan Multivitamin</li>
-												<li>8. Marys Organic Crackers</li>
-												<li>9. Crazy Sexy Diet Book</li>
-												<li>10. Fablunch Containers</li>
+												<li>Red bell peppers</li>
+												<li>Half an onion</li>
+												<li>Half a cup of tomato sauce</li>
+												<li>Half a cup of beef broth </li>
+												<li>Red pepper flakes</li>
+												<li>Salt</li>
+												<li>Pound and a half of ground meet</li>
+												<li>Garlic</li>
+												<li>Parsley </li>
+												<li>Black pepper</li>
+												<li>Parmesan cheesy</li>
+												<li>Rice</li>
 											</ul>',
 						'media'			=> '',
 				        'author_id' 	=> Auth::user()->id,
 				        'video_recipe'	=> 1,
-				        'videolink'	=> 'https://www.youtube.com/embed/kXm5tvnEMgM',
+				        'videolink'	=> 'https://www.youtube.com/embed/KD7_HOERkYg',
+				        'favorite'		=> 0,
+				        'created_at'=>date('Y-m-d H:i:s')
+					 ),
+					array( 
+						'title'     	=> 'Truffle Cauliflower Gratin',
+				        'content'    	=> '<ul>
+												<li>Truffle pecorino cheese </li>
+												<li>Butter</li>
+												<li>Flower</li>
+												<li>Milk </li>
+												<li>Cayenne pepper</li>
+												<li>Salt</li>
+												<li>Nutmeg</li>
+												<li>Cauliflower</li>
+												<li>Plain bread crumbs </li>
+												<li>Parmesan cheesy</li>
+												<li>Olive oil</li>
+											</ul>',
+						'media'			=> '',
+				        'author_id' 	=> Auth::user()->id,
+				        'video_recipe'	=> 1,
+				        'videolink'	=> 'https://www.youtube.com/embed/wg2ajk7W6t4',
 				        'favorite'		=> 0,
 				        'created_at'=>date('Y-m-d H:i:s')
 					 )
@@ -290,6 +314,15 @@ class FugoController extends Controller
 				MealPlanner::insert( $meal_data );
 				//$request->session()->flash('alert-success', 'You were registered successfully.');
 		        //return redirect('/user'); 
+
+				 return redirect('/user/meal-planner')->with('new_user', [1]); 
+
+				 return view('user.meal-planner', [
+		            'user_id' => Auth::user()->id,
+		            'meals'   => $newgroup,
+		            'today'   => $today,
+		            'school_link'   => Auth::user()->school_slug
+		        ]);
 
 		         return view('user.dashboard', [
 		            'new_user' => 1

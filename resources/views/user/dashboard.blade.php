@@ -171,7 +171,7 @@ padding: 10px;
     
 		<table class="nav-container" style="width:32%">
     <div class="space"></div>
-        <div class="flash-message" style="width:22%; margin-left:15px;">
+        <div class="flash-message" style="margin-left:15px;">
 
         <?php if( isset( $new_user ) && !empty($new_user) && 1 == $new_user ){
           ?>

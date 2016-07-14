@@ -7,8 +7,10 @@
   </head>
   <body id="meal">
     
+
+<!--
 @include('school.includes.header')
-<!--<ul class="nav">
+<ul class="nav">
     <li><span>Fugo</span><u>Place</u><br /><span></li>
     <li><a href="/">Home</a></li>
     <li><a href="/about">About Us</a></li>

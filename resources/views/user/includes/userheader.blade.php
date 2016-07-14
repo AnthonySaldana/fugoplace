@@ -196,6 +196,22 @@ padding: 10px;
 
 <table class="nav-container">
 <div class="space"></div>
+ <div class="flash-message" style="margin-left:15px;">
+
+        @if(Session::has('new_user'))
+
+            <div style='text-align: center; background-color: #e6ffff; width: 100%; padding: 35px; margin: 25px; font-family: Helvetica; margin-left:0;' >
+            <h2 style='text-align: center;'>Welcome to FugoPlace!</h2>
+            You have now activated your FugoPlace account. We hope everything is to your liking and if you have any questions or suggestions you can contact us below. <br />We thank you for using FugoPlace.
+            </div>
+            @endif
+    @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+      @if(Session::has('alert-' . $msg))
+
+      <p class="alert alert-{{ $msg }}">{{ Session::get('alert-' . $msg) }} <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></p>
+      @endif
+    @endforeach
+  </div> <!-- end .flash-message -->
 <tr>
 <td colspan="1"><a href="{{ action('MealController@index') }}"  {{{ (Request::is('user/meal-planner') ? 'class=active' : '') }}}><button class="button button1">Meal Planner</button></a></td>
 <td><a href="{{ action('MealController@index') }}"  ><img src="{{ URL::asset('siteimages/stock-illustration-62639690-vector-flat-calendar-illustration.jpg') }}" HEIGHT="95" WIDTH="110" BORDER="0"/></a></td>		
