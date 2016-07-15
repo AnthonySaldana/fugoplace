@@ -88,6 +88,10 @@ Route::get('/user/dashboard', ['middleware' => 'auth', function(){
 
 Route::get('/test/mail/{message}' , ['uses' => 'MailController@sendmail'] );
 
+Route::post('/contact-message', ['uses' => 'MailController@sendpublic'] );
+
+Route::post('school/{all}/contact-message', ['uses' => 'MailController@sendschool'] );
+
 Route::resource('/user/meal-planner', 'MealController');
 
 Route::resource('/user/folder-fav', 'FolderController');
