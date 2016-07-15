@@ -50,6 +50,7 @@ class mailController extends Controller
         Mail::send('emails.contact', ['data' => $request], function ($m) use ($request) {
             $m->from('fugoplace@mg.anthonysaldana.com', 'fugoplace');
 
+            $m->to( env('CONTACT_EMAIL' , ''), 'FugoPlace')->subject( $request->selection );
         });
 
         return redirect()->back()->with('sent',[1]);
