@@ -50,14 +50,13 @@ class mailController extends Controller
         Mail::send('emails.contact', ['data' => $request], function ($m) use ($request) {
             $m->from('fugoplace@mg.anthonysaldana.com', 'fugoplace');
 
-            $m->to('anthonywebsol@gmail.com', 'Anthony')->subject( $request->selection );
         });
 
         return redirect()->back()->with('sent',[1]);
     }
 
 
-    public function sendschool( Request $request, $school ){
+    /*public function sendschool( Request $request, $school ){
         //return $email;
 
         //$user = User::findOrFail(6);
@@ -71,6 +70,6 @@ class mailController extends Controller
         });
 
         return "success";
-    }
+    }*/
 
 }
