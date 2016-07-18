@@ -48,8 +48,8 @@ class mailController extends Controller
         //print_r( $user );
         //return 'hello';
         Mail::send('emails.contact', ['data' => $request], function ($m) use ($request) {
-            $m->from( env('FROM_EMAIL' , ''), 'fugoplace');
-
+            $m->from( env('FROM_EMAIL' , ''), 'Fugoplace');
+            $m->sender(env('FROM_EMAIL' , ''), 'Fugoplace');
             $m->to( env('CONTACT_EMAIL' , ''), 'FugoPlace')->subject( $request->selection );
         });
 
