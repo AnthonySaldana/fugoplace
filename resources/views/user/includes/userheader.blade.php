@@ -147,7 +147,19 @@ margin-left: auto;
 #dashboard .tablespace {
 padding: 10px;
 }
+
+.fugoschool_link{
+	text-align: left;
+	padding: 10px;
+	padding-bottom: 0;
+}
+
+.fugoschool_link a:hover{
+	text-decoration: none;
+}
     </style>
+}
+}
 <!--<ul class="userheader">
 <li><a href="/user/dashboard">Dashboard</a></li>
 <li><a href="{{ action('MealController@index') }}">Meal Planner</a></li>
@@ -257,11 +269,56 @@ padding: 10px;
 
 </tr>-->
 <tr>
-<td><button class="button button1" style="color:gray;">Coming Soon</button></td>
-<td></td>		
-
+<td><button class="button button1" style="color:gray;">Coming Soon</button></td>		
 </tr>
 
+<?php if( isset( $showpubliclink ) ){ ?>
+
+<tr class="link_container" style="position:fixed; right:0; bottom:0; background-color: #efefef;">
+	<td style="width:400px;">
+	<br/>
+	<p style="text-align:left; margin-left:10px;">Your Public Image link can be found below: </p>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js">	</script>
+	<script>
+		var Clipboard = new Clipboard('.clip'); 
+		$( document ).ready(function() {
+
+
+
+			$('.link_tooltip').hide();
+			Clipboard.on('success', function(e) {
+			    /*console.info('Action:', e.action);
+			    console.info('Text:', e.text);
+			    console.info('Trigger:', e.trigger);
+			    e.clearSelection();*/
+			    $('#linkhtml').select();
+			    //$('.link_tooltip').show();
+			    $(".link_tooltip").fadeIn(100).delay(1000).fadeOut(2000);
+			});
+
+			/*$('.hide_link').click( function(){
+				$( 'link_container' ).css('bottom','0');
+			});*/
+		});
+	</script>
+		<?php $linkhtml = '<div style="width:450px;" class="fugoschool_link"><a href="http://' . $link . '" style="text-decoration:none; margin:25px; display:block; text-decoration:none;">
+			<span class="two" style="position:static; border-radius: 17px; width: 10px; padding: 10px; border: 2px solid #ff9900; margin: 0px; font-size: 45px; font-family: sans-serif, Helvetica; color:black; text-decoration:none;">
+				  Fugo
+			</span>
+			&nbsp;
+			&nbsp;
+			<u style="position:static;font-size: 45px; font-family: sans-serif, Helvetica; color:black;">Place</u>
+		</a></div>' ?>
+		{!!	$linkhtml !!}
+		<hr/>
+		<input id="linkhtml" value="{{ $linkhtml }}" style="width:90%;" onclick="this.select()" readonly>
+		<button class="clip" data-clipboard-target="#linkhtml" style="position:relative;">
+		<p style="position:absolute; top: -20px; left:-20px;" class="link_tooltip">Copied!!</p>
+		    <img width="15px;" src="{{ URL::asset('siteimages/clippy.svg') }}" alt="Copy to clipboard">
+		</button>
+	</td>
+</tr>
+<?php } ?>
 </table>
 
 

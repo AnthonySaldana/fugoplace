@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="{{ URL::asset('css/user.css') }}">
   </head>
   <body id="meal-planner">
-
+  <?php $showpubliclink = true; ?>
   @include('user.includes.userheader')
   <div class="page-container">
   	<?php if( isset( $user_id )){
