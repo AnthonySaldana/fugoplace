@@ -86,12 +86,12 @@ input:focus{
   height:20px;
   width:130px;
   margin-top:3px;
-  margin-left:10%;
+  /*margin-left:10%;*/
   background-color:#4c66a4;
   border:none;
   line-height:24px;
-  position:relative;
-  right: -380px;
+  /*position:relative;
+  right: -380px;*/
   top: 40px;
   background-color: white;
 }
@@ -100,12 +100,12 @@ input:focus{
   height:20px;
   width:130px;
   margin-top:3px;
-  margin-left:10%;
+  /*margin-left:10%;*/
   background-color:#4c66a4;
   border:none;
   line-height:24px;
-  position:relative;
-  right: -315px;
+  /*position:relative;
+  right: -315px;*/
   top: 40px;
   background-color: white;
 }
@@ -113,8 +113,8 @@ input:focus{
 .spanone {
   color: white; 
   font-family: sans-serif;
-  position: relative;
-  right: -485px;
+  /*position: relative;
+  right: -485px;*/
   top: 40px;
   color: white;
 }
@@ -122,8 +122,9 @@ input:focus{
 .spantwo {
   color: white; 
   font-family: sans-serif;
-  position: relative;
-  right: -420px;
+  /*position: relative;
+  right: -420px;*/
+  margin-left: 10px;
   top: 40px;
   color: white;
 }
@@ -138,8 +139,8 @@ input:focus{
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
-  position: relative;
-  right: -330px;
+  /*position: relative;
+  right: -330px;*/
   top: 41px;
 }
 
@@ -154,7 +155,7 @@ input:focus{
     font-family:Helvetica;
 	position: relative;
 	right: -10px;
-	top: -20px;
+	top: 10px;
 }
 
 u {
@@ -162,7 +163,7 @@ u {
 	font-family:Helvetica;
 	position: relative;
 	right: -10px;
-	top: -20px;
+	top: 10px;
 }
 			
 
@@ -391,6 +392,16 @@ html, body {
 	right: -125px;
 }
 
+.loginform{
+  float:right;
+  width:40%;
+  top:40px;
+  position: relative;
+  right: 103px;
+  text-align: center;
+  min-width: 467px;
+}
+
 </style>
 </head>
 <body>
@@ -398,7 +409,7 @@ html, body {
 <div class="box"></div>
 <div></div>
 <div class="container">
-  <form action="{{ url('/login') }}" method="post">
+  <form action="{{ url('/login') }}" method="post" class="loginform">
   <span class="spanone">Email:</span> 
   <input class="input1" type="phone/email" name="email" value="{{ old('email') }}">
   
