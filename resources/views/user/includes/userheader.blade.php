@@ -274,7 +274,7 @@ padding: 10px;
 
 <?php if( isset( $showpubliclink ) ){ ?>
 
-<tr class="link_container" style="position:fixed; right:0; bottom:0; background-color: #efefef;">
+<tr class="link_container" style="position:absolute; right:0; background-color: #efefef;">
 	<td style="width:400px;">
 	<br/>
 	<p style="text-align:left; margin-left:10px;">Your Public Image link can be found below: </p>
