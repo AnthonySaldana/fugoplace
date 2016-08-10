@@ -104,6 +104,8 @@ Route::resource('/user/tutorials', 'TutorialController');
 
 Route::resource('/user/recipes', 'RecipeController');
 
+Route::resource('/user/admin/users', 'AdminUsersController');
+
 /**
 *	SEPERATE CATCH ALL FOR USER PAGE VS EVERYOTHER NON EXISTENT PAGE
 */
