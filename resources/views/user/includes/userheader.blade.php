@@ -217,12 +217,6 @@ padding: 10px;
             You have now activated your FugoPlace account. We hope everything is to your liking and if you have any questions or suggestions you can contact us below. <br />We thank you for using FugoPlace.
             </div>
             @endif
-    @foreach (['danger', 'warning', 'success', 'info'] as $msg)
-      @if(Session::has('alert-' . $msg))
-
-      <p class="alert alert-{{ $msg }}">{{ Session::get('alert-' . $msg) }} <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></p>
-      @endif
-    @endforeach
   </div> <!-- end .flash-message -->
 <tr>
 <td colspan="1"><a href="{{ action('MealController@index') }}"  {{{ (Request::is('user/meal-planner') ? 'class=active' : '') }}}><button class="button button1">Meal Planner</button></a></td>
@@ -263,6 +257,21 @@ padding: 10px;
 <td><a href="http://{{ $link }}/contact" ><img src="{{ URL::asset('siteimages/contact_us_icon.png') }}" HEIGHT="100" WIDTH="110" BORDER="0"/></a></td>		
 
 </tr>
+
+<?php if( isset( $user_role ) ) {
+
+	if(0 == $user_role || 1 == $user_role ){
+		?>
+			<tr>
+			<td><a href="{{ action('AdminUsersController@index') }}" ><button class="button button1">User Management</button></a></td>
+			<td><a href="{{ action('AdminUsersController@index') }}" ><img src="{{ URL::asset('siteimages/contact_us_icon.png') }}" HEIGHT="100" WIDTH="110" BORDER="0"/></a></td>
+			</tr>
+
+		<?php
+	}
+}
+
+ ?>
 <!--<tr>
 <td><a href="/logout"><button class="button button1" style="color:gray;">Logout</button></a></td>
 <td></td>   
