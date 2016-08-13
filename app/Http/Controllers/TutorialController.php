@@ -6,12 +6,17 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use Auth;
+
 class TutorialController extends Controller
 {
+
+    public $user_role;
 
     public function __construct(){
 
         $this->middleware('auth');
+        $this->user_role = Auth::user()->role;
     }
 
     /**
@@ -21,7 +26,7 @@ class TutorialController extends Controller
      */
     public function index()
     {
-        return view('user.tutorials');
+        return view('user.tutorials', ['user_role' => $this->user_role]);
     }
 
     /**

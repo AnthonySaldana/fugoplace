@@ -19,9 +19,12 @@ use Validator;
 class RecipeController extends Controller
 {
 
+    public $user_role;
+
     public function __construct(){
 
         $this->middleware('auth');
+        $this->user_role = Auth::user()->role;
 
     }
     
@@ -37,7 +40,8 @@ class RecipeController extends Controller
         $recipes = Recipe::where('author_id',$user_id)->get();
 
         return view('user.recipes', [
-            'Recipes' => $recipes
+            'Recipes' => $recipes,
+            'user_role'     => $this->user_role
         ]);
 
         //return view('user.recipes');
@@ -50,7 +54,8 @@ class RecipeController extends Controller
      */
     public function create()
     {
-        return view('user.recipe-editor');
+        $user_role = Auth::user()->role;
+        return view('user.recipe-editor', ['user_role' => $this->user_role]);
     }
 
     /**
@@ -65,14 +70,15 @@ class RecipeController extends Controller
         if( isset( $request->send ) ){
 
             $rules = array(
-                'media'                     => 'mimes:jpeg,png,mp4,ogv',
+                'media' => 'mimes:jpeg,png,mp4,ogv',
+                'title' => 'required'
             );
 
             //$validator = Validator::make(Input::all(), $rules);
             $validator = Validator::make($request->all(), $rules);
             // if the validator fails, redirect back to the form
             if ($validator->fails()) {
-                return view('user.recipe-editor')->withErrors($validator)->withInput( $request ); // send back the input (not the password) so that we can repopulate the form
+                return view('user.recipe-editor',['user_role' => $this->user_role])->withErrors($validator)->withInput( $request ); // send back the input (not the password) so that we can repopulate the form
             }
             
             if( isset( $request->recipeid ) ){
@@ -191,7 +197,7 @@ class RecipeController extends Controller
 
         if ( $recipe_author == $author_id ){
         
-            return view('user.meal', ['Recipe' => $recipe]);
+            return view('user.meal', ['Recipe' => $recipe, 'user_role' => $this->user_role]);
         
         }else{
         
@@ -218,7 +224,7 @@ class RecipeController extends Controller
 
         if ( $recipe_author == $author_id ){
 
-            return view('user.recipe-editor', ['recipe' => $recipe]);
+            return view('user.recipe-editor', ['recipe' => $recipe, 'user_role' =>  $this->user_role]);
 
         }else{
 

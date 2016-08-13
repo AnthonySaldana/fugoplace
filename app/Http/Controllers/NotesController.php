@@ -13,9 +13,12 @@ use Auth;
 class NotesController extends Controller
 {
 
+    public $user_role;
+
     public function __construct(){
 
         $this->middleware('auth');
+        $this->user_role = Auth::user()->role;
     }
 
 
@@ -31,7 +34,8 @@ class NotesController extends Controller
         $notes = Notes::where('author_id',$id)->get();
 
         return view('user.notes', [
-            'Notes' => $notes
+            'Notes' => $notes,
+            'user_role' => $this->user_role
         ]);
         //return view('user.notes');
     }
@@ -44,7 +48,7 @@ class NotesController extends Controller
     public function create()
     {
         //
-        return view('user.note-editor');
+        return view('user.note-editor', ['user_role' => $this->user_role ] );
     }
 
     /**
@@ -100,15 +104,15 @@ class NotesController extends Controller
      */
     public function show($id)
     {
-        //
-        $note = Notes::where('id',$id)->get();
+        return $this->edit($id);
+        /*$note = Notes::where('id',$id)->get();
         $author_id = Auth::user()->id;
         $note_author = $note[0]->author_id;
         if ( $note_author == $author_id ){
-            return view('user.note-editor', ['note' => $note]);
+            return view('user.note-editor', ['note' => $note, 'user_role' => $this->user_role]);
         }else{
             return redirect('/user/notes');
-        }
+        }*/
         
 
         
@@ -127,7 +131,7 @@ class NotesController extends Controller
         $author_id = Auth::user()->id;
         $note_author = $note[0]->author_id;
         if ( $note_author == $author_id ){
-            return view('user.note-editor', ['note' => $note]);
+            return view('user.note-editor', ['note' => $note, 'user_role' => $this->user_role]);
         }else{
             return redirect('/user/notes');
         }

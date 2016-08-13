@@ -25,9 +25,12 @@ use App\Recipe;
 class MealController extends Controller
 {
 
+    public $user_role;
+
     public function __construct(){
 
         $this->middleware('auth');
+        $this->user_role = Auth::user()->role;
     }
     
     /**
@@ -97,7 +100,8 @@ class MealController extends Controller
             'user_id' => $user_id,
             'meals'   => $newgroup,
             'today'   => $today,
-            'school_link'   => Auth::user()->school_slug
+            'school_link'   => Auth::user()->school_slug,
+            'user_role' => $this->user_role
         ]);
 
         //return "hello world index";
@@ -126,7 +130,8 @@ class MealController extends Controller
         return view('user.meal-planner-editor', [
             'recipes' => $recipes,
             'user_id' => $user_id,
-            'meals'   => $meals
+            'meals'   => $meals,
+            'user_role' => $this->user_role
         ]);
     }
 
@@ -157,7 +162,7 @@ class MealController extends Controller
                 $meals = DB::table('meal_planner')->leftjoin('recipes', 'meal_planner.recipe_id', '=' , 'recipes.id')->where('meal_planner.user_id', $user_id )->orderBy('date','asc')->orderBy('meal','asc')->get();
 
 
-                return view('user.meal-planner-editor',['meals' => $meals, 'recipes' => $recipes, 'user_id' => $user_id ])->withErrors($validator)->withInput( $request ); // send back the input (not the password) so that we can repopulate the form
+                return view('user.meal-planner-editor',['meals' => $meals, 'recipes' => $recipes, 'user_id' => $user_id, 'user_role' => $this->user_role ])->withErrors($validator)->withInput( $request ); // send back the input (not the password) so that we can repopulate the form
             
             }
 
@@ -248,7 +253,7 @@ class MealController extends Controller
 
         if( $id == $user_id ){
 
-            return view('user.meal-planner', ['user_id' => $id]);
+            return view('user.meal-planner', ['user_id' => $id, 'user_role' => $this->user_role]);
         
         }
 
@@ -280,7 +285,8 @@ class MealController extends Controller
             return view('user.meal-planner-editor', [
                 'recipes' => $recipes,
                 'user_id' => $user_id,
-                'meals'   => $meals
+                'meals'   => $meals,
+                'user_role' => $this->user_role
             ]);
 
         }

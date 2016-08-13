@@ -13,9 +13,12 @@ use Auth;
 class FolderController extends Controller
 {
 
+    public $user_role;
+
     public function __construct(){
 
         $this->middleware('auth');
+        $this->user_role = Auth::user()->role;
     }
 
     /**
@@ -30,7 +33,8 @@ class FolderController extends Controller
         $favorites = Recipe::where('author_id',$id)->where('favorite' , 1)->get();
 
         return view('user.folder-fav', [
-            'Favorites' => $favorites
+            'Favorites' => $favorites,
+            'user_role' => $this->user_role
         ]);
 
     }
@@ -65,7 +69,7 @@ class FolderController extends Controller
     public function show($id)
     {
         
-        return view('user.folder-fav', ['id' => $id] );
+        return view('user.folder-fav', ['id' => $id, 'user_role' => $this->user_role] );
     
     }
 

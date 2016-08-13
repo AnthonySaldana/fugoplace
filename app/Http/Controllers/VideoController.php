@@ -13,9 +13,12 @@ use Auth;
 class VideoController extends Controller
 {
 
+    public $user_role;
+
     public function __construct(){
 
         $this->middleware('auth');
+        $this->user_role = Auth::user()->role;
     }
 
     /**
@@ -30,7 +33,8 @@ class VideoController extends Controller
         $videos = Recipe::where('author_id',$id)->where('video_recipe' , 1)->get();
 
         return view('user.video-recipes', [
-            'videorecipes' => $videos
+            'videorecipes' => $videos,
+            'user_role'     => $this->user_role
         ]);
 
     }
