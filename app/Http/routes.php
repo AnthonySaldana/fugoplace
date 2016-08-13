@@ -106,6 +106,10 @@ Route::resource('/user/recipes', 'RecipeController');
 
 Route::resource('/user/admin/users', 'AdminUsersController');
 
+Route::resource('/user/admin/', 'AdminUsersController'); //for now, admin dashboard will just be the same thing as users page
+
+Route::resource('/user/admin/settings', 'AdminSettingsController');
+
 /**
 *	SEPERATE CATCH ALL FOR USER PAGE VS EVERYOTHER NON EXISTENT PAGE
 */
