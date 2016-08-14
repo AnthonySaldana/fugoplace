@@ -10,6 +10,10 @@ use Mail;
 
 use App\User;
 
+use App\Invitations;
+
+use Auth;
+
 class mailController extends Controller
 {
     public function sendmail( $email ){
@@ -55,6 +59,55 @@ class mailController extends Controller
 
         return redirect()->back()->with('sent',[1]);
     }
+
+     public function sendInvite( Request $request ){
+
+        $rules = [
+        'email' => 'required',
+        'role'   => 'required'
+        ];
+
+        $this->validate($request, $rules);
+
+        $random_key = str_random(7) . "37" . str_random(6);
+
+        try{
+         $invitation = Invitations::create([
+                    'key'           => $random_key,
+                   'sent_by'        => Auth::user()->id,
+                   'sent_to'        => $request->email,
+                   'role'           => $request->role,
+                   'status'         => 2,
+                   'created_at'     => date('Y-m-d H:i:s')
+               ]);
+             }
+        catch( \Illuminate\Database\QueryException $e ){
+            return redirect()->back()->with('sent_error','There was an error in sending this invitation. The email has already been used to receive an invitation.');
+        }
+
+        //$invitation = Invitations::where('email', $request->email)->get()->first();
+        $key = $invitation->key;
+        $url = 'http://fugoplace.local/register?key=' . $key;
+        $sent_by = Auth::user()->email;
+
+        $data = array(
+            'email'     => $request->email,
+            'role'      => $request->role,
+            'key_url'   => $url,
+            'sent_by'  => $sent_by
+            );
+
+        $sent_to = $request->email;
+
+        Mail::send('emails.invitation', ['data' => $data], function ($m) use ($sent_to, $sent_by) {
+            $m->from( $sent_by, 'Fugoplace');
+            $m->sender($sent_by, 'Fugoplace');
+            $m->to( $sent_to, 'FugoPlace')->subject( "you've been invited!" );
+        });
+
+        return redirect()->back()->with('sent','Your Invite has been sent successfully');
+}
+
 
 
     /*public function sendschool( Request $request, $school ){
