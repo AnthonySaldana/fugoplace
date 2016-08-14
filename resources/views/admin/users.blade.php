@@ -42,12 +42,19 @@
   		 @include('common.errors')
 
   		 <div class="flash-message">
-		    @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+		    @foreach (['danger', 'warning', 'success', 'info', 'sent', 'sent_error'] as $msg)
 		      @if(Session::has('alert-' . $msg))
 
 		      <p class="alert alert-{{ $msg }}">{{ Session::get('alert-' . $msg) }}</p>
 		      @endif
 		    @endforeach
+
+		     @if(Session::has('sent'))
+		      <p class="alert alert-success">{{ Session::get('sent') }}</p>
+		      @endif
+		      @if(Session::has('sent_error'))
+		      <p class="alert alert-danger">{{ Session::get('sent_error') }}</p>
+		      @endif
 		 </div> <!-- end .flash-message -->
 
   	</div>
@@ -57,7 +64,7 @@
 		
 			<table style="width:100%" >
 			
-				<form method="post" action="{{ url('/user/admin/users') }}" >
+				<form method="post" action="{{ url('/user/admin/invite') }}" >
 				<tr class="minimal-cell">
 					<td width="50px">Invitation</td>
 					<td>
@@ -111,14 +118,11 @@
 						<label for="role" >Status: </label>
 						<select name="role"> 
 						<option disabled value selected=""> -- select an option -- </option>
-						<?php if( isset( $user_role ) ){
-							if( 0 == $user_role ){
-								echo "<option value=\"0\" > $user_role_names[0] </option>";
-								echo "<option value=\"1\" > $user_role_names[1] </option>";
-							}elseif( 1 == $user_role ){
-								echo "<option value=\"2\" > $user_role_names[2] </option>";
-							}
-						} ?>
+						<?php
+								echo "<option value=\"0\" > $user_status_names[0] </option>";
+								echo "<option value=\"1\" > $user_status_names[1] </option>";
+								echo "<option value=\"2\" > $user_status_names[2] </option>";
+						?>
 						</select>
 					</td>
 				</tr>
@@ -164,8 +168,11 @@
 							$user_id = $user['id'];
 							$user_name = $user['name'];
 							$user_email = $user['email'];
-							$user_role = $user['role'];
-							$user_status = $user['status'];
+
+							$user_role = $user_role_names[$user['role']]; //pretty name for the user role
+
+							//$user_role = $user['role'];
+							$user_status = $user_status_names[$user['status']]; //pretty name for the status names
 							$user_joined = $user['joined'];
 
 							?>
