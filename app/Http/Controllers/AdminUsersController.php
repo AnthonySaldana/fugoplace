@@ -31,6 +31,8 @@ class AdminUsersController extends Controller
     {
         $user_status = Auth::user()->status;
 
+        $user_id = Auth::user()->id;
+
         if( $this->user_role == 0 ){
         	$users_raw = User::get();
         	$invites_raw = Invitations::get();
@@ -54,12 +56,17 @@ class AdminUsersController extends Controller
         	'Admin' , 'District', 'School'
         	);
 
+         $user_status_names = array(
+            'Deny', 'Approve', 'Pending'
+            );
+
         return view('admin.users', [
             'users' => $users_data,
             'invitations' => $invite_data,
             'user_role'		=> $this->user_role,
             'user_status'	=> $user_status,
-            'user_role_names'	=> $user_role_names
+            'user_role_names'	=> $user_role_names,
+            'user_status_names' => $user_status_names
         ]);
 
         //return view('user.recipes');
