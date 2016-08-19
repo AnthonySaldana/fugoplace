@@ -19,8 +19,9 @@
   @include('user.includes.userheader')
 
   <div class="page-container">
-  <section class="paper">
   @include('common.errors')
+  <section class="paper">
+  
  <!--<article class="head">
     <form class="two" method="get" action="#"><button class="two" type="submit">Save</button></form>
 	<form class="three" method="get" action="#"><button class="two" type="submit">Edit</button></form>

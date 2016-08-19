@@ -10,6 +10,8 @@ use App\Notes;
 
 use Auth;
 
+use Validator;
+
 class NotesController extends Controller
 {
 
@@ -17,8 +19,11 @@ class NotesController extends Controller
 
     public function __construct(){
 
-        $this->middleware('auth');
-        $this->user_role = Auth::user()->role;
+        if ( null != Auth::check()){
+            $this->user_role = Auth::user()->role;
+        }else{
+            return redirect('/login');
+        }
     }
 
 
@@ -30,13 +35,18 @@ class NotesController extends Controller
     public function index()
     {
         //
-        $id = Auth::user()->id;
+
+        if ( null != Auth::check()){
+            $id = Auth::user()->id;
         $notes = Notes::where('author_id',$id)->get();
 
         return view('user.notes', [
             'Notes' => $notes,
             'user_role' => $this->user_role
         ]);
+        }else{
+            return redirect('/login');
+        }
         //return view('user.notes');
     }
 
@@ -48,7 +58,12 @@ class NotesController extends Controller
     public function create()
     {
         //
-        return view('user.note-editor', ['user_role' => $this->user_role ] );
+        if ( null != Auth::check()){
+            return view('user.note-editor', ['user_role' => $this->user_role ] );
+        }else{
+            return redirect('/login');
+        }
+        
     }
 
     /**
@@ -62,15 +77,16 @@ class NotesController extends Controller
         //
         //dd($request->all());
         
-        /*$validator = Validator::make($request->all(), [
+        $validator = Validator::make($request->all(), [
             'title' => 'required',
                     ]);
 
         if ( $validator->fails() ) {
-            return redirect('/user/notes/create')->withInput()->withErrors($validator);
-        }*/
+            return back()->withInput()->withErrors($validator);
+        }
 
-        if( isset( $request->send ) ){
+        if ( null != Auth::check()){
+            if( isset( $request->send ) ){
             
             if( isset( $request->noteid ) ){
                 $note = Notes::find( $request->noteid );
@@ -93,6 +109,11 @@ class NotesController extends Controller
                 $this->destroy($request->noteid);
         }
         return redirect('/user/notes');
+        }else{
+            return redirect('/login');
+        }
+
+        
 
     }
 
@@ -127,14 +148,19 @@ class NotesController extends Controller
      */
     public function edit($id)
     {
-        $note = Notes::where('id',$id)->get();
-        $author_id = Auth::user()->id;
-        $note_author = $note[0]->author_id;
-        if ( $note_author == $author_id ){
-            return view('user.note-editor', ['note' => $note, 'user_role' => $this->user_role]);
-        }else{
-            return redirect('/user/notes');
+        if ( null != Auth::check()){
+            $note = Notes::where('id',$id)->get();
+            $author_id = Auth::user()->id;
+            $note_author = $note[0]->author_id;
+            if ( $note_author == $author_id ){
+                return view('user.note-editor', ['note' => $note, 'user_role' => $this->user_role]);
+            }else{
+                return redirect('/user/notes');
         }
+        }else{
+            return redirect('/login');
+        }
+        
     }
 
     /**
@@ -158,6 +184,11 @@ class NotesController extends Controller
     public function destroy($id)
     {
         //
-        $note = Notes::where('id', $id)->delete();
+        if ( null != Auth::check()){
+            $note = Notes::where('id', $id)->delete();
+        }else{
+            return redirect('/login');
+        }
+        
     }
 }

@@ -12,3 +12,18 @@
         </ul>
     </div>
 @endif
+
+@if (isset( $customerrors ) &&  count($customerrors) > 0)
+    <!-- Form Error List -->
+    <div class="alert alert-danger">
+        <strong>{{ $customerrors['head'] }}</strong>
+
+        <br><br>
+
+        <ul>
+            @foreach ($customerrors['errors'] as $customerror)
+                <li>{{ $customerror }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif

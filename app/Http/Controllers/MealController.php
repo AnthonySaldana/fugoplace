@@ -29,8 +29,11 @@ class MealController extends Controller
 
     public function __construct(){
 
-        $this->middleware('auth');
-        $this->user_role = Auth::user()->role;
+        if ( null != Auth::check()){
+            $this->user_role = Auth::user()->role;
+        }else{
+            return redirect('/login');
+        }
     }
     
     /**
@@ -40,12 +43,7 @@ class MealController extends Controller
      */
     public function index()
     {
-
-        /*$user_id = Auth::user()->id;
-
-        return view('user.meal-planner', [
-            'user_id' => $user_id
-        ]);*/
+        if ( null != Auth::check()){
 
         $user_id = Auth::user()->id;
 
@@ -103,8 +101,9 @@ class MealController extends Controller
             'school_link'   => Auth::user()->school_slug,
             'user_role' => $this->user_role
         ]);
-
-        //return "hello world index";
+        }else{
+            return redirect('/login');
+        }
     }
 
     /**
@@ -115,24 +114,29 @@ class MealController extends Controller
     public function create()
     {
         //
-        $user_id = Auth::user()->id;
+         if ( null != Auth::check()){
+            $user_id = Auth::user()->id;
 
-        $recipes = Recipe::where('author_id',$user_id)->get();
+            $recipes = Recipe::where('author_id',$user_id)->get();
 
-        /**
-        *   Build our meal planner query
-        *   We left join our recipes table to our meal planner, giving us access to each meal and recipe details for each meal.
-        *   We then first order the data by date, followed by another ordering by meal type. We made our meal types alphabetical.
-        */
-        $meals = DB::table('meal_planner')->leftjoin('recipes', 'meal_planner.recipe_id', '=' , 'recipes.id')->where('meal_planner.user_id', $user_id )->orderBy('date','asc')->orderBy('meal','asc')->get();
+            /**
+            *   Build our meal planner query
+            *   We left join our recipes table to our meal planner, giving us access to each meal and recipe details for each meal.
+            *   We then first order the data by date, followed by another ordering by meal type. We made our meal types alphabetical.
+            */
+            $meals = DB::table('meal_planner')->leftjoin('recipes', 'meal_planner.recipe_id', '=' , 'recipes.id')->where('meal_planner.user_id', $user_id )->orderBy('date','asc')->orderBy('meal','asc')->get();
 
 
-        return view('user.meal-planner-editor', [
-            'recipes' => $recipes,
-            'user_id' => $user_id,
-            'meals'   => $meals,
-            'user_role' => $this->user_role
-        ]);
+            return view('user.meal-planner-editor', [
+                'recipes' => $recipes,
+                'user_id' => $user_id,
+                'meals'   => $meals,
+                'user_role' => $this->user_role
+            ]);
+        }else{
+            return redirect('/login');
+        }
+        
     }
 
     /**
