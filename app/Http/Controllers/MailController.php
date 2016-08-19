@@ -14,6 +14,8 @@ use App\Invitations;
 
 use Auth;
 
+use Validator;
+
 class mailController extends Controller
 {
     public function sendmail( $email ){
@@ -63,13 +65,20 @@ class mailController extends Controller
      public function sendInvite( Request $request ){
 
         $rules = [
-        'email' => 'required',
+        'email' => 'required|email|unique:users',
         'role'   => 'required'
         ];
 
-        $this->validate($request, $rules);
+        //$validator = Validator::make(Input::all(), $rules);
+            $validator = Validator::make($request->all(), $rules);
+            // if the validator fails, redirect back to the form
+            if ($validator->fails()) {
+                return back()->withErrors($validator); // send back the input (not the password) so that we can repopulate the form
+            }
 
-        $random_key = str_random(7) . "37" . str_random(6);
+        //$this->validate($request, $rules);
+
+        $random_key = str_random(10);
 
         try{
          $invitation = Invitations::create([
