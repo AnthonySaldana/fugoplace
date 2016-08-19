@@ -19,8 +19,13 @@ class AdminUsersController extends Controller
 
 	public function __construct(){
 		//$this->middleware('UserRole');
-		$this->user_role = Auth::user()->role;
-	}
+        if ( null != Auth::check()){
+            $this->user_role = Auth::user()->role;
+        }else{
+            return redirect('/login');
+        }
+	    
+    }
 
      /**
      * Display a listing of the resource.
@@ -29,45 +34,56 @@ class AdminUsersController extends Controller
      */
     public function index()
     {
-        $user_status = Auth::user()->status;
+
+        if ( null != Auth::check()){
+            $admin = false;
+            $user_status = Auth::user()->status;
 
         $user_id = Auth::user()->id;
 
         if( $this->user_role == 0 ){
-        	$users_raw = User::get();
-        	$invites_raw = Invitations::get();
-        	//$user_array = array();
-        	//get all users
-        	//get all invitiations
+            $users_raw = User::get();
+            $invites_raw = Invitations::get();
+            $admin=true;
+            //$user_array = array();
+            //get all users
+            //get all invitiations
         }else if( $this->user_role == 1 ){
-        	$users_raw = User::where('group_id', $user_id )->get();
-        	$invites_raw = Invitations::where('sent_by', $user_id)->get();
-        	//print_r( $users_raw );
-        	//get all users that have a group id equal to this users id
-        	//get all invitations that have sent_by equal to this users id
+            $users_raw = User::where('group_id', $user_id )->get();
+            $invites_raw = Invitations::where('sent_by', $user_id)->get();
+            //print_r( $users_raw );
+            //get all users that have a group id equal to this users id
+            //get all invitations that have sent_by equal to this users id
         }else{
-        	//kick out with error
+            return back()->with(['customerrors' => array(
+                'head'      => 'You are not allowed there.',
+                'errors'    => ''
+                )]);
         }
 
         //send through our sorting functions that will take care of sorting our data into an array with only the needed data
         $users_data = $this->sort_user_raw( $users_raw );
         $invite_data = $this->sort_invite_raw( $invites_raw );
         $user_role_names = array(
-        	'Admin' , 'District', 'School'
-        	);
+            'Admin' , 'District', 'School'
+            );
 
          $user_status_names = array(
-            'Deny', 'Approve', 'Pending'
+            'Deny', 'Approved', 'Pending'
             );
 
         return view('admin.users', [
             'users' => $users_data,
             'invitations' => $invite_data,
-            'user_role'		=> $this->user_role,
-            'user_status'	=> $user_status,
-            'user_role_names'	=> $user_role_names,
-            'user_status_names' => $user_status_names
+            'user_role'     => $this->user_role,
+            'user_status'   => $user_status,
+            'user_role_names'   => $user_role_names,
+            'user_status_names' => $user_status_names,
+            'isadmin'           => $admin
         ]);
+        }else{
+            return redirect('/login');
+        }
 
         //return view('user.recipes');
     }

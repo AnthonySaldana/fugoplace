@@ -61,38 +61,12 @@
 
   	<div class="container">
 
-		
-			<table style="width:100%" >
-			
-				<form method="post" action="{{ url('/user/admin/invite') }}" >
-				<tr class="minimal-cell">
-					<td width="50px">Invitation</td>
-					<td>
-						<label for="email">Email: </label>
-						<input type="text" name="email" />
-					</td> 
-					<td>
-						<label for="role" >Role: </label>
-						<select name="role"> 
-						<option disabled value selected=""> -- select an option -- </option>
-						<?php if( isset( $user_role ) ){
-							if( 0 == $user_role ){
-								echo "<option value=\"0\" > $user_role_names[0] </option>";
-								echo "<option value=\"1\" > $user_role_names[1] </option>";
-							}elseif( 1 == $user_role ){
-								echo "<option value=\"2\" > $user_role_names[2] </option>";
-							}
-						} ?>
-						</select>
-					</td>
-					<td>
-						<button type="submit" name="send" class="green-btn">Send Invite</button>
-					</td>
-				</tr>
-				{{ csrf_field() }}
-
-				</form>
+		<b><u>USER MANAGEMENT</u></b>
+			<table style="width:100%;" >
+				
 				<br/>
+
+				<?php if( isset( $isadmin ) && false != $isadmin  ){ ?>
 				<form method="post" action="{{ url('/user/admin/users') }}" >
 				<tr class="minimal-cell">
 					<td>Create User</td>
@@ -137,6 +111,7 @@
 				</tr>
 				{{ csrf_field() }}
 				</form>
+				<?php } ?>
 
 			</table>
 
@@ -144,7 +119,7 @@
 	<br/><hr/>
 
  		<div class="meal-table-container" >
-		    <table style="width:100%" class="meal-edit-table">
+		    <table style="width:100%; height:300px; overflow:scroll;" class="meal-edit-table">
 			    <thead>
 				  <tr>
 				  	<th>ID: </th>
@@ -214,6 +189,37 @@
 		<hr/>
 
 		<div class="meal-table-container" >
+			<table>
+				<tr class="minimal-cell">
+				<b><u>INVITATION MANAGEMENT</u></b>
+				<form method="post" action="{{ url('/user/admin/invite') }}" >
+					<td>
+						<label for="email">Email: </label>
+						<input type="text" name="email" />
+					</td> 
+					<td>
+						<label for="role" >Role: </label>
+						<select name="role"> 
+						<option disabled value selected=""> -- select an option -- </option>
+						<?php if( isset( $user_role ) ){
+							if( 0 == $user_role ){
+								echo "<option value=\"0\" > $user_role_names[0] </option>";
+								echo "<option value=\"1\" > $user_role_names[1] </option>";
+							}elseif( 1 == $user_role ){
+								echo "<option value=\"2\" > $user_role_names[2] </option>";
+							}
+						} ?>
+						</select>
+					</td>
+					<td>
+						<button type="submit" name="send" class="green-btn">Send Invite</button>
+					</td>
+					{{ csrf_field() }}
+
+				</form>
+				</tr>
+			</table>
+			<br/>
 		    <table style="width:100%" class="meal-edit-table">
 			    <thead>
 				  <tr>
@@ -239,7 +245,7 @@
 							$invitation_key = $invitation['key'];
 							$invitation_sentby = $invitation['sent_by'];
 							$invitation_sentto = $invitation['sent_to'];
-							$invitation_status = $invitation['status'];
+							$invitation_status = $user_status_names[$invitation['status']];
 							$invitation_sent = $invitation['sent'];
 
 							?>
