@@ -444,17 +444,21 @@ html, body {
 
     </td>
 
-    <td><div id="registration-form">
+    <?php if( isset( $invitation ) ){
+      print_r( $invitation );
+      } ?>
+
+    <td><?php if( isset( $allowreg ) && TRUE == $allowreg && isset( $invitation ) ){ ?><div id="registration-form">
 	<div class='fieldset'>
     <legend>Sign Up</legend>
 		<form action="{{ url('/register') }}" method="post" data-validate="parsley">
 			<div class='row'>
-				<label for='firstname'>School's Name</label>
+				<label for='firstname'><?php if( $invitation['role'] == 1 ){echo "District Name"; }elseif( $invitation['role'] == 2 ){ echo "School's Name"; }else{ echo "School's Name"; } ?></label>
 				<input type="text" placeholder="User School" name='school_name' id='firstname' data-required="true" data-error-message="Your School's Name is required">
 			</div>
 <div class='row'>
 				<label for="email">E-mail</label>
-				<input type="text" placeholder="Your Email"  name='email' data-required="true" data-type="email" data-error-message="Your E-mail is required">
+				<input type="text" readonly value="{{ $invitation['sent_to'] }}" name='email' data-required="true" data-type="email" data-error-message="Your E-mail is required">
 			</div>
 						
 			<div class='row'>
@@ -471,11 +475,19 @@ html, body {
 				<label for="cemail">Confirm your Password</label>
 				<input type="text" placeholder="Confirm your Password" name='password_confirmation' data-required="true" data-error-message="Restate your Password">
 			</div>
+      <input type="hidden" value="{{ $invitation['key'] }}" name="invitationkey" />
+      <input type="hidden" value="{{ $invitation['id'] }}" name="invitationid" />
        {{ csrf_field() }}
 			<input type="submit" value="Submit">
 		</form>
 	</div>
-</div></td>
+</div><?php }else{
+  ?>
+    <div class='row' style="height:550px;">
+        <p style="margin-top: 100px;">For information about Registration contact us using the form on our <a href="{{ url('contact') }}">Contact Page</a>.</p>
+      </div>
+  <?php
+  } ?></td>
     
   </tr>
   

@@ -18,6 +18,8 @@ use App\Recipe;
 
 use App\MealPlanner;
 
+use App\Invitations;
+
 use Auth;
 
 use Session;
@@ -49,15 +51,74 @@ class FugoController extends Controller
     	return view('login');
     }
 
+    public function registration( Request $request ){
+    	$data = $request->input();
+    	$headmessage = 'For information about registration, use the form on the contact page.';
+    	$errors = array();
+    	$error1 = 'No invite detected';
+    	$error2 = 'Invalid Parameters detected';
+
+    	if( empty( $data ) ){
+
+    		$errors[] = $error1;
+
+    	}else if( !empty( $data['key'] ) && count( $data ) == 1 ){
+
+	    	 if( strlen( $data['key'] ) == 10 ) {
+	    	 	$invitation = Invitations::where('key' , $data['key'])->get()->first();
+	    	 	if( empty( $invitation) ){
+	    	 		$errors[] = 'No Invitation was found';
+	    	 	}else{
+
+	    	 		if( $invitation['status'] == 2 ){
+	    	 			$sorted_invitation = array(
+	    	 			'id'		=> $invitation['id'],
+	    	 			'key'		=> $invitation['key'],
+	    	 			'sent_to'	=> $invitation['sent_to'],
+	    	 			'role'		=> $invitation['role']
+	    	 			);
+
+	    	 			return view('login', [
+			    		'allowreg' 		=> true,
+			    		'invitation'	=> $sorted_invitation
+		    		]);
+	    	 		}elseif( $invitation['status'] == 1 ){
+	    	 			$errors[] = 'This invitation has already been approved';
+	    	 		}else{
+	    	 			$errors[] = 'This invitiation has been denied or does not exist.';
+	    	 		}
+
+	    	 	}
+	    	}else{
+    			$errors[] = 'invalid invitation';
+	    	}
+
+
+    	}else{
+    		//If any other query paramters are found or key is not found we process through here
+    		$errors[] = $error2;
+    		
+    	}
+
+    	return view('login', [
+    		'customerrors' => array(
+    			'head'		=> $headmessage,
+    			'errors'	=> $errors
+    			)
+    		]);
+    }
+
 
     public function createUser( Request $request  ){
 
     		$rules = array(
-			    'email'    					=> 'required|unique:users|email|confirmed',
+			    'email'    					=> 'required|email|confirmed',
 			    'email_confirmation'		=> 'required|email',
 			    'password' 					=> 'required|min:6|confirmed',  
 			    'password_confirmation' 	=> 'required|min:6',
 			    'school_name' 				=> 'required',
+			    'invitationid'				=> 'required',
+			    'invitationkey'				=> 'required'
 			    
 			);
 
@@ -65,8 +126,16 @@ class FugoController extends Controller
 			$validator = Validator::make($request->all(), $rules);
 			// if the validator fails, redirect back to the form
 			if ($validator->fails()) {
-			    return redirect('/login')->withErrors($validator)->withInput( $request->except('password') ); // send back the input (not the password) so that we can repopulate the form
+			    return back()->withErrors($validator)->withInput( $request->except('password') ); // send back the input (not the password) so that we can repopulate the form
 			} else {
+
+				//Validate invitation and proceed with user creation. 
+				$invitationid = $request->invitationid;
+				$invitationkey = $request->invitationkey;
+
+				$invitation = Invitations::where('key' , $invitationkey)->where('id' , $invitationid)->where('status', 2 )->get()->first();
+
+				//return $invitation->sent_by;
 
 				$school_slug = str_replace(' ', '-', $request->school_name);
 
@@ -82,7 +151,13 @@ class FugoController extends Controller
 		           'school_name' 	=> $request->school_name,
 		           'school_slug'	=> $school_slug,
 		           'password' 		=> bcrypt($request->password),
+		           'invite_id'		=> $invitationid,
+		           'group_id'		=> $invitation->sent_by,
+		           'role'			=> $invitation->role
 		       ]);
+
+				$invitation->status = 1;
+				$invitation	->save();
 
 				//Example recipes to start
 
@@ -116,7 +191,6 @@ Task number 3',
 'created_at'=>date('Y-m-d H:i:s')
 
 )
-
 );
 
 					Notes::insert( $notedata );

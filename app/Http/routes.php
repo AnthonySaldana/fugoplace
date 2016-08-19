@@ -66,9 +66,7 @@ Route::get('/logout', ['uses' => 'FugoController@doLogout']);
 
 Route::post('/register' , [ 'uses' => 'FugoController@createUser' ] );
 
-Route::get('/register', function(){
-	return redirect('/login');
-});
+Route::get('/register', [ 'uses' => 'FugoController@registration' ] );
 
 
 /**
