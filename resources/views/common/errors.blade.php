@@ -27,3 +27,18 @@
         </ul>
     </div>
 @endif
+
+@if (isset( $customnotifications ) )
+    <!-- Form Error List -->
+    <div class="alert alert-success">
+        <strong>{{ $customnotifications['head'] }}</strong>
+
+        <br><br>
+
+        <ul>
+            @foreach ($customnotifications['notifications'] as $customnotification)
+                <li>{{ $customnotification }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif

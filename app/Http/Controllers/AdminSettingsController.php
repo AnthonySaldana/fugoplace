@@ -22,12 +22,14 @@ class AdminSettingsController extends Controller
      */
     public function index()
     {
-        $user_id = Auth::user()->id;
+
+         if ( null != Auth::check()){
+            $user_id = Auth::user()->id;
         $this->user_role = Auth::user()->role;
         $user_status = Auth::user()->status;
 
         if( $this->user_role == 0 ){
-        	//User Role Label Setting
+            //User Role Label Setting
             $role_names[0] = Settings::where('meta_name' , 'user_role_name0')->get()->first();
             $role_names[1] = Settings::where('meta_name' , 'user_role_name1')->get()->first();
             $role_names[2] = Settings::where('meta_name' , 'user_role_name2')->get()->first();
@@ -46,11 +48,11 @@ class AdminSettingsController extends Controller
             //$user_role_names[2] = Settings::where('meta_key' , 'user_role_name2')->get();
  
         }else if( $this->user_role == 1 ){
-        	//show district specific settings
-        	echo 'District';
+            //show district specific settings
+            echo 'District';
         }else{
-        	//kick out with error
-        	echo "error user shouldn't be here";
+            //kick out with error
+            echo "error user shouldn't be here";
         }
 
          return view('admin.settings', [
@@ -59,6 +61,10 @@ class AdminSettingsController extends Controller
             'user_role_names'   => $user_role_names,
             'user_status_names' => $user_status_names
         ]);
+        }else{
+            return redirect('/login');
+        }
+        
 
         /*return view('user.recipes', [
             'Recipes' => $recipes

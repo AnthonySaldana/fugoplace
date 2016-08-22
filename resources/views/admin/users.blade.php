@@ -23,7 +23,7 @@
 		
 		function confirmDeletion() {
 
-		    return confirm("Delete this meal?");
+		    return confirm("Are you sure you want to delete this user? Deleting the user will also delete the assoicated invitation.");
 		
 		}
 
@@ -59,7 +59,113 @@
 
   	</div>
 
-  	<div class="container">
+		<div class="meal-table-container" >
+			<table>
+				<tr class="minimal-cell">
+				<b><u>INVITATION MANAGEMENT</u></b>
+				<form method="post" action="{{ url('/user/admin/invite') }}" >
+					<td>
+						<label for="email">Email: </label>
+						<input type="text" name="email" />
+					</td> 
+					<td>
+						<label for="role" >Role: </label>
+						<select name="role"> 
+						<option disabled value selected=""> -- select an option -- </option>
+						<?php if( isset( $user_role ) ){
+							if( 0 == $user_role ){
+								?><option value="0" > <?php echo $user_role_names[0]; ?> </option>
+								echo "<option value="1" > <?php echo $user_role_names[1]; ?> </option>
+								<?php
+							}elseif( 1 == $user_role ){
+								echo "<option value=\"2\" > $user_role_names[2] </option>";
+							}
+						} ?>
+						</select>
+					</td>
+					<td>
+						<button type="submit" name="send" class="green-btn">Send Invite</button>
+					</td>
+					{{ csrf_field() }}
+
+				</form>
+				</tr>
+			</table>
+			<br/>
+		    <table style="width:100%" class="meal-edit-table">
+			    <thead>
+				  <tr>
+				  	<th>ID: </th>
+				    <th>Key: </th>
+				    <th>Sent By: </th> 
+				    <th>Sent To: </th>
+				    <th>Sent: </th>
+				    <th>Status: </th>
+				    <th>Manage: </th>
+				  </tr>
+				</thead>
+
+				<tbody>
+
+				<?php
+
+					if( isset( $invitations ) ){
+
+						foreach( $invitations as $invitation ){
+
+							$invitation_id = $invitation['id'];
+							$invitation_key = $invitation['key'];
+							$invitation_sentby = $invitation['sent_by'];
+							$invitation_sentto = $invitation['sent_to'];
+							$invitation_status = $user_status_names[$invitation['status']];
+							$invitation_sent = $invitation['sent'];
+
+							?>
+								<tr>
+									<td> {{ $invitation_id }} </td>
+								    <td>{{ $invitation_key }}</td>
+								    <td>{{ $invitation_sentby }}</td> 
+								    <td>{{ $invitation_sentto }}</td>
+								    <td>{{ $invitation_sent }}</td>
+								    <td><form action="{{ url('/user/admin/invitations') }}" method="post">
+											<input type="hidden" name="id" value="{{ $invitation_id }}" />
+											<select name="status"> 
+											<option disabled value selected=""> -- select an option -- </option>
+												<option value="1" <?php if( 1 == $invitation['status'] ){ echo "selected"; } ?> > Approve </option>
+												<option value="0" <?php if( 0 == $invitation['status'] ){ echo "selected"; } ?> > Deny </option>
+												<option value="2" <?php if( 2 == $invitation['status'] ){ echo "selected"; } ?> > pending </option>
+											</select>
+											<button type="submit" value="update" class="blue-btn">Update</button>
+											{{ csrf_field() }}
+										</form>
+									</td>
+									<td>
+										<form action="{{ action('AdminInvitationsController@destroy') }}" method="post">
+											<input type="hidden" name="id" value="{{ $invitation_id }}" />
+											<input name="_method" type="hidden" value="DELETE" />
+											<button type="submit" value="delete" class="delete-btn" onclick="return confirmDeletion();">Delete</button>
+											{{ csrf_field() }}
+										</form>
+									</td>
+
+								    
+								</tr>
+							<?php
+							//echo "<pre>";print_r( $meal );echo "</pre>";
+
+						}
+
+					}
+					
+				 ?>
+				</tbody>
+
+			</table>
+		</div>
+
+		<hr/>
+
+		<div class="container">
 
 		<b><u>USER MANAGEMENT</u></b>
 			<table style="width:100%;" >
@@ -67,7 +173,7 @@
 				<br/>
 
 				<?php if( isset( $isadmin ) && false != $isadmin  ){ ?>
-				<form method="post" action="{{ url('/user/admin/users') }}" >
+				<!--<form method="post" action="{{ url('/user/admin/users') }}" >
 				<tr class="minimal-cell">
 					<td>Create User</td>
 					<td>
@@ -110,7 +216,7 @@
 					<td><button type="submit" name="send" class="blue-btn">Create User</button></td>
 				</tr>
 				{{ csrf_field() }}
-				</form>
+				</form>-->
 				<?php } ?>
 
 			</table>
@@ -119,16 +225,16 @@
 	<br/><hr/>
 
  		<div class="meal-table-container" >
-		    <table style="width:100%; height:300px; overflow:scroll;" class="meal-edit-table">
+		    <table style="width:100%;" class="meal-edit-table">
 			    <thead>
 				  <tr>
 				  	<th>ID: </th>
 				    <th>Name: </th>
 				    <th>Email: </th> 
 				    <th>Role: </th>
-				    <th>Status: </th>
 				    <th>Joined: </th>
 				    <th>Status: </th>
+				    <th>Manage: </th>
 				  </tr>
 				</thead>
 
@@ -156,117 +262,26 @@
 								    <td>{{ $user_name }}</td>
 								    <td>{{ $user_email }}</td> 
 								    <td>{{ $user_role }}</td>
-								    <td>{{ $user_status }}</td>
 								    <td>{{ $user_joined }}</td>
 								    <td>
 									    <form action="{{ action('AdminUsersController@update', array($user_id) ) }}" method="post">
 											<input type="hidden" name="id" value="{{ $user_id }}" />
 											<input name="_method" type="hidden" value="PUT" />
-											<select name="role"> 
+											<select name="status"> 
 											<option disabled value selected=""> -- select an option -- </option>
-												<option value="1" > Approve </option>
-												<option value="0" > Deny </option>
-												<option value="2" > pending </option>
+												<option value="1" <?php if( 1 == $user['status'] ){ echo "selected"; } ?> > Approve </option>
+												<option value="0" <?php if( 0 == $user['status'] ){ echo "selected"; } ?> > Deny </option>
+												<option value="2" <?php if( 2 == $user['status'] ){ echo "selected"; } ?> > pending </option>
 											</select>
-											<button type="submit" value="delete" class="blue-btn" onclick="return confirmDeletion()">Update</button>
+											<button type="submit" value="delete" class="blue-btn">Update</button>
 											{{ csrf_field() }}
 										</form>
 									</td>
-								</tr>
-							<?php
-							//echo "<pre>";print_r( $meal );echo "</pre>";
-
-						}
-
-					}
-					
-				 ?>
-				</tbody>
-
-			</table>
-		</div>
-
-		<hr/>
-
-		<div class="meal-table-container" >
-			<table>
-				<tr class="minimal-cell">
-				<b><u>INVITATION MANAGEMENT</u></b>
-				<form method="post" action="{{ url('/user/admin/invite') }}" >
-					<td>
-						<label for="email">Email: </label>
-						<input type="text" name="email" />
-					</td> 
-					<td>
-						<label for="role" >Role: </label>
-						<select name="role"> 
-						<option disabled value selected=""> -- select an option -- </option>
-						<?php if( isset( $user_role ) ){
-							if( 0 == $user_role ){
-								echo "<option value=\"0\" > $user_role_names[0] </option>";
-								echo "<option value=\"1\" > $user_role_names[1] </option>";
-							}elseif( 1 == $user_role ){
-								echo "<option value=\"2\" > $user_role_names[2] </option>";
-							}
-						} ?>
-						</select>
-					</td>
-					<td>
-						<button type="submit" name="send" class="green-btn">Send Invite</button>
-					</td>
-					{{ csrf_field() }}
-
-				</form>
-				</tr>
-			</table>
-			<br/>
-		    <table style="width:100%" class="meal-edit-table">
-			    <thead>
-				  <tr>
-				  	<th>ID: </th>
-				    <th>Key: </th>
-				    <th>Sent By: </th> 
-				    <th>Sent To: </th>
-				    <th>Status: </th>
-				    <th>Sent: </th>
-				    <th>Manage: </th>
-				  </tr>
-				</thead>
-
-				<tbody>
-
-				<?php
-
-					if( isset( $invitations ) ){
-
-						foreach( $invitations as $invitation ){
-
-							$invitation_id = $invitation['id'];
-							$invitation_key = $invitation['key'];
-							$invitation_sentby = $invitation['sent_by'];
-							$invitation_sentto = $invitation['sent_to'];
-							$invitation_status = $user_status_names[$invitation['status']];
-							$invitation_sent = $invitation['sent'];
-
-							?>
-								<tr>
-									<td> {{ $invitation_id }} </td>
-								    <td>{{ $invitation_key }}</td>
-								    <td>{{ $invitation_sentby }}</td> 
-								    <td>{{ $invitation_sentto }}</td>
-								    <td>{{ $invitation_status }}</td>
-								    <td>{{ $invitation_sent }}</td>
-								    <td>
-									    <form action="{{ action('AdminUsersController@update', array( $invitation_id) ) }}" method="post">
-											<input type="hidden" name="id" value="{{ $invitation_id }}" />
-											<input name="_method" type="hidden" value="PUT" />
-											<select name="role"> 
-											<option disabled value selected=""> -- select an option -- </option>
-												<option value="1" > Approve </option>
-												<option value="0" > Deny </option>
-												<option value="2" > pending </option>
-											</select>
-											<button type="submit" value="delete" class="blue-btn" onclick="return confirmDeletion()">Update</button>
+									<td>
+										<form action="{{ action('AdminUsersController@destroy', array($user_id) ) }}" method="post">
+											<input type="hidden" name="id" value="{{ $user_id }}" />
+											<input name="_method" type="hidden" value="DELETE" />
+											<button type="submit" value="delete" class="delete-btn" onclick="return confirmDeletion();">Delete</button>
 											{{ csrf_field() }}
 										</form>
 									</td>

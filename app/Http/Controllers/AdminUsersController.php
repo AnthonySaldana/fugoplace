@@ -6,11 +6,15 @@ use App\User;
 
 use App\Invitations;
 
+use App\Settings;
+
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
 use Auth;
+
+use Validator;
 
 class AdminUsersController extends Controller
 {
@@ -115,6 +119,61 @@ class AdminUsersController extends Controller
         }
 
         return redirect('/user/admin/users');
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request , $userid)
+    {
+        $rules = array(
+            'status'    => 'required',
+            'id'        => 'required'  
+        );
+
+        $validator = Validator::make($request->all(), $rules);
+
+        // if the validator fails, redirect back to the form
+        if ($validator->fails()) {
+            return back()->withErrors($validator);
+        }
+
+        $userId = $request->id;
+        $newstatus = $request->status;
+
+        $user = User::where('id' , $userId)->get()->first();
+        $user->status = $newstatus;
+        $user->save();
+
+        $statusname = Settings::where( 'meta_name', 'user_status_name' . $newstatus )->get()->first();
+
+        $request->session()->flash('alert-success', 'user Status was successfully set to ' . $statusname->meta_value );
+
+        return back();
+
+    }
+
+    public function destroy( Request $request, $id ){
+
+        $user = User::where( 'id' , $id )->get()->first();
+        $invitation = Invitations::where( 'id' , $user->invite_id)->get()->first();
+
+        if( !empty( $user ) ){
+            $user->delete();
+        }
+
+        if( !empty( $invitation ) ){
+            $invitation->delete();
+        }
+
+        $request->session()->flash('alert-warning', 'user was successfully deleted' );
+        
+        return back();
+
     }
 
     /**

@@ -153,7 +153,8 @@ class FugoController extends Controller
 		           'password' 		=> bcrypt($request->password),
 		           'invite_id'		=> $invitationid,
 		           'group_id'		=> $invitation->sent_by,
-		           'role'			=> $invitation->role
+		           'role'			=> $invitation->role,
+		           'status'			=> 1
 		       ]);
 
 				$invitation->status = 1;
@@ -163,35 +164,35 @@ class FugoController extends Controller
 
 				if ( Auth::attempt( ['email' => $request->email, 'password' => $request->password ] ) ) {
 
-$notedata = array(
+				$notedata = array(
 
-array(
-'title'     	=> 'To do List',
-'content'    	=> 'Task number 1
-Task number 2 
-Task number 3',
-'author_id' 	=> Auth::user()->id,
-'created_at'=>date('Y-m-d H:i:s')
+				array(
+				'title'     	=> 'To do List',
+				'content'    	=> 'Task number 1
+				Task number 2 
+				Task number 3',
+				'author_id' 	=> Auth::user()->id,
+				'created_at'=>date('Y-m-d H:i:s')
 
-),array(
-'title'     	=> 'Organize',
-'content'    	=> 'Task number 1
-Task number 2
-Task number 3',
-'author_id' 	=> Auth::user()->id,
-'created_at'=>date('Y-m-d H:i:s')
+				),array(
+				'title'     	=> 'Organize',
+				'content'    	=> 'Task number 1
+				Task number 2
+				Task number 3',
+				'author_id' 	=> Auth::user()->id,
+				'created_at'=>date('Y-m-d H:i:s')
 
-),
-array(
-'title'     	=> 'Email back',
-'content'    	=> 'Email Person 1
-Task number 2
-Task number 3',
-'author_id' 	=> Auth::user()->id,
-'created_at'=>date('Y-m-d H:i:s')
+				),
+				array(
+				'title'     	=> 'Email back',
+				'content'    	=> 'Email Person 1
+				Task number 2
+				Task number 3',
+				'author_id' 	=> Auth::user()->id,
+				'created_at'=>date('Y-m-d H:i:s')
 
-)
-);
+				)
+				);
 
 					Notes::insert( $notedata );
 

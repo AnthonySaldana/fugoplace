@@ -12,7 +12,7 @@ class Invitations extends Model
      * @var array
      */
     protected $fillable = [
-        'key', 'sent_by', 'sent_to', 'status'
+        'key', 'sent_by', 'sent_to', 'status', 'role'
     ];
 
 }

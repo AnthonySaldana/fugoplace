@@ -84,6 +84,9 @@ Route::get('/user/dashboard', ['middleware' => 'auth', function(){
 } 
 ]);
 
+/**
+*	Mail Routes
+*/
 Route::get('/test/mail/{message}' , ['uses' => 'MailController@sendmail'] );
 
 Route::post('/contact-message', ['uses' => 'MailController@sendpublic'] );
@@ -92,6 +95,9 @@ Route::post('/user/admin/invite', ['uses' => 'MailController@sendInvite'] );
 
 Route::post('school/{all}/contact-message', ['uses' => 'MailController@sendschool'] );
 
+/**
+*	user and Admin Routes
+*/
 Route::resource('/user/meal-planner', 'MealController');
 
 Route::resource('/user/folder-fav', 'FolderController');
@@ -106,7 +112,16 @@ Route::resource('/user/recipes', 'RecipeController');
 
 Route::resource('/user/admin/users', 'AdminUsersController');
 
-Route::resource('/user/admin/', 'AdminUsersController'); //for now, admin dashboard will just be the same thing as users page
+Route::get('/user/admin', ['middleware' => 'auth', function(){
+		return redirect('/user/admin/users');
+} 
+]);
+
+//Route::resource('/user/admin/', 'AdminUsersController'); //for now, admin dashboard will just be the same thing as users page
+
+Route::post('/user/admin/invitations', ['uses' => 'AdminInvitationsController@update']);
+
+Route::delete('/user/admin/invitations', ['uses' => 'AdminInvitationsController@destroy']);
 
 Route::resource('/user/admin/settings', 'AdminSettingsController');
 
