@@ -96,7 +96,8 @@ class mailController extends Controller
 
         //$invitation = Invitations::where('email', $request->email)->get()->first();
         $key = $invitation->key;
-        $url = 'http://fugoplace.local/register?key=' . $key;
+        //$url = 'http://fugoplace.local/register?key=' . $key;
+        $url = url('/register?key=') . $key;
         $sent_by = Auth::user()->email;
 
         $data = array(
