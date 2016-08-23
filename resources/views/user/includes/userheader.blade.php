@@ -266,7 +266,11 @@ padding: 10px;
 			<td><a href="{{ action('AdminUsersController@index') }}" ><button class="button button1">User Management</button></a></td>
 			<td><a href="{{ action('AdminUsersController@index') }}" ><img src="{{ URL::asset('siteimages/contact_us_icon.png') }}" HEIGHT="100" WIDTH="110" BORDER="0"/></a></td>
 			</tr>
+		<?php
+	}
 
+	if(0 == $user_role ){
+		?>
 			<tr>
 			<td><a href="{{ action('AdminSettingsController@index') }}" ><button class="button button1">Settings</button></a></td>
 			<td><a href="{{ action('AdminSettingsController@index') }}" ><img src="{{ URL::asset('siteimages/contact_us_icon.png') }}" HEIGHT="100" WIDTH="110" BORDER="0"/></a></td>
