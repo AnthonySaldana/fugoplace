@@ -444,10 +444,6 @@ html, body {
 
     </td>
 
-    <?php if( isset( $invitation ) ){
-      print_r( $invitation );
-      } ?>
-
     <td><?php if( isset( $allowreg ) && TRUE == $allowreg && isset( $invitation ) ){ ?><div id="registration-form">
 	<div class='fieldset'>
     <legend>Sign Up</legend>
@@ -498,7 +494,11 @@ html, body {
 
 <footer class="site-footer">
 <br />
-  &nbsp;&nbsp;&nbsp;TEST TEXT TEST TEXT TEST TEXT TEST<br /> &nbsp;&nbsp;&nbsp;TEXT TEST TEXT TEST TEXT TEST TEXT<br /> &nbsp;&nbsp;&nbsp;TEST TEXT TEST TEXT TEST TEXT TEST<br /> &nbsp;&nbsp;&nbsp;TEXT TEST TEXT.
+  <h1 class="footertitle">Fugo Studio</h1>
+  <p class="footerlocation"> <i class="fa fa-map-marker" style="font-size:17px"></i>  130 Chapman Ave, Fullerton, <br/>
+   CA 92832.</p>
+  <p class="footerphone"> <i class="fa fa-phone" style="font-size: 17px"></i> (949) 677-3123</p>
+  <p class="footeremail"> <i class="fa fa-envelope-o" style="font-size: 14px"></i>  <a href="mailto:email@domain.com">info@fugoplace.com</a>.</p>
 </footer>
 </body>
 </html>

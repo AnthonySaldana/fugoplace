@@ -44,7 +44,7 @@
 
 	<p class="one"><span class="one"><u>Contact Fugo Studio</u></span>
 				<br /> 
-			If you have any questions or concerns we would love to hear from you. We are a young company and are eager to improve your experience, so please send us any suggestions. You can contact us through email, as you see to your right, or via phone call; (949)999-999. <br /><strong>Office hours:</strong> Monday-Saturday 9AM-5PM. Fugo Studio is located at 130 Chapman Ave, Fullerton, CA 92832.</p>
+		  If you have any questions/concerns, or are a school district interested in our services, we would love to hear from you. FugoPlace is a completely original concept that is modeled off of the needs of foodservice staff and students alike. We are constantly challenging and changing our software for the sake of improving your experience, so please send us your feedback. You can contact us through email, as you see to your right. <br /><strong>Office hours:</strong> Monday-Sunday 9AM-5PM. Fugo Studio is located at 4660 La Jolla Village Dr. San Diego, CA ______*****.</p>
     <form action="{{ url('/contact-message') }}" method="post" class="elegant-aero">
     <h1>Contact Us
         <span>Please fill all the texts in the fields.</span>

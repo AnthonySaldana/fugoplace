@@ -42,8 +42,8 @@ padding: 12px;
     @include('user.includes.userheader')
   <div class="page-container">
     <h2 class="one">Tutorials</h2>
-		<p>Hello! To help you to get your footing around FugoPlace we have compiled some helpful video guides that will assist you in getting the most out of our tools. We hope this guide will be enough for you to acheive fugo mastery but if you would like to speak to a FugoPlace representive please visit our <strong>Contact Us</strong> page.</p>
-		<br />
+		<p>Hello there! This is meant to help you to get your footing around FugoPlace we have compiled some helpful video guides that will assist you in getting the most out of our tools. We hope this guide will be enough for you to acheive fugo mastery but if you would like to speak to a FugoPlace representive please visit our <strong>Contact Us</strong> page.</p>
+    <br />
   <table  style="width:97%">
 
   <tr>

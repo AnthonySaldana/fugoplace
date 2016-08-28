@@ -70,8 +70,8 @@
     </div></section>
     <section class="wow slideInLeft" data-wow-delay="0.3s" style="visibility: visible; -webkit-animation-delay: 0.3s; -moz-animation-delay: 0.3s; animation-delay: 0.3s;"><div class="col four">
       <h1 class="icon"><i class="fa fa-bug fa-2x"></i></h1>
-      <h1 class="service">Suport 24/7</h1>
-      <p>Contact us with any problems, questions, or suggestions.</p>
+      <h1 class="service">Suport.</h1>
+      <p>Contact us with any problem, question, or suggestion.</p>
     </div></section>
     <div class="responsivegroup"></div>
     <section class="wow slideInRight" data-wow-delay="0.3s" style="visibility: visible; -webkit-animation-delay: 0.3s; -moz-animation-delay: 0.3s; animation-delay: 0.3s;"><div class="col four">
