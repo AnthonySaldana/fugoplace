@@ -436,7 +436,7 @@ html, body {
 
 <br />
 
-<img class="img1" src="http://www.tidydesign.com/img/free-clock-icon.png" HEIGHT="60" WIDTH="60"/><p class="support">24/7 Support</p> 
+<img class="img1" src="http://www.tidydesign.com/img/free-clock-icon.png" HEIGHT="60" WIDTH="60"/><p class="support">7 days a week <strong>support</strong></p> 
 
 <br />
 

@@ -72,7 +72,8 @@
 						<label for="role" >Role: </label>
 						<select name="role"> 
 						<option disabled value selected=""> -- select an option -- </option>
-						<?php if( isset( $user_role ) ){
+						<option value="2" > School </option>
+						<?php /*if( isset( $user_role ) ){
 							if( 0 == $user_role ){
 								?><option value="0" > <?php echo $user_role_names[0]; ?> </option>
 								echo "<option value="1" > <?php echo $user_role_names[1]; ?> </option>
@@ -80,7 +81,7 @@
 							}elseif( 1 == $user_role ){
 								echo "<option value=\"2\" > $user_role_names[2] </option>";
 							}
-						} ?>
+						} */?>
 						</select>
 					</td>
 					<td>
